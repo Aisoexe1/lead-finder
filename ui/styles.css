@@ -486,9 +486,34 @@ code {
 .msg-head button:hover { background: var(--surface-3); color: var(--text); }
 .msg-grid textarea { min-height: 148px; font-size: 12.5px; }
 
+/* ряд отправки: главное действие отделено от служебных кнопок */
+.send-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin-top: 18px; padding-top: 16px;
+  border-top: 1px solid var(--border-soft);
+}
+.send-note { flex-basis: 100%; }
+
+.btn-send {
+  border-color: transparent;
+  background: var(--brand-dim, var(--surface-3));
+  color: var(--brand, var(--text));
+  font-weight: 550;
+}
+.btn-send:hover { background: color-mix(in srgb, var(--brand, var(--accent)) 20%, transparent); }
+.btn-send.tg { --brand: #4aa3e0; --brand-dim: rgba(74, 163, 224, .13); }
+.btn-send.vb { --brand: #a37ae0; --brand-dim: rgba(163, 122, 224, .13); }
+.btn-send.ml { --brand: #7e9ac4; --brand-dim: rgba(126, 154, 196, .13); }
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .btn-send.tg { --brand: #1d6fa5; --brand-dim: rgba(29, 111, 165, .1); }
+  :root:not([data-theme="dark"]) .btn-send.vb { --brand: #6b45a8; --brand-dim: rgba(107, 69, 168, .1); }
+  :root:not([data-theme="dark"]) .btn-send.ml { --brand: #47618a; --brand-dim: rgba(71, 97, 138, .1); }
+}
+
 .detail-actions {
   display: flex; flex-wrap: wrap; gap: 8px;
-  margin-top: 18px; padding-top: 16px;
+  margin-top: 14px; padding-top: 14px;
   border-top: 1px solid var(--border-soft);
 }
 .detail-actions .spacer { flex: 1; }

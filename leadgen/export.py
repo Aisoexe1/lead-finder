@@ -34,6 +34,14 @@ def _wa_link(phone_e164: str, text: str) -> str:
     return "https://wa.me/%s?text=%s" % (phone_e164.lstrip("+"), quote(text))
 
 
+def _tg_link(phone_e164: str) -> str:
+    """Telegram не умеет подставлять текст в чат с обычным пользователем,
+    поэтому ссылка только открывает диалог по номеру."""
+    if not phone_e164:
+        return ""
+    return "https://t.me/%s" % phone_e164
+
+
 def _viber_link(phone_e164: str) -> str:
     if not phone_e164:
         return ""
@@ -64,6 +72,10 @@ def export_html(
         wa = _wa_link(lead.phone_e164, msg_1)
         if wa:
             actions.append('<a class="btn wa" href="%s" target="_blank" rel="noopener">WhatsApp</a>' % html.escape(wa))
+        tg = _tg_link(lead.phone_e164)
+        if tg:
+            actions.append('<a class="btn tg" href="%s" target="_blank" rel="noopener">Telegram</a>'
+                           % html.escape(tg))
         viber = _viber_link(lead.phone_e164)
         if viber:
             actions.append('<a class="btn vb" href="%s">Viber</a>' % html.escape(viber))
@@ -192,7 +204,8 @@ TEMPLATE = """<!doctype html>
   .btn {{ display: block; text-align: center; margin-bottom: 5px; padding: 6px 8px;
     border-radius: 7px; font-size: 12.5px; text-decoration: none; color: #fff;
     background: var(--accent); }}
-  .btn.vb {{ background: #6b4fa8; }} .btn.ml {{ background: #4a6fa5; }}
+  .btn.tg {{ background: #2f7fb8; }} .btn.vb {{ background: #6b4fa8; }}
+  .btn.ml {{ background: #4a6fa5; }}
   .btn.ig {{ background: #b4417a; }} .btn.fb {{ background: #3b5998; }}
   .btn.map {{ background: #6d6d66; }}
   .hidden {{ display: none; }}
@@ -233,9 +246,11 @@ TEMPLATE = """<!doctype html>
 </table>
 </div>
 <footer>
-  Кнопки открывают мессенджер с уже подставленным первым сообщением. Отправку
-  подтверждаешь ты сам, ничего не уходит автоматически. Перед отправкой прочитай
-  текст: модель иногда выдумывает детали.
+  Кнопки открывают мессенджер: WhatsApp и почта получают первое сообщение уже
+  подставленным, Telegram и Viber такого не умеют, туда текст нужно вставить
+  самому (кнопка «копировать» рядом с сообщением). Отправку подтверждаешь ты,
+  ничего не уходит автоматически. Перед отправкой прочитай текст: модель иногда
+  выдумывает детали.
 </footer>
 <script>
   var KEY = 'leadfinder-sent';

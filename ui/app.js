@@ -241,6 +241,26 @@ function poll() {
   }, 320);
 }
 
+async function putInClipboard(text) {
+  if (!text || !text.trim()) return false;
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (_) {
+    // в окне приложения буфер иногда недоступен через API, пробуем по-старому
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.append(ta);
+    ta.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch (_) { ok = false; }
+    ta.remove();
+    return ok;
+  }
+}
+
 /* ── Экран лидов ────────────────────────────────────────────────────────── */
 
 let leadFilter = 'written';
@@ -339,10 +359,20 @@ function renderDetail(lead) {
       </div>
     </div>
 
-    <div class="detail-actions">
+    <div class="send-row">
+      ${lead.phone_e164 ? `
+        <button class="btn btn-primary" data-act="wa">WhatsApp</button>
+        <button class="btn btn-send tg" data-act="tg">Telegram</button>
+        <button class="btn btn-send vb" data-act="viber">Viber</button>` : ''}
+      ${lead.email ? '<button class="btn btn-send ml" data-act="mail">Почта</button>' : ''}
+      ${!lead.phone_e164 && !lead.email
+        ? '<span class="note">прямых контактов нет, остаётся профиль в соцсети</span>' : ''}
       ${lead.phone_e164
-        ? '<button class="btn btn-primary" data-act="wa">Открыть WhatsApp</button>'
-        : '<button class="btn" disabled title="нет телефона">WhatsApp недоступен</button>'}
+        ? '<span class="note send-note">текст для WhatsApp подставится сам, для Telegram и Viber скопируется в буфер</span>'
+        : ''}
+    </div>
+
+    <div class="detail-actions">
       <button class="btn" data-act="save">Сохранить правки</button>
       ${lead.instagram || lead.facebook || lead.maps
         ? '<button class="btn btn-ghost" data-act="profile">Профиль</button>' : ''}
@@ -367,6 +397,31 @@ async function leadAction(act) {
     const text = encodeURIComponent($('#m1').value);
     await call('open_external', 'https://wa.me/' + lead.phone_e164.replace('+', '') + '?text=' + text);
     setStatus('WhatsApp открыт, отправляешь сам');
+    return;
+  }
+  // Telegram и Viber не дают подставить текст в чат с обычным человеком:
+  // такой возможности нет в их схемах ссылок. Поэтому кладём текст в буфер,
+  // чтобы осталось только вставить.
+  if (act === 'tg' || act === 'viber') {
+    const copied = await putInClipboard($('#m1').value);
+    const url = act === 'tg'
+      ? 'https://t.me/' + lead.phone_e164
+      : 'viber://chat?number=' + encodeURIComponent(lead.phone_e164);
+    await call('open_external', url);
+    const where = act === 'tg' ? 'Telegram' : 'Viber';
+    if (copied) {
+      toast(where + ' открыт, текст в буфере: вставь через Cmd+V', 'good');
+      setStatus(where + ' открыт, текст скопирован');
+    } else {
+      toast(where + ' открыт, текст скопировать не удалось');
+    }
+    return;
+  }
+  if (act === 'mail') {
+    const subject = encodeURIComponent('Сайт для ' + lead.name);
+    const body = encodeURIComponent($('#m1').value);
+    await call('open_external', 'mailto:' + lead.email + '?subject=' + subject + '&body=' + body);
+    setStatus('почтовая программа открыта');
     return;
   }
   if (act === 'profile') {
@@ -535,13 +590,8 @@ function wire() {
     if (copy) {
       const text = $('#m' + copy.dataset.copy).value;
       if (!text.trim()) { toast('Сообщение пустое'); return; }
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch (_) {
-        const ta = $('#m' + copy.dataset.copy);
-        ta.select(); document.execCommand('copy');
-      }
-      copy.textContent = 'скопировано';
+      const ok = await putInClipboard(text);
+      copy.textContent = ok ? 'скопировано' : 'не вышло';
       setTimeout(() => { copy.textContent = 'копировать'; }, 1300);
       return;
     }
