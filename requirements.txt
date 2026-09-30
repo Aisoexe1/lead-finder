@@ -1,0 +1,9 @@
+requests>=2.31
+beautifulsoup4>=4.12
+PyYAML>=6.0
+phonenumbers>=8.13
+pywebview>=5.0
+
+# Windows: оконный слой pywebview работает через .NET и WebView2.
+# pythonnet нужен только там, на macOS и Linux не ставится.
+pythonnet>=3.0.3; sys_platform == "win32"

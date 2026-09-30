@@ -1,0 +1,25 @@
+# окружение
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# личные настройки и ключи
+.env
+config.yaml
+messages.yaml
+
+# рабочие данные
+data/*
+!data/.gitkeep
+exports/*
+!exports/.gitkeep
+
+# сборка
+build/
+dist/
+*.egg-info/
+
+# система
+.DS_Store
+Thumbs.db

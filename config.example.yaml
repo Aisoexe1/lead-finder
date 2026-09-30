@@ -1,0 +1,91 @@
+# Скопируй в config.yaml (это делает `python -m leadgen init`) и правь под себя.
+
+db: data/leads.db
+export_dir: exports
+messages: messages.yaml
+
+search:
+  # Ниша обычными словами. По ней подбираются теги OSM и строится запрос в Google.
+  niche: "салон красоты"
+  cities:
+    - "Київ"
+    - "Львів"
+  # Сколько лидов брать максимум с одного источника в одном городе.
+  limit_per_city: 150
+
+sources:
+  # OpenStreetMap через Overpass. Ключ не нужен, данные открытые.
+  # Главный плюс: в карточке есть поле website, и его отсутствие это прямой сигнал.
+  osm:
+    enabled: true
+    # Можно задать свои теги вместо автоподбора по нише, например:
+    # tags: ["shop=beauty", "shop=hairdresser", "leisure=spa"]
+    tags: []
+
+  # Google Places API (New). Платный, нужен ключ в GOOGLE_MAPS_API_KEY
+  # и включённый Places API (New) в облачном проекте.
+  google_places:
+    enabled: false
+    api_key_env: GOOGLE_MAPS_API_KEY
+    language: uk
+    max_pages: 3
+
+  # Каталоги фирм. Селекторы держим здесь, а не в коде: вёрстка каталогов
+  # меняется часто, и поправить YAML быстрее.
+  # Как заполнить: открой каталог в браузере, найди карточку компании,
+  # правый клик -> Inspect, и выпиши CSS-классы.
+  directory:
+    enabled: false
+    delay: 1.5
+    sites:
+      - name: example-catalog
+        search_url: "https://example.com/search?q={niche}&city={city}&page={page}"
+        max_pages: 2
+        encoding: utf-8
+        item: ".company-card"
+        fields:
+          name: ".company-card__title"
+          phone: ".company-card__phone"
+          address: ".company-card__address"
+          category: ".company-card__rubric"
+          # атрибут вместо текста задаётся так:
+          website: { selector: "a.company-card__site", attr: "href" }
+          url: { selector: "a.company-card__title", attr: "href" }
+
+  # Бизнес-профили в соцсетях через публичный веб-поиск.
+  # Логина нет и обхода защиты нет, поэтому данные неполные:
+  # наличие сайта у такого лида придётся проверять глазами.
+  social:
+    enabled: false
+    networks: ["instagram"]
+    max_results: 40
+    delay: 2.5
+
+verify:
+  # Регион для нормализации телефонов в формат +380...
+  region: UA
+  # Проверять живой ли сайт, если он всё-таки указан. Мёртвый сайт это тоже повод написать.
+  check_website: true
+  timeout: 8
+  workers: 8
+
+gemini:
+  model: "gemini-2.5-flash"
+  api_key_env: GEMINI_API_KEY
+  temperature: 0.7
+  # Сколько лидов уходит в один запрос. Больше = дешевле, но выше риск,
+  # что ответ обрежется по лимиту токенов.
+  batch_size: 12
+  # Запросов в минуту. У бесплатного ключа лимиты низкие, не задирай.
+  rpm: 12
+  max_retries: 4
+
+filter:
+  # Лиды с оценкой ниже этого порога уходят в отсев.
+  min_score: 55
+  # Твои личные правила отбора. Они важнее общих правил в промпте.
+  rules: |
+    Не бери сетевые салоны и франшизы.
+    Не бери точки внутри торговых центров без своего названия.
+    Выше цени тех, у кого есть Instagram: значит, за онлайном уже следят
+    и сайт для них понятная следующая ступень.
