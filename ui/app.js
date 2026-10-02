@@ -18,6 +18,8 @@ const S = {
   cities: [],
   picked: [],
   dropIndex: -1,
+  dropItems: [],
+  dropShown: 0,
 };
 
 // 25 областных центров: по ним чаще всего и работают
@@ -251,10 +253,7 @@ function removeCity(name) {
 
 function matchCities(query) {
   const q = fold(query);
-  if (!q) {
-    // пустой запрос: показываем крупнейшие, они нужны чаще всего
-    return S.cities.slice(0, 12);
-  }
+  if (!q) return S.cities;  // пустое поле: весь справочник, листай сколько нужно
   // привычное русское или прежнее название
   const plain = String(query).toLowerCase().trim();
   for (const [alias, real] of Object.entries(CITY_ALIASES)) {
@@ -279,25 +278,49 @@ function matchCities(query) {
     if (qs.length >= 2 && sk.startsWith(qs)) { sounds.push(city); continue; }
 
     if (folded.includes(q)) inside.push(city);
-    if (starts.length >= 40) break;
   }
-  return starts.concat(sounds, inside).slice(0, 40);
+  return starts.concat(sounds, inside);
+}
+
+const PAGE = 80;  // столько строк рисуем сразу, остальное по мере прокрутки
+
+function itemHtml(c, i) {
+  return `<button class="drop-item ${i === S.dropIndex ? 'is-on' : ''}" data-city="${esc(c.name)}">
+      <span>${esc(c.name)}</span>
+      <i>${c.pop ? fmtPop(c.pop) : (c.place === 'city' ? 'місто' : '')}</i>
+    </button>`;
 }
 
 function renderDrop(items) {
   const drop = $('#cityDrop');
+  S.dropItems = items;
+  S.dropShown = 0;
+
   if (!items.length) {
     drop.innerHTML = `<div class="drop-empty">Ничего не нашлось.
       Можно вписать своё название и нажать Enter.</div>`;
     drop.hidden = false;
     return;
   }
-  drop.innerHTML = items.map((c, i) => `
-    <button class="drop-item ${i === S.dropIndex ? 'is-on' : ''}" data-city="${esc(c.name)}">
-      <span>${esc(c.name)}</span>
-      <i>${c.pop ? fmtPop(c.pop) : (c.place === 'city' ? 'місто' : '')}</i>
-    </button>`).join('');
+
+  const head = `<div class="drop-head">${items.length === S.cities.length
+    ? `${items.length} городов и посёлков, листай или начни вводить`
+    : `найдено: ${items.length}`}</div>`;
+  drop.innerHTML = head + '<div class="drop-list" id="dropList"></div>';
   drop.hidden = false;
+  appendPage();
+  drop.scrollTop = 0;
+}
+
+function appendPage() {
+  const list = $('#dropList');
+  if (!list) return;
+  const next = S.dropItems.slice(S.dropShown, S.dropShown + PAGE);
+  if (!next.length) return;
+  list.insertAdjacentHTML(
+    'beforeend',
+    next.map((c, i) => itemHtml(c, S.dropShown + i)).join(''));
+  S.dropShown += next.length;
 }
 
 function fmtPop(n) {
@@ -323,7 +346,9 @@ function wireCityPicker() {
       e.preventDefault();
       const step = e.key === 'ArrowDown' ? 1 : -1;
       S.dropIndex = Math.max(-1, Math.min(items.length - 1, S.dropIndex + step));
-      renderDrop(items);
+      // подсветку переносим без перерисовки всего списка
+      $$('.drop-item').forEach((el, i) => el.classList.toggle('is-on', i === S.dropIndex));
+      while (S.dropIndex >= S.dropShown - 1 && S.dropShown < items.length) appendPage();
       const on = $('.drop-item.is-on');
       if (on) on.scrollIntoView({ block: 'nearest' });
       return;
@@ -338,6 +363,11 @@ function wireCityPicker() {
     if (e.key === 'Backspace' && !input.value && S.picked.length) {
       removeCity(S.picked[S.picked.length - 1]);
     }
+  });
+
+  $('#cityDrop').addEventListener('scroll', () => {
+    const drop = $('#cityDrop');
+    if (drop.scrollTop + drop.clientHeight > drop.scrollHeight - 120) appendPage();
   });
 
   $('#cityDrop').addEventListener('mousedown', (e) => {

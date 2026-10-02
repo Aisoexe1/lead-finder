@@ -82,6 +82,12 @@ def run_check_site(
 
     checked = dropped = unsure = failed = 0
 
+    # квота на поиск кончается посреди работы: тогда прекращаем, а не
+    # высиживаем паузы на каждом оставшемся батче
+    saved_retries = client.max_retries
+    client.max_retries = min(saved_retries, 2)
+    quota_hit = False
+
     for start in range(0, len(leads), batch_size):
         batch = leads[start:start + batch_size]
         if verbose:
@@ -95,6 +101,11 @@ def run_check_site(
                 search=True,
             )
         except GeminiError as exc:
+            if "429" in str(exc):
+                quota_hit = True
+                failed += len(leads) - start
+                print("  квота на поиск закончилась, останавливаюсь")
+                break
             print("  батч не проверился: %s" % exc)
             failed += len(batch)
             continue
@@ -133,8 +144,13 @@ def run_check_site(
                     ai_reason=("только соцсети" if verdict == "social" else ""),
                 )
 
+    client.max_retries = saved_retries
+
     if verbose:
         print("  проверено: %d, сайт нашёлся у %d" % (checked, dropped))
+        if quota_hit:
+            print("  остальные остались непроверенными: запусти шаг позже,")
+            print("  квота на поиск восстанавливается в течение суток")
         if unsure:
             print("  под вопросом: %d (остались в списке, помечены)" % unsure)
         if failed:

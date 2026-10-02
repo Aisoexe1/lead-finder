@@ -158,9 +158,13 @@ class Gemini:
     def search_available(self) -> Tuple[bool, str]:
         """Доступен ли поиск в вебе. Возвращает (можно, причина отказа).
 
-        Отличаем нехватку квоты от того, что модель поиск не умеет: в первом
-        случае надо просто подождать, во втором сменить модель.
+        Это именно проверка, поэтому повтор ровно один: при 429 квота на поиск
+        уже исчерпана, и ждать несколько минут, чтобы услышать тот же ответ,
+        бессмысленно. Отличаем нехватку квоты от того, что модель поиск
+        не умеет: в первом случае надо подождать, во втором сменить модель.
         """
+        saved_retries, saved_fallbacks = self.max_retries, self.fallbacks
+        self.max_retries, self.fallbacks = 1, []
         try:
             self.generate("Ответь одним словом: да", search=True, max_output_tokens=2048)
             return (True, "")
@@ -171,6 +175,8 @@ class Gemini:
             if "400" in text or "404" in text:
                 return (False, "unsupported")
             return (False, text[:160])
+        finally:
+            self.max_retries, self.fallbacks = saved_retries, saved_fallbacks
 
     # ------------------------------------------------------------ внутреннее
 
