@@ -86,6 +86,13 @@ def config() -> Config:
     if not os.path.isabs(export_dir):
         cfg.data["export_dir"] = os.path.join(ROOT, export_dir)
 
+    # кэш источников тоже кладём рядом с данными, а не в текущую папку
+    osm = (cfg.data.get("sources") or {}).get("osm")
+    if isinstance(osm, dict):
+        cache_dir = osm.get("cache_dir") or os.path.join("data", "overpass")
+        if not os.path.isabs(cache_dir):
+            osm["cache_dir"] = os.path.join(ROOT, cache_dir)
+
     return cfg
 
 

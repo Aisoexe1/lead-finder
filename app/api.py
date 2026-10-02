@@ -11,12 +11,15 @@ import subprocess
 import sys
 import traceback
 import webbrowser
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from functools import wraps
 from typing import Any, Callable, Dict, List, Optional
 
+import webview
+
 from leadgen.export import export_csv, export_html
-from leadgen.models import DROPPED, KEPT, NEW, VERIFIED, WRITTEN, Lead
+from leadgen.models import (CLOSED_OUTCOMES, DROPPED, KEPT, NEW, OUTCOMES,
+                            VERIFIED, WRITTEN, Lead)
 from leadgen.storage import Store
 
 from . import pipeline, settings
@@ -80,6 +83,8 @@ class Api:
                 for item in SOURCES
             ],
             "counts": self._counts(),
+            "funnel": self._funnel(),
+            "outcomes": [{"key": k, "label": l, "closes": c} for k, l, c in OUTCOMES],
             "has_key": bool(settings.api_key()),
             "dark": True,
         }
@@ -87,7 +92,16 @@ class Api:
     def _counts(self) -> Dict[str, int]:
         try:
             with Store(settings.config().db) as store:
-                return store.counts()
+                counts = store.counts()
+                counts["due"] = len(store.fetch_due(date.today().isoformat()))
+                return counts
+        except Exception:
+            return {}
+
+    def _funnel(self) -> Dict[str, int]:
+        try:
+            with Store(settings.config().db) as store:
+                return store.funnel()
         except Exception:
             return {}
 
@@ -103,7 +117,7 @@ class Api:
             return {"ok": False, "error": "Сейчас уже идёт: %s" % self.runner.current}
 
         params = params or {}
-        needs_key = step in ("filter", "full", "check_key") or (
+        needs_key = step in ("filter", "full", "check_key", "check_sites") or (
             step == "write"
             and (settings.read_messages().get("mode") or "ai").lower() != "template"
         )
@@ -130,6 +144,7 @@ class Api:
 
         jobs = {
             "verify": ("Проверка контактов", pipeline.verify),
+            "check_sites": ("Проверка сайтов поиском", pipeline.check_sites),
             "filter": ("Отсев мусора", pipeline.ai_filter),
             "write": ("Написание сообщений", lambda rep: pipeline.write_messages(rep)),
             "rewrite": ("Перезапись сообщений",
@@ -189,7 +204,10 @@ class Api:
     @guard
     def leads(self, status: Optional[str] = None, query: str = "") -> Dict[str, Any]:
         with Store(settings.config().db) as store:
-            items = store.fetch(status=status or None)
+            if status == "due":
+                items = store.fetch_due(date.today().isoformat())
+            else:
+                items = store.fetch(status=status or None)
 
         needle = (query or "").lower().strip()
         out = []
@@ -200,7 +218,8 @@ class Api:
                 if needle not in haystack:
                     continue
             out.append(self._lead_dict(lead))
-        return {"ok": True, "leads": out, "counts": self._counts()}
+        return {"ok": True, "leads": out, "counts": self._counts(),
+                "funnel": self._funnel()}
 
     def _lead_dict(self, lead: Lead) -> Dict[str, Any]:
         phone = lead.phone_e164 or lead.phone
@@ -224,6 +243,12 @@ class Api:
             "message_1": lead.message_1,
             "message_2": lead.message_2,
             "sent_at": lead.sent_at,
+            "phone_kind": lead.phone_kind,
+            "can_message": lead.can_message,
+            "replied_at": lead.replied_at,
+            "outcome": lead.outcome,
+            "note": lead.note,
+            "next_touch": lead.next_touch,
             "maps": ("https://www.google.com/maps/search/?api=1&query=%s,%s"
                      % (lead.lat, lead.lon)) if lead.lat and lead.lon else "",
         }
@@ -248,10 +273,16 @@ class Api:
             if lead is None:
                 return {"ok": False, "error": "Лид не найден"}
             if action == "sent":
-                store.update_fields(lead_id,
-                                    sent_at=datetime.now().isoformat(timespec="seconds"))
+                # второе сообщение имеет смысл через несколько дней, сразу
+                # ставим дату, иначе про лид просто забудут
+                days = int(settings.read_config().get("followup_days", 3) or 3)
+                store.update_fields(
+                    lead_id,
+                    sent_at=datetime.now().isoformat(timespec="seconds"),
+                    next_touch=(date.today() + timedelta(days=days)).isoformat(),
+                )
             elif action == "unsent":
-                store.update_fields(lead_id, sent_at="")
+                store.update_fields(lead_id, sent_at="", next_touch="")
             elif action == "drop":
                 store.update_fields(lead_id, status=DROPPED, ai_reason="убран вручную")
             elif action == "restore":
@@ -262,6 +293,59 @@ class Api:
                 return {"ok": False, "error": "Неизвестное действие"}
             return {"ok": True, "lead": self._lead_dict(store.get(lead_id)),
                     "counts": self._counts()}
+
+    @guard
+    def lead_track(self, lead_id: str, outcome: str = None, note: str = None,
+                   next_touch: str = None) -> Dict[str, Any]:
+        """Чем кончился разговор, заметка и дата следующего касания."""
+        fields: Dict[str, Any] = {}
+
+        if outcome is not None:
+            known = {key for key, _, _ in OUTCOMES}
+            if outcome and outcome not in known:
+                return {"ok": False, "error": "Неизвестный исход: %s" % outcome}
+            fields["outcome"] = outcome
+            fields["replied_at"] = (
+                datetime.now().isoformat(timespec="seconds") if outcome else ""
+            )
+            # отказ и сделка закрывают переписку, напоминание больше не нужно
+            if outcome in CLOSED_OUTCOMES:
+                fields["next_touch"] = ""
+
+        if note is not None:
+            fields["note"] = str(note)[:2000]
+        if next_touch is not None:
+            fields["next_touch"] = str(next_touch)[:10]
+
+        if not fields:
+            return {"ok": False, "error": "нечего менять"}
+
+        with Store(settings.config().db) as store:
+            if store.get(lead_id) is None:
+                return {"ok": False, "error": "Лид не найден"}
+            store.update_fields(lead_id, **fields)
+            return {"ok": True, "lead": self._lead_dict(store.get(lead_id)),
+                    "counts": self._counts(), "funnel": self._funnel()}
+
+    @guard
+    def lead_rewrite(self, lead_id: str) -> Dict[str, Any]:
+        """Переписать сообщения одному лиду, не трогая остальных."""
+        if self.runner.busy:
+            return {"ok": False, "error": "Сейчас уже идёт: %s" % self.runner.current}
+        mode = (settings.read_messages().get("mode") or "ai").lower()
+        if mode != "template" and not settings.api_key():
+            return {"ok": False, "error": "no_key"}
+        with Store(settings.config().db) as store:
+            if store.get(lead_id) is None:
+                return {"ok": False, "error": "Лид не найден"}
+        self._start("Переписывание одного лида",
+                    lambda rep: pipeline.write_messages(rep, lead_ids=[lead_id]))
+        return {"ok": True}
+
+    @guard
+    def outcomes(self) -> Dict[str, Any]:
+        return {"ok": True,
+                "items": [{"key": k, "label": l, "closes": c} for k, l, c in OUTCOMES]}
 
     # ------------------------------------------------------------ сообщения
 
@@ -338,6 +422,91 @@ class Api:
 
         settings.save_config(config)
         return {"ok": True, "has_key": bool(settings.api_key())}
+
+    # --------------------------------------------------------------- импорт
+
+    @guard
+    def import_csv(self, path: str = "") -> Dict[str, Any]:
+        """Загрузить свой список контактов. Колонки распознаются по заголовку,
+        порядок и лишние столбцы значения не имеют."""
+        import csv as csv_module
+
+        if not path:
+            picked = self.window.create_file_dialog(
+                webview.OPEN_DIALOG, allow_multiple=False,
+                file_types=("Таблица (*.csv)", "Все файлы (*.*)"),
+            ) if self.window else None
+            if not picked:
+                return {"ok": False, "error": "файл не выбран", "cancelled": True}
+            path = picked[0]
+
+        if not os.path.exists(path):
+            return {"ok": False, "error": "Файл не найден: %s" % path}
+
+        aliases = {
+            "name": ("name", "название", "назва", "компания", "компанія", "бизнес", "фирма"),
+            "phone": ("phone", "телефон", "тел", "номер", "mobile"),
+            "email": ("email", "почта", "пошта", "mail", "e-mail"),
+            "city": ("city", "город", "місто"),
+            "address": ("address", "адрес", "адреса"),
+            "category": ("category", "ниша", "ніша", "категория", "категорія", "сфера"),
+            "instagram": ("instagram", "инстаграм", "инста", "ig"),
+            "website": ("website", "сайт", "url"),
+        }
+
+        added = skipped = 0
+        with open(path, "r", encoding="utf-8-sig", newline="") as fh:
+            sample = fh.read(4096)
+            fh.seek(0)
+            try:
+                dialect = csv_module.Sniffer().sniff(sample, delimiters=",;\t")
+            except csv_module.Error:
+                dialect = csv_module.excel
+            reader = csv_module.DictReader(fh, dialect=dialect)
+
+            headers = {(h or "").strip().lower(): h for h in (reader.fieldnames or [])}
+            mapping = {}
+            for field, names in aliases.items():
+                for name in names:
+                    if name in headers:
+                        mapping[field] = headers[name]
+                        break
+            if "name" not in mapping:
+                return {"ok": False,
+                        "error": "В файле нет колонки с названием. "
+                                 "Ожидается заголовок «название» или «name»."}
+
+            default_city = settings.read_config().get("search", {}).get("cities", [""])
+            default_city = default_city[0] if default_city else ""
+
+            with Store(settings.config().db) as store:
+                for row in reader:
+                    value = lambda key: (row.get(mapping[key]) or "").strip() if key in mapping else ""
+                    name = value("name")
+                    if not name:
+                        skipped += 1
+                        continue
+                    lead = Lead(
+                        source="csv",
+                        external_id=name[:60],
+                        name=name,
+                        city=value("city") or default_city,
+                        address=value("address"),
+                        category=value("category"),
+                        phone=value("phone"),
+                        email=value("email"),
+                        instagram=value("instagram"),
+                        website=value("website"),
+                        raw={"imported_from": os.path.basename(path)},
+                    )
+                    if not lead.has_contact:
+                        skipped += 1
+                        continue
+                    store.upsert(lead)
+                    added += 1
+
+        return {"ok": True, "added": added, "skipped": skipped,
+                "file": os.path.basename(path), "counts": self._counts()}
 
     # ------------------------------------------------------------- действия
 

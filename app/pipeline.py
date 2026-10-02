@@ -1,12 +1,13 @@
 """Шаги конвейера в виде задач для интерфейса."""
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from leadgen.enrich import run_verify
 from leadgen.gemini import build_client
 from leadgen.models import KEPT, VERIFIED, WRITTEN
 from leadgen.sources import registry
+from leadgen.stages.check_site import run_check_site
 from leadgen.stages.filter import run_filter
 from leadgen.stages.write import run_write
 from leadgen.storage import Store
@@ -61,6 +62,20 @@ def verify(rep: Reporter) -> Dict[str, Any]:
     return {"kept": kept, "dropped": dropped}
 
 
+def check_sites(rep: Reporter) -> Dict[str, Any]:
+    cfg = settings.config()
+    client = build_client(cfg)
+    with Store(cfg.db) as store:
+        pending = len(store.fetch(status=VERIFIED))
+        rep.log("на входе: %d" % pending)
+        if pending == 0:
+            rep.log("нечего проверять, сначала поиск и проверка контактов")
+            return {}
+        with rep.capture_stdout():
+            result = run_check_site(store, cfg, client)
+    return result or {}
+
+
 def ai_filter(rep: Reporter) -> Dict[str, Any]:
     cfg = settings.config()
     client = build_client(cfg)
@@ -75,21 +90,26 @@ def ai_filter(rep: Reporter) -> Dict[str, Any]:
     return result or {}
 
 
-def write_messages(rep: Reporter, rewrite: bool = False) -> Dict[str, Any]:
+def write_messages(rep: Reporter, rewrite: bool = False,
+                   lead_ids: Optional[List[str]] = None) -> Dict[str, Any]:
     cfg = settings.config()
     messages = settings.read_messages()
     mode = (messages.get("mode") or "ai").lower()
     rep.log("режим: %s" % mode)
     client = build_client(cfg) if mode != "template" else None
     with Store(cfg.db) as store:
-        statuses = [KEPT, WRITTEN] if rewrite else [KEPT]
-        pending = len(store.fetch(statuses=statuses))
-        rep.log("на входе: %d" % pending)
-        if pending == 0:
-            rep.log("нет отобранных лидов, сначала отсев")
-            return {}
+        if lead_ids:
+            rep.log("переписываю выбранных: %d" % len(lead_ids))
+        else:
+            statuses = [KEPT, WRITTEN] if rewrite else [KEPT]
+            pending = len(store.fetch(statuses=statuses))
+            rep.log("на входе: %d" % pending)
+            if pending == 0:
+                rep.log("нет отобранных лидов, сначала отсев")
+                return {}
         with rep.capture_stdout():
-            result = run_write(store, cfg, messages, client, rewrite=rewrite)
+            result = run_write(store, cfg, messages, client, rewrite=rewrite,
+                               lead_ids=lead_ids)
     return result or {}
 
 
@@ -101,10 +121,14 @@ def full_run(rep: Reporter, niche: str, cities: List[str], limit: int,
     rep.log("### 2. проверка контактов")
     verify(rep)
     rep.log("")
-    rep.log("### 3. отсев мусора через Gemini")
+    if settings.read_config().get("verify", {}).get("search_sites", True):
+        rep.log("### 3. проверка, нет ли сайта на самом деле")
+        check_sites(rep)
+        rep.log("")
+    rep.log("### 4. отсев мусора через Gemini")
     ai_filter(rep)
     rep.log("")
-    rep.log("### 4. сообщения")
+    rep.log("### 5. сообщения")
     result = write_messages(rep)
     rep.log("")
     rep.log("готово")

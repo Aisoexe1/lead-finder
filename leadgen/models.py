@@ -45,6 +45,7 @@ class Lead:
 
     # --- этап verify ---
     phone_e164: str = ""
+    phone_kind: str = ""  # mobile | landline | tollfree | unknown
     website_status: str = ""  # absent | dead | alive | found_in_search
 
     # --- этап filter (Gemini) ---
@@ -58,6 +59,12 @@ class Lead:
 
     status: str = NEW
     sent_at: str = ""
+
+    # --- что было после отправки ---
+    replied_at: str = ""
+    outcome: str = ""     # replied | refused | thinking | client
+    note: str = ""        # заметка от руки
+    next_touch: str = ""  # дата следующего касания, YYYY-MM-DD
 
     # Идентификатор считается один раз и дальше живёт вместе с записью.
     # Вычислять его на лету нельзя: поля вроде phone_e164 появляются позже,
@@ -89,6 +96,15 @@ class Lead:
     def has_contact(self) -> bool:
         return bool(self.phone or self.email or self.instagram or self.facebook)
 
+    @property
+    def can_message(self) -> bool:
+        """Можно ли написать в мессенджер. У городских номеров аккаунтов не бывает."""
+        return self.phone_kind in ("mobile", "unknown") and bool(self.phone_e164)
+
+    @property
+    def reachable_without_phone(self) -> bool:
+        return bool(self.email or self.instagram or self.facebook)
+
     def to_row(self) -> Dict[str, Any]:
         row = asdict(self)
         row["raw"] = json.dumps(self.raw, ensure_ascii=False)
@@ -110,8 +126,9 @@ class Lead:
                 data["raw"] = {}
         for key in ("id_", "source", "external_id", "name", "category", "city", "address",
                     "phone", "email", "website", "instagram", "facebook",
-                    "phone_e164", "website_status", "ai_verdict", "ai_reason",
-                    "message_1", "message_2", "status", "sent_at"):
+                    "phone_e164", "phone_kind", "website_status", "ai_verdict", "ai_reason",
+                    "message_1", "message_2", "status", "sent_at",
+                    "replied_at", "outcome", "note", "next_touch"):
             if data.get(key) is None:
                 data[key] = ""
         return cls(**data)
@@ -134,6 +151,19 @@ class Lead:
             out["website"] = self.website
         out["website_status"] = self.website_status or "absent"
         out["has_phone"] = bool(self.phone_e164 or self.phone)
+        if self.phone_kind:
+            out["phone_kind"] = self.phone_kind
         out["has_email"] = bool(self.email)
         out["has_instagram"] = bool(self.instagram)
         return out
+
+
+# исходы после отправки: ключ, подпись, считается ли работа законченной
+OUTCOMES = [
+    ("replied", "ответил", False),
+    ("thinking", "думает", False),
+    ("client", "клиент", True),
+    ("refused", "отказ", True),
+]
+
+CLOSED_OUTCOMES = {key for key, _, closed in OUTCOMES if closed}

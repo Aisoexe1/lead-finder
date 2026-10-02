@@ -55,6 +55,7 @@ class Gemini:
         schema: Optional[Dict[str, Any]] = None,
         temperature: Optional[float] = None,
         max_output_tokens: int = 4096,
+        search: bool = False,
     ) -> str:
         generation_config: Dict[str, Any] = {
             "temperature": self.temperature if temperature is None else temperature,
@@ -70,6 +71,13 @@ class Gemini:
         }
         if system:
             payload["systemInstruction"] = {"parts": [{"text": system}]}
+
+        if search:
+            # поиск в вебе на стороне Google. Вместе с ним структурированный
+            # вывод не работает, поэтому JSON просим словами и разбираем сами
+            payload["tools"] = [{"google_search": {}}]
+            generation_config.pop("responseMimeType", None)
+            generation_config.pop("responseSchema", None)
 
         url = BASE_URL % self.model
         last_error = ""
@@ -116,15 +124,30 @@ class Gemini:
         system: Optional[str] = None,
         temperature: Optional[float] = None,
         max_output_tokens: int = 4096,
+        search: bool = False,
     ) -> Any:
         text = self.generate(
             prompt,
             system=system,
-            schema=schema,
+            schema=None if search else schema,
             temperature=temperature,
             max_output_tokens=max_output_tokens,
+            search=search,
         )
         return _parse_json(text)
+
+    def search_available(self) -> bool:
+        """Поддерживает ли выбранная модель поиск в вебе.
+
+        Проверяем одним дешёвым запросом: аккаунты и модели различаются,
+        и падать посреди работы из-за этого не хочется.
+        """
+        try:
+            self.generate("Ответь одним словом: да", search=True, max_output_tokens=2048)
+            return True
+        except GeminiError as exc:
+            self.log("поиск в вебе недоступен (%s)" % str(exc)[:120])
+            return False
 
     # ------------------------------------------------------------ внутреннее
 

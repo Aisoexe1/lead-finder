@@ -108,6 +108,32 @@ def cmd_verify(args) -> int:
     return 0
 
 
+def cmd_check_sites(args) -> int:
+    from .stages.check_site import run_check_site
+
+    config = Config.load(args.config)
+    _banner("проверка, нет ли сайта на самом деле")
+    try:
+        client = build_client(config)
+    except RuntimeError as exc:
+        print(exc)
+        return 1
+
+    with Store(config.db) as store:
+        pending = len(store.fetch(VERIFIED))
+        if pending == 0:
+            print("  нет проверенных лидов, сначала verify")
+            return 0
+        print("  на входе: %d" % pending)
+        try:
+            run_check_site(store, config, client, limit=args.limit or 0)
+        except GeminiError as exc:
+            print("Gemini: %s" % exc)
+            return 1
+    print("Дальше: python -m leadgen filter")
+    return 0
+
+
 def cmd_filter(args) -> int:
     from .stages.filter import run_filter
 
@@ -199,7 +225,11 @@ def cmd_export(args) -> int:
 
 def cmd_run(args) -> int:
     """Весь конвейер за один запуск."""
-    for step in (cmd_scrape, cmd_verify, cmd_filter, cmd_write, cmd_export):
+    steps = [cmd_scrape, cmd_verify]
+    if Config.load(args.config).get("verify.search_sites", True):
+        steps.append(cmd_check_sites)
+    steps += [cmd_filter, cmd_write, cmd_export]
+    for step in steps:
         code = step(args)
         if code not in (0, None):
             return code
@@ -266,6 +296,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     verify = subparsers.add_parser("verify", help="нормализовать телефоны, проверить сайты")
     verify.set_defaults(func=cmd_verify)
+
+    sites = subparsers.add_parser("check-sites",
+                                  help="проверить поиском, нет ли у лида сайта")
+    sites.add_argument("--limit", type=int)
+    sites.set_defaults(func=cmd_check_sites)
 
     filt = subparsers.add_parser("filter", help="отсев мусора через Gemini")
     filt.add_argument("--limit", type=int, help="обработать не больше N лидов")

@@ -7,6 +7,7 @@ import yaml
 
 DEFAULTS: Dict[str, Any] = {
     "db": "data/leads.db",
+    "followup_days": 3,
     "export_dir": "exports",
     "search": {
         "niche": "",
@@ -22,7 +23,9 @@ DEFAULTS: Dict[str, Any] = {
     "verify": {
         "region": "UA",
         "check_website": True,
-        "search_for_missing_site": False,
+        # городской номер без почты и соцсетей уходит в отсев: написать туда нечем
+        "drop_landlines": True,
+        "search_sites": True,
         "timeout": 8,
         "workers": 8,
     },

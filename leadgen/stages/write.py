@@ -182,13 +182,18 @@ def run_write(
     limit: int = 0,
     rewrite: bool = False,
     verbose: bool = True,
+    lead_ids: Optional[List[str]] = None,
 ) -> Dict[str, int]:
     mode = (messages.get("mode") or "ai").lower()
     niche = config.niche
     batch_size = int(config.get("gemini.batch_size", 12))
 
-    statuses = [KEPT, WRITTEN] if rewrite else [KEPT]
-    leads = store.fetch(statuses=statuses, limit=limit or None)
+    if lead_ids:
+        # переписать конкретных: статус при этом не важен
+        leads = [lead for lead in (store.get(i) for i in lead_ids) if lead]
+    else:
+        statuses = [KEPT, WRITTEN] if rewrite else [KEPT]
+        leads = store.fetch(statuses=statuses, limit=limit or None)
     if not leads:
         return {"written": 0, "failed": 0}
 

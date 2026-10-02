@@ -13,9 +13,12 @@ const S = {
   polling: null,
   busy: false,
   sources: [],
+  outcomes: [],
+  funnel: {},
 };
 
 const STATUSES = [
+  { key: 'due',      label: 'На сегодня' },
   { key: 'written',  label: 'Готовы' },
   { key: 'kept',     label: 'Отобраны' },
   { key: 'verified', label: 'Ждут отсева' },
@@ -25,6 +28,7 @@ const STATUSES = [
 ];
 
 const EMPTY = {
+  due:      ['На сегодня никого', 'Сюда попадают те, кому пора отправить второе сообщение.'],
   written:  ['Сообщений пока нет', 'Пройди шаги на экране «Поиск»: найти, проверить, отсеять, написать.'],
   kept:     ['Отобранных нет', 'Запусти отсев мусора на экране «Поиск».'],
   verified: ['Нечего проверять', 'Сначала найди лиды на экране «Поиск».'],
@@ -123,8 +127,20 @@ function renderFunnel() {
   badge.hidden = !ready;
   badge.textContent = ready;
 
+  const f = S.funnel || {};
+  // блок виден и когда отметили исход, не отмечая отправку
+  const after = (f.sent || f.answered)
+    ? `<div class="funnel-after">
+         ${f.sent ? `<div class="funnel-row"><span class="funnel-n">${f.sent}</span>
+           <span class="funnel-l">отправлено</span></div>` : ''}
+         ${f.answered ? `<div class="funnel-row"><span class="funnel-n">${f.answered}</span>
+           <span class="funnel-l">ответили</span></div>` : ''}
+         ${f.client ? `<div class="funnel-row"><span class="funnel-n ok">${f.client}</span>
+           <span class="funnel-l">клиенты</span></div>` : ''}
+       </div>` : '';
+
   if (!rows.length) {
-    $('#funnel').innerHTML = '<div class="funnel-empty">база пуста</div>';
+    $('#funnel').innerHTML = after || '<div class="funnel-empty">база пуста</div>';
     return;
   }
   const max = Math.max(...rows.map(([key]) => S.counts[key]));
@@ -134,7 +150,7 @@ function renderFunnel() {
       <span class="funnel-l">${label}</span>
     </div>
     <div class="funnel-bar"><i style="width:${Math.round(S.counts[key] / max * 100)}%"></i></div>
-  `).join('');
+  `).join('') + after;
 }
 
 /* ── Экран поиска ───────────────────────────────────────────────────────── */
@@ -279,6 +295,7 @@ async function loadLeads(keepSelection) {
   if (!res.ok) return;
   S.leads = res.leads;
   S.counts = res.counts || {};
+  S.funnel = res.funnel || S.funnel;
   renderChips();
   renderFunnel();
   renderList();
@@ -333,8 +350,14 @@ function renderDetail(lead) {
   }
 
   const meta = [lead.city, lead.category, lead.address].filter(Boolean).join('   ·   ');
+  const PHONE_KIND = { mobile: 'мобильный', landline: 'городской',
+                       tollfree: 'бесплатная линия', unknown: 'тип номера неизвестен' };
+
   const tags = [];
   if (lead.score != null) tags.push(`<span class="tag accent">оценка ${lead.score}</span>`);
+  if (lead.phone_kind && lead.phone_kind !== 'mobile') {
+    tags.push(`<span class="tag warn">${esc(PHONE_KIND[lead.phone_kind] || lead.phone_kind)}</span>`);
+  }
   if (lead.sent_at) tags.push(`<span class="tag warn">отправлено ${esc(lead.sent_at.replace('T', ' '))}</span>`);
   if (lead.reason) tags.push(`<span class="tag">${esc(lead.reason)}</span>`);
   tags.push(`<span class="tag">${esc(lead.source)}</span>`);
@@ -360,20 +383,27 @@ function renderDetail(lead) {
     </div>
 
     <div class="send-row">
-      ${lead.phone_e164 ? `
+      ${lead.can_message ? `
         <button class="btn btn-primary" data-act="wa">WhatsApp</button>
         <button class="btn btn-send tg" data-act="tg">Telegram</button>
         <button class="btn btn-send vb" data-act="viber">Viber</button>` : ''}
       ${lead.email ? '<button class="btn btn-send ml" data-act="mail">Почта</button>' : ''}
+      ${lead.phone_e164 && !lead.can_message
+        ? '<button class="btn btn-send tel" data-act="call">Позвонить</button>' : ''}
       ${!lead.phone_e164 && !lead.email
         ? '<span class="note">прямых контактов нет, остаётся профиль в соцсети</span>' : ''}
-      ${lead.phone_e164
-        ? '<span class="note send-note">текст для WhatsApp подставится сам, для Telegram и Viber скопируется в буфер</span>'
-        : ''}
+      <span class="note send-note">${
+        lead.can_message
+          ? 'текст для WhatsApp подставится сам, для Telegram и Viber скопируется в буфер'
+          : (lead.phone_e164
+              ? 'номер городской, аккаунтов в мессенджерах на таких не бывает'
+              : '')
+      }</span>
     </div>
 
     <div class="detail-actions">
       <button class="btn" data-act="save">Сохранить правки</button>
+      <button class="btn btn-ghost" data-act="rewrite" title="переписать сообщения заново">Переписать</button>
       ${lead.instagram || lead.facebook || lead.maps
         ? '<button class="btn btn-ghost" data-act="profile">Профиль</button>' : ''}
       <span class="spacer"></span>
@@ -381,6 +411,25 @@ function renderDetail(lead) {
       ${lead.status === 'dropped'
         ? '<button class="btn btn-ghost" data-act="restore">Вернуть</button>'
         : '<button class="btn btn-danger" data-act="drop">Убрать</button>'}
+    </div>
+
+    <div class="track">
+      <div class="track-head">Что было дальше</div>
+      <div class="outcomes">
+        ${S.outcomes.map((o) => `
+          <button class="pill ${lead.outcome === o.key ? 'is-active' : ''}"
+                  data-outcome="${esc(o.key)}">${esc(o.label)}</button>`).join('')}
+        ${lead.outcome ? '<button class="pill clear" data-outcome="">снять</button>' : ''}
+      </div>
+      <div class="track-row">
+        <label>Написать снова</label>
+        <input type="date" id="nextTouch" value="${esc(lead.next_touch)}">
+        <button class="btn btn-ghost btn-mini" data-plus="3">+3 дня</button>
+        <button class="btn btn-ghost btn-mini" data-plus="7">+7 дней</button>
+        ${lead.next_touch ? '<button class="btn btn-ghost btn-mini" data-plus="clear">убрать</button>' : ''}
+      </div>
+      <textarea id="leadNote" rows="2" placeholder="заметка: что ответили, о чём договорились"
+                >${esc(lead.note)}</textarea>
     </div>`;
 }
 
@@ -417,11 +466,32 @@ async function leadAction(act) {
     }
     return;
   }
+  if (act === 'call') {
+    await call('open_external', 'tel:' + lead.phone_e164);
+    setStatus('звонок, номер городской');
+    return;
+  }
   if (act === 'mail') {
     const subject = encodeURIComponent('Сайт для ' + lead.name);
     const body = encodeURIComponent($('#m1').value);
     await call('open_external', 'mailto:' + lead.email + '?subject=' + subject + '&body=' + body);
     setStatus('почтовая программа открыта');
+    return;
+  }
+  if (act === 'rewrite') {
+    const res = await call('lead_rewrite', lead.id);
+    if (res.error === 'no_key') {
+      toast('Сначала вставь ключ Gemini', 'bad');
+      showPage('settings');
+      return;
+    }
+    if (res.ok) {
+      S.logLen = 0;
+      renderLog([], false);
+      setBusy(true);
+      poll();
+      toast('Переписываю, это займёт несколько секунд');
+    }
     return;
   }
   if (act === 'profile') {
@@ -441,6 +511,28 @@ async function leadAction(act) {
     toast(map[act] === 'unsent' ? 'Отметка снята' : 'Отмечено');
     loadLeads(true);
   }
+}
+
+async function trackLead(fields) {
+  if (!S.current) return;
+  const res = await call('lead_track', S.current.id,
+    fields.outcome === undefined ? null : fields.outcome,
+    fields.note === undefined ? null : fields.note,
+    fields.next_touch === undefined ? null : fields.next_touch);
+  if (res.ok) {
+    S.counts = res.counts || S.counts;
+    S.funnel = res.funnel || S.funnel;
+    renderFunnel();
+    renderChips();
+    loadLeads(true);
+  }
+  return res.ok;
+}
+
+function plusDays(n) {
+  const d = new Date();
+  d.setDate(d.getDate() + n);
+  return d.toISOString().slice(0, 10);
 }
 
 /* ── Экран сообщений ────────────────────────────────────────────────────── */
@@ -595,8 +687,44 @@ function wire() {
       setTimeout(() => { copy.textContent = 'копировать'; }, 1300);
       return;
     }
+    const outcome = e.target.closest('[data-outcome]');
+    if (outcome) {
+      const ok = await trackLead({ outcome: outcome.dataset.outcome });
+      if (ok) {
+        const label = outcome.textContent.trim();
+        toast(outcome.dataset.outcome ? 'Отмечено: ' + label : 'Отметка снята');
+      }
+      return;
+    }
+    const plus = e.target.closest('[data-plus]');
+    if (plus) {
+      const value = plus.dataset.plus === 'clear' ? '' : plusDays(parseInt(plus.dataset.plus, 10));
+      if (await trackLead({ next_touch: value })) {
+        toast(value ? 'Напомню ' + value : 'Напоминание убрано');
+      }
+      return;
+    }
     const act = e.target.closest('[data-act]');
     if (act) leadAction(act.dataset.act);
+  });
+
+  // заметку и дату сохраняем, когда поле теряет фокус
+  $('#leadDetail').addEventListener('change', async (e) => {
+    if (e.target.id === 'leadNote') await trackLead({ note: e.target.value });
+    if (e.target.id === 'nextTouch') await trackLead({ next_touch: e.target.value });
+  });
+
+  $('#importCsv').addEventListener('click', async () => {
+    const res = await call('import_csv', '');
+    if (res.cancelled) return;
+    if (res.ok) {
+      toast(`Загружено ${res.added} из ${res.file}` +
+            (res.skipped ? `, пропущено ${res.skipped} без контактов` : ''), 'good');
+      S.counts = res.counts || S.counts;
+      renderFunnel();
+      leadFilter = 'new';
+      loadLeads();
+    }
   });
 
   $$('[data-export]').forEach((btn) => btn.addEventListener('click', async () => {
@@ -662,6 +790,8 @@ async function boot() {
   renderSources();
 
   S.counts = b.counts || {};
+  S.funnel = b.funnel || {};
+  S.outcomes = b.outcomes || [];
   S.hasKey = b.has_key;
   renderFunnel();
 

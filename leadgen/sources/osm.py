@@ -4,6 +4,10 @@ import re
 import time
 from typing import Any, Dict, Iterator, List, Optional
 
+import hashlib
+import json
+import os
+
 from ..http import get, make_session
 from ..models import Lead
 from .base import Source, has_website, pick
@@ -170,9 +174,55 @@ class OSMSource(Source):
             "out center tags %d;" % (area_id, "\n".join(parts), limit * 4)
         )
 
+    # ------------------------------------------------------------------ кэш
+
+    def _cache_path(self, query: str) -> Optional[str]:
+        folder = self.settings.get("cache_dir") or os.path.join("data", "overpass")
+        digest = hashlib.sha1(query.encode("utf-8")).hexdigest()[:16]
+        try:
+            os.makedirs(folder, exist_ok=True)
+        except OSError:
+            return None
+        return os.path.join(folder, "%s.json" % digest)
+
+    def _from_cache(self, query: str) -> Optional[List[Dict[str, Any]]]:
+        """Ответы Overpass живут сутки: данные OSM за это время почти не меняются,
+        а сервера часто перегружены, и повторный прогон иначе упирается в 504."""
+        hours = float(self.settings.get("cache_hours", 24) or 0)
+        if hours <= 0:
+            return None
+        path = self._cache_path(query)
+        if not path or not os.path.exists(path):
+            return None
+        if (time.time() - os.path.getmtime(path)) > hours * 3600:
+            return None
+        try:
+            with open(path, "r", encoding="utf-8") as fh:
+                data = json.load(fh)
+        except (ValueError, OSError):
+            return None
+        self.log("беру из кэша (%d объектов), запрос не повторяю" % len(data))
+        return data
+
+    def _to_cache(self, query: str, elements: List[Dict[str, Any]]) -> None:
+        if float(self.settings.get("cache_hours", 24) or 0) <= 0 or not elements:
+            return
+        path = self._cache_path(query)
+        if not path:
+            return
+        try:
+            with open(path, "w", encoding="utf-8") as fh:
+                json.dump(elements, fh, ensure_ascii=False)
+        except OSError:
+            pass
+
     def _run_overpass(self, query: str) -> List[Dict[str, Any]]:
         """Обходит зеркала по кругу: перегруженный инстанс через минуту
         часто отвечает нормально, поэтому одного прохода мало."""
+        cached = self._from_cache(query)
+        if cached is not None:
+            return cached
+
         for round_number in range(1, OVERPASS_ROUNDS + 1):
             for endpoint in OVERPASS_ENDPOINTS:
                 host = endpoint.split("/")[2]
@@ -184,10 +234,12 @@ class OSMSource(Source):
 
                 if resp.status_code == 200:
                     try:
-                        return resp.json().get("elements", [])
+                        elements = resp.json().get("elements", [])
                     except ValueError:
                         self.log("%s вернул не JSON" % host)
                         continue
+                    self._to_cache(query, elements)
+                    return elements
 
                 if resp.status_code in (429, 504, 503, 502):
                     self.log("%s занят (HTTP %d)" % (host, resp.status_code))

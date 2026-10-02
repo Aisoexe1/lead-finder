@@ -19,6 +19,13 @@ except ImportError:  # работаем и без библиотеки, прос
 
 DIGITS_RE = re.compile(r"\d+")
 
+# Городские номера Украины: 0 + код города (2-4 цифры). Запасной способ,
+# когда библиотека phonenumbers не установлена.
+UA_MOBILE_PREFIXES = {
+    "039", "050", "063", "066", "067", "068", "073", "091", "092", "093",
+    "094", "095", "096", "097", "098", "099",
+}
+
 
 def normalize_phone(raw: str, region: str = "UA") -> str:
     """Телефон в формат E.164. Нужен для ссылок wa.me и для дедупликации."""
@@ -51,6 +58,40 @@ def normalize_phone(raw: str, region: str = "UA") -> str:
     return ""
 
 
+def phone_kind(phone_e164: str) -> str:
+    """mobile | landline | tollfree | unknown.
+
+    Нужно затем, что у городского номера не бывает аккаунта в WhatsApp,
+    Telegram или Viber: кнопка «написать» на нём бесполезна.
+    """
+    if not phone_e164:
+        return ""
+
+    if HAVE_PHONENUMBERS:
+        try:
+            parsed = phonenumbers.parse(phone_e164, None)
+            kind = phonenumbers.number_type(parsed)
+            if kind == phonenumbers.PhoneNumberType.MOBILE:
+                return "mobile"
+            if kind == phonenumbers.PhoneNumberType.FIXED_LINE:
+                return "landline"
+            if kind == phonenumbers.PhoneNumberType.TOLL_FREE:
+                return "tollfree"
+            if kind == phonenumbers.PhoneNumberType.FIXED_LINE_OR_MOBILE:
+                return "unknown"
+            return "unknown"
+        except Exception:
+            return "unknown"
+
+    # без библиотеки умеем только украинские номера
+    if phone_e164.startswith("+380") and len(phone_e164) == 13:
+        prefix = "0" + phone_e164[4:6]
+        if phone_e164[4:7] == "800":
+            return "tollfree"
+        return "mobile" if prefix in {p[:3] for p in UA_MOBILE_PREFIXES} else "landline"
+    return "unknown"
+
+
 def check_website(url: str, timeout: int = 8) -> str:
     """alive | dead. Мёртвый сайт — тоже повод написать, поэтому лид не выбрасываем."""
     if not url:
@@ -71,6 +112,7 @@ def check_website(url: str, timeout: int = 8) -> str:
 
 def verify_lead(lead: Lead, region: str, check_site: bool, timeout: int) -> Lead:
     lead.phone_e164 = normalize_phone(lead.phone, region)
+    lead.phone_kind = phone_kind(lead.phone_e164)
     if lead.website and check_site:
         lead.website_status = check_website(lead.website, timeout)
     elif not lead.website and not lead.website_status:
@@ -89,7 +131,7 @@ def run_verify(store: Store, config, verbose: bool = True) -> Tuple[int, int]:
     timeout = int(config.get("verify.timeout", 8))
     workers = int(config.get("verify.workers", 8))
 
-    leads = store.fetch(status="new")
+    leads = store.fetch_needing_verify()
     if not leads:
         return (0, 0)
 
@@ -99,13 +141,29 @@ def run_verify(store: Store, config, verbose: bool = True) -> Tuple[int, int]:
     with ThreadPoolExecutor(max_workers=workers) as pool:
         processed = list(pool.map(work, leads))
 
+    drop_landlines = bool(config.get("verify.drop_landlines", True))
+
     kept, dropped = 0, 0
+    landlines = 0
     for lead in processed:
         # без телефона, почты и соцсети писать некуда
         if not (lead.phone_e164 or lead.email or lead.instagram or lead.facebook):
             store.update_fields(lead.id, status="dropped", ai_reason="нет контактов")
             dropped += 1
             continue
+
+        # городской номер означает, что мессенджеры отпадают. Если других
+        # контактов нет, писать такому лиду нечем, и он уходит в отсев.
+        if drop_landlines and lead.phone_kind in ("landline", "tollfree"):
+            if not lead.reachable_without_phone:
+                store.update_fields(
+                    lead.id, status="dropped", phone_kind=lead.phone_kind,
+                    phone_e164=lead.phone_e164,
+                    ai_reason="городской номер, мессенджеры недоступны",
+                )
+                landlines += 1
+                dropped += 1
+                continue
         # сайт живой и это не соцсеть — клиент уже с сайтом
         if lead.website_status == "alive":
             store.update_fields(
@@ -124,4 +182,6 @@ def run_verify(store: Store, config, verbose: bool = True) -> Tuple[int, int]:
     if verbose:
         print("  проверено: %d, отброшено: %d, слито дублей по телефону: %d"
               % (kept, dropped, merged))
+        if landlines:
+            print("  из них городских номеров без других контактов: %d" % landlines)
     return (kept, dropped)

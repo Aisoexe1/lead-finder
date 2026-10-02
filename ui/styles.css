@@ -367,7 +367,53 @@ code {
 .log .ok { color: var(--accent); }
 .log .bad { color: var(--danger); }
 .log .dim { color: var(--muted); }
-.log .empty { color: var(--muted); }
+.log /* ── Воронка в карточке лида ────────────────────────────────────────────── */
+
+.track {
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--border-soft);
+}
+.track-head {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--muted); margin-bottom: 9px;
+}
+.outcomes { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 11px; }
+
+.pill {
+  padding: 5px 13px;
+  border: 1px solid var(--border); border-radius: 20px;
+  background: var(--surface-2); color: var(--text-2);
+  font: inherit; font-size: 12px; cursor: pointer;
+  transition: all var(--t);
+}
+.pill:hover { background: var(--surface-3); color: var(--text); }
+.pill.is-active {
+  background: var(--accent); border-color: var(--accent);
+  color: var(--accent-ink); font-weight: 550;
+}
+.pill.clear { color: var(--muted); border-style: dashed; }
+
+.track-row {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 7px;
+  margin-bottom: 10px;
+}
+.track-row label { font-size: 11.5px; color: var(--text-2); margin-right: 3px; }
+.track-row input[type=date] {
+  width: auto; padding: 5px 9px; font-size: 12.5px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .track-row input[type=date] { color-scheme: light; }
+}
+#leadNote { font-size: 12.5px; min-height: 46px; }
+
+.funnel-after {
+  margin-top: 12px; padding-top: 10px;
+  border-top: 1px solid var(--border-soft);
+}
+.funnel-n.ok { color: var(--accent); }
+
+.empty { color: var(--muted); }
 
 .spinner {
   margin-left: auto;
@@ -504,6 +550,9 @@ code {
 .btn-send.tg { --brand: #4aa3e0; --brand-dim: rgba(74, 163, 224, .13); }
 .btn-send.vb { --brand: #a37ae0; --brand-dim: rgba(163, 122, 224, .13); }
 .btn-send.ml { --brand: #7e9ac4; --brand-dim: rgba(126, 154, 196, .13); }
+.btn-send.tel { --brand: #9aa08f; --brand-dim: rgba(154, 160, 143, .13); }
+
+.btn-mini { padding: 4px 9px; font-size: 11.5px; }
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) .btn-send.tg { --brand: #1d6fa5; --brand-dim: rgba(29, 111, 165, .1); }
@@ -517,6 +566,52 @@ code {
   border-top: 1px solid var(--border-soft);
 }
 .detail-actions .spacer { flex: 1; }
+
+/* ── Воронка в карточке лида ────────────────────────────────────────────── */
+
+.track {
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--border-soft);
+}
+.track-head {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--muted); margin-bottom: 9px;
+}
+.outcomes { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 11px; }
+
+.pill {
+  padding: 5px 13px;
+  border: 1px solid var(--border); border-radius: 20px;
+  background: var(--surface-2); color: var(--text-2);
+  font: inherit; font-size: 12px; cursor: pointer;
+  transition: all var(--t);
+}
+.pill:hover { background: var(--surface-3); color: var(--text); }
+.pill.is-active {
+  background: var(--accent); border-color: var(--accent);
+  color: var(--accent-ink); font-weight: 550;
+}
+.pill.clear { color: var(--muted); border-style: dashed; }
+
+.track-row {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 7px;
+  margin-bottom: 10px;
+}
+.track-row label { font-size: 11.5px; color: var(--text-2); margin-right: 3px; }
+.track-row input[type=date] {
+  width: auto; padding: 5px 9px; font-size: 12.5px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .track-row input[type=date] { color-scheme: light; }
+}
+#leadNote { font-size: 12.5px; min-height: 46px; }
+
+.funnel-after {
+  margin-top: 12px; padding-top: 10px;
+  border-top: 1px solid var(--border-soft);
+}
+.funnel-n.ok { color: var(--accent); }
 
 .empty {
   display: grid; place-content: center; text-align: center;

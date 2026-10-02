@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS leads (
     reviews       INTEGER,
     raw           TEXT,
     phone_e164    TEXT,
+    phone_kind    TEXT,
     website_status TEXT,
     ai_score      INTEGER,
     ai_verdict    TEXT,
@@ -46,9 +47,9 @@ CREATE INDEX IF NOT EXISTS idx_leads_city ON leads(city);
 FIELDS = [
     "id", "dedup_key", "source", "external_id", "name", "category", "city",
     "address", "phone", "email", "website", "instagram", "facebook", "lat",
-    "lon", "rating", "reviews", "raw", "phone_e164", "website_status",
+    "lon", "rating", "reviews", "raw", "phone_e164", "phone_kind", "website_status",
     "ai_score", "ai_verdict", "ai_reason", "message_1", "message_2",
-    "status", "sent_at",
+    "status", "sent_at", "replied_at", "outcome", "note", "next_touch",
 ]
 
 # поля, которые при повторном скрапинге не затираем пустым значением из нового источника
@@ -67,7 +68,21 @@ class Store:
         self.conn = sqlite3.connect(path)
         self.conn.row_factory = sqlite3.Row
         self.conn.executescript(SCHEMA)
+        self._migrate()
         self.conn.commit()
+
+    def _migrate(self) -> None:
+        """Базы, созданные прежними версиями, дополняем недостающими колонками."""
+        have = {row["name"] for row in self.conn.execute("PRAGMA table_info(leads)")}
+        for column, ddl in (
+            ("phone_kind", "TEXT"),
+            ("replied_at", "TEXT"),
+            ("outcome", "TEXT"),
+            ("note", "TEXT"),
+            ("next_touch", "TEXT"),
+        ):
+            if column not in have:
+                self.conn.execute("ALTER TABLE leads ADD COLUMN %s %s" % (column, ddl))
 
     def close(self) -> None:
         self.conn.close()
@@ -222,6 +237,44 @@ class Store:
         if limit:
             sql += " LIMIT %d" % int(limit)
         return [Lead.from_row(r) for r in self.conn.execute(sql, params).fetchall()]
+
+    def fetch_needing_verify(self) -> List[Lead]:
+        """Новые лиды плюс те, что проверялись прежней версией и остались
+        без типа номера. Иначе старая база не получила бы новых полей."""
+        rows = self.conn.execute(
+            "SELECT * FROM leads WHERE status = 'new' "
+            "   OR (status = 'verified' AND (phone_kind IS NULL OR phone_kind = '') "
+            "       AND phone_e164 != '') "
+            "ORDER BY name"
+        ).fetchall()
+        return [Lead.from_row(r) for r in rows]
+
+    def fetch_due(self, today: str) -> List[Lead]:
+        """Кому писать сегодня: срок следующего касания наступил,
+        а разговор ещё не закрыт отказом или сделкой."""
+        rows = self.conn.execute(
+            "SELECT * FROM leads "
+            "WHERE next_touch != '' AND next_touch <= ? "
+            "  AND COALESCE(outcome, '') NOT IN ('refused', 'client') "
+            "  AND status != 'dropped' "
+            "ORDER BY next_touch, name",
+            (today,),
+        ).fetchall()
+        return [Lead.from_row(r) for r in rows]
+
+    def funnel(self) -> Dict[str, int]:
+        """Сводка по воронке: отправлено, ответили, чем кончилось."""
+        c = self.conn
+        out = {
+            "sent": c.execute("SELECT COUNT(*) FROM leads WHERE sent_at != ''").fetchone()[0],
+            "replied": c.execute(
+                "SELECT COUNT(*) FROM leads WHERE COALESCE(outcome,'') != ''").fetchone()[0],
+        }
+        for key in ("replied", "thinking", "client", "refused"):
+            out[key] = c.execute(
+                "SELECT COUNT(*) FROM leads WHERE outcome = ?", (key,)).fetchone()[0]
+        out["answered"] = out["thinking"] + out["client"] + out["refused"] + out["replied"]
+        return out
 
     def get(self, lead_id: str) -> Optional[Lead]:
         row = self.conn.execute("SELECT * FROM leads WHERE id = ?", (lead_id,)).fetchone()
