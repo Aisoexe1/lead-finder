@@ -23,10 +23,53 @@ from leadgen.config import Config, load_dotenv
 _SOURCE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FROZEN = getattr(sys, "frozen", False)
 
+APP_NAME = "ПоискКлиентов"
+
 # откуда читать вшитое
 RES_DIR = getattr(sys, "_MEIPASS", _SOURCE_ROOT)
+
+
+def _writable(folder: str) -> bool:
+    try:
+        os.makedirs(folder, exist_ok=True)
+        probe = os.path.join(folder, ".write-test")
+        with open(probe, "w") as fh:
+            fh.write("")
+        os.remove(probe)
+        return True
+    except OSError:
+        return False
+
+
+def _data_root() -> str:
+    """Где хранить настройки, ключ и базу.
+
+    Из исходников это папка проекта. В собранном виде писать внутрь программы
+    нельзя: на macOS она лежит в /Applications и при обновлении заменяется
+    целиком, то есть данные бы пропали. Поэтому для .app сразу уходим
+    в Application Support, а на других системах пробуем папку рядом
+    с программой и откатываемся в пользовательскую, если она не пишется.
+    """
+    if not FROZEN:
+        return _SOURCE_ROOT
+
+    beside = os.path.dirname(sys.executable)
+
+    if sys.platform == "darwin" and ".app/Contents/" in sys.executable:
+        return os.path.join(os.path.expanduser("~"), "Library",
+                            "Application Support", APP_NAME)
+
+    if _writable(beside):
+        return beside
+
+    if os.name == "nt":
+        base = os.environ.get("APPDATA") or os.path.expanduser("~")
+        return os.path.join(base, APP_NAME)
+    return os.path.join(os.path.expanduser("~"), ".config", APP_NAME)
+
+
 # куда писать пользовательское
-ROOT = os.path.dirname(sys.executable) if FROZEN else _SOURCE_ROOT
+ROOT = _data_root()
 
 CONFIG_PATH = os.path.join(ROOT, "config.yaml")
 MESSAGES_PATH = os.path.join(ROOT, "messages.yaml")
@@ -39,6 +82,7 @@ UI_INDEX = os.path.join(RES_DIR, "ui", "index.html")
 
 def ensure_files() -> None:
     """Первый запуск: разворачиваем образцы и готовим папки для данных."""
+    os.makedirs(ROOT, exist_ok=True)
     for example, target in (
         (CONFIG_EXAMPLE, CONFIG_PATH),
         (MESSAGES_EXAMPLE, MESSAGES_PATH),
