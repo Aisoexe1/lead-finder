@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 from ..http import get, make_session
 from ..models import Lead
-from .base import Source
+from .base import Source, social_url
 
 PHONE_RE = re.compile(r"(?:\+?\d[\d\-\s()]{7,}\d)")
 EMAIL_RE = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+")
@@ -111,8 +111,10 @@ class DirectorySource(Source):
             address=values.get("address", ""),
             phone=phone or "",
             email=email or "",
-            instagram=website if "instagram.com" in (website or "").lower() else "",
-            facebook=website if "facebook.com" in (website or "").lower() else "",
+            instagram=social_url(website, "instagram")
+                      if "instagram.com" in (website or "").lower() else "",
+            facebook=social_url(website, "facebook")
+                     if "facebook.com" in (website or "").lower() else "",
             raw={"directory": site.get("name"), "url": values.get("url", "")},
         )
 

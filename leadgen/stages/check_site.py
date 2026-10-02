@@ -66,11 +66,19 @@ def run_check_site(
     if not leads:
         return {"checked": 0, "dropped": 0}
 
-    if not client.search_available():
+    available, reason = client.search_available()
+    if not available:
         if verbose:
-            print("  поиск в вебе недоступен для этой модели, шаг пропущен")
-            print("  попробуй gemini-2.5-flash или gemini-2.5-pro в настройках")
-        return {"checked": 0, "dropped": 0, "skipped": True}
+            if reason == "limit":
+                print("  исчерпан лимит запросов с поиском, шаг пропущен")
+                print("  у бесплатного ключа своя, более строгая квота на поиск:")
+                print("  подожди несколько минут и запусти шаг отдельно")
+            elif reason == "unsupported":
+                print("  выбранная модель не умеет искать в вебе, шаг пропущен")
+                print("  попробуй gemini-3.8-flash или gemini-pro-latest в настройках")
+            else:
+                print("  поиск в вебе недоступен: %s" % reason)
+        return {"checked": 0, "dropped": 0, "skipped": True, "reason": reason}
 
     checked = dropped = unsure = failed = 0
 

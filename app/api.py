@@ -6,6 +6,7 @@
 """
 from __future__ import annotations
 
+import json
 import os
 import subprocess
 import sys
@@ -94,6 +95,8 @@ class Api:
             with Store(settings.config().db) as store:
                 counts = store.counts()
                 counts["due"] = len(store.fetch_due(date.today().isoformat()))
+                counts["social"] = sum(
+                    1 for l in store.fetch() if l.instagram or l.facebook)
                 return counts
         except Exception:
             return {}
@@ -206,6 +209,8 @@ class Api:
         with Store(settings.config().db) as store:
             if status == "due":
                 items = store.fetch_due(date.today().isoformat())
+            elif status == "social":
+                items = [l for l in store.fetch() if l.instagram or l.facebook]
             else:
                 items = store.fetch(status=status or None)
 
@@ -214,7 +219,8 @@ class Api:
         for lead in items:
             if needle:
                 haystack = " ".join([lead.name, lead.city, lead.category,
-                                     lead.phone_e164, lead.ai_reason]).lower()
+                                     lead.phone_e164, lead.ai_reason,
+                                     lead.instagram, lead.email]).lower()
                 if needle not in haystack:
                     continue
             out.append(self._lead_dict(lead))
@@ -233,7 +239,9 @@ class Api:
             "phone_e164": lead.phone_e164,
             "email": lead.email,
             "instagram": lead.instagram,
+            "instagram_handle": _handle(lead.instagram),
             "facebook": lead.facebook,
+            "facebook_handle": _handle(lead.facebook),
             "source": lead.source,
             "score": lead.ai_score,
             "reason": lead.ai_reason,
@@ -383,7 +391,7 @@ class Api:
         return {
             "ok": True,
             "api_key": settings.api_key(),
-            "model": (config.get("gemini") or {}).get("model", "gemini-2.5-flash"),
+            "model": (config.get("gemini") or {}).get("model", "gemini-3.8-flash"),
             "rpm": (config.get("gemini") or {}).get("rpm", 12),
             "batch_size": (config.get("gemini") or {}).get("batch_size", 12),
             "min_score": (config.get("filter") or {}).get("min_score", 55),
@@ -422,6 +430,25 @@ class Api:
 
         settings.save_config(config)
         return {"ok": True, "has_key": bool(settings.api_key())}
+
+    # ------------------------------------------------------------- справочник
+
+    @guard
+    def cities(self) -> Dict[str, Any]:
+        """Справочник городов Украины.
+
+        Названия взяты из OSM, то есть ровно в том виде, в каком их потом
+        ищет скрапер. Своё написание тоже допустимо: список это подсказка,
+        а не ограничение.
+        """
+        path = os.path.join(settings.RES_DIR, "leadgen", "data", "cities_ua.json")
+        if not os.path.exists(path):
+            path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                "leadgen", "data", "cities_ua.json")
+        if not os.path.exists(path):
+            return {"ok": True, "cities": []}
+        with open(path, "r", encoding="utf-8") as fh:
+            return {"ok": True, "cities": json.load(fh)}
 
     # --------------------------------------------------------------- импорт
 
@@ -549,3 +576,11 @@ def reveal(path: str) -> None:
     except Exception:
         # не показали папку, но файл на месте: молчим, это не повод рушить выгрузку
         pass
+
+
+def _handle(url: str) -> str:
+    """Ник из ссылки на профиль: его и показываем, ссылка целиком не нужна."""
+    if not url:
+        return ""
+    tail = url.rstrip("/").split("/")[-1]
+    return ("@" + tail) if tail and not tail.startswith("@") else tail

@@ -30,12 +30,14 @@ DEFAULTS: Dict[str, Any] = {
         "workers": 8,
     },
     "gemini": {
-        "model": "gemini-2.5-flash",
+        "model": "gemini-3.8-flash",
         "api_key_env": "GEMINI_API_KEY",
         "temperature": 0.7,
         "batch_size": 12,
         "rpm": 12,
-        "max_retries": 4,
+        "max_retries": 6,
+        # на что переключиться, если основная отвечает 503
+        "fallbacks": ["gemini-3.5-flash", "gemini-3.1-flash-lite"],
     },
     "filter": {
         "min_score": 55,

@@ -1,0 +1,7376 @@
+[
+{
+"name": "Київ",
+"place": "city",
+"pop": 2952301,
+"region": ""
+},
+{
+"name": "Харків",
+"place": "city",
+"pop": 1447652,
+"region": ""
+},
+{
+"name": "Дніпро",
+"place": "city",
+"pop": 1080486,
+"region": ""
+},
+{
+"name": "Одеса",
+"place": "city",
+"pop": 1008852,
+"region": ""
+},
+{
+"name": "Донецьк",
+"place": "city",
+"pop": 929063,
+"region": ""
+},
+{
+"name": "Львів",
+"place": "city",
+"pop": 724822,
+"region": ""
+},
+{
+"name": "Запоріжжя",
+"place": "city",
+"pop": 706116,
+"region": ""
+},
+{
+"name": "Кривий Ріг",
+"place": "city",
+"pop": 656700,
+"region": ""
+},
+{
+"name": "Миколаїв",
+"place": "city",
+"pop": 480080,
+"region": ""
+},
+{
+"name": "Севастополь",
+"place": "city",
+"pop": 458253,
+"region": "Севастополь"
+},
+{
+"name": "Маріуполь",
+"place": "city",
+"pop": 453623,
+"region": ""
+},
+{
+"name": "Луганськ",
+"place": "city",
+"pop": 414509,
+"region": ""
+},
+{
+"name": "Вінниця",
+"place": "city",
+"pop": 373302,
+"region": ""
+},
+{
+"name": "Макіївка",
+"place": "city",
+"pop": 347227,
+"region": ""
+},
+{
+"name": "Сімферополь",
+"place": "city",
+"pop": 340540,
+"region": ""
+},
+{
+"name": "Полтава",
+"place": "city",
+"pop": 297600,
+"region": ""
+},
+{
+"name": "Херсон",
+"place": "city",
+"pop": 294941,
+"region": ""
+},
+{
+"name": "Чернігів",
+"place": "city",
+"pop": 293969,
+"region": ""
+},
+{
+"name": "Горлівка",
+"place": "city",
+"pop": 289872,
+"region": ""
+},
+{
+"name": "Черкаси",
+"place": "city",
+"pop": 274343,
+"region": ""
+},
+{
+"name": "Хмельницький",
+"place": "city",
+"pop": 269308,
+"region": ""
+},
+{
+"name": "Суми",
+"place": "city",
+"pop": 267633,
+"region": ""
+},
+{
+"name": "Житомир",
+"place": "city",
+"pop": 267610,
+"region": ""
+},
+{
+"name": "Рівне",
+"place": "city",
+"pop": 245323,
+"region": ""
+},
+{
+"name": "Кам’янське",
+"place": "city",
+"pop": 239237,
+"region": ""
+},
+{
+"name": "Кропивницький",
+"place": "city",
+"pop": 234712,
+"region": ""
+},
+{
+"name": "Івано-Франківськ",
+"place": "city",
+"pop": 230929,
+"region": ""
+},
+{
+"name": "Кременчук",
+"place": "city",
+"pop": 226400,
+"region": ""
+},
+{
+"name": "Луцьк",
+"place": "city",
+"pop": 217502,
+"region": ""
+},
+{
+"name": "Тернопіль",
+"place": "city",
+"pop": 217326,
+"region": ""
+},
+{
+"name": "Біла Церква",
+"place": "city",
+"pop": 209815,
+"region": ""
+},
+{
+"name": "Краматорськ",
+"place": "city",
+"pop": 159445,
+"region": ""
+},
+{
+"name": "Мелітополь",
+"place": "city",
+"pop": 156917,
+"region": ""
+},
+{
+"name": "Керч",
+"place": "city",
+"pop": 151996,
+"region": ""
+},
+{
+"name": "Самар",
+"place": "town",
+"pop": 124787,
+"region": ""
+},
+{
+"name": "Нікополь",
+"place": "city",
+"pop": 119939,
+"region": ""
+},
+{
+"name": "Бердянськ",
+"place": "city",
+"pop": 116450,
+"region": ""
+},
+{
+"name": "Ужгород",
+"place": "city",
+"pop": 114867,
+"region": ""
+},
+{
+"name": "Слов’янськ",
+"place": "city",
+"pop": 114437,
+"region": ""
+},
+{
+"name": "Алчевськ",
+"place": "city",
+"pop": 112013,
+"region": ""
+},
+{
+"name": "Сіверськодонецьк",
+"place": "city",
+"pop": 110612,
+"region": ""
+},
+{
+"name": "Павлоград",
+"place": "city",
+"pop": 110609,
+"region": ""
+},
+{
+"name": "Євпаторія",
+"place": "city",
+"pop": 108149,
+"region": ""
+},
+{
+"name": "Бровари",
+"place": "city",
+"pop": 107384,
+"region": ""
+},
+{
+"name": "Лисичанськ",
+"place": "city",
+"pop": 105682,
+"region": ""
+},
+{
+"name": "Кам'янець-Подільський",
+"place": "city",
+"pop": 101235,
+"region": ""
+},
+{
+"name": "Конотоп",
+"place": "town",
+"pop": 87881,
+"region": ""
+},
+{
+"name": "Умань",
+"place": "town",
+"pop": 86614,
+"region": ""
+},
+{
+"name": "Єнакієве",
+"place": "town",
+"pop": 85663,
+"region": ""
+},
+{
+"name": "Мукачево",
+"place": "town",
+"pop": 85569,
+"region": ""
+},
+{
+"name": "Хрустальний",
+"place": "town",
+"pop": 84036,
+"region": ""
+},
+{
+"name": "Ровеньки",
+"place": "town",
+"pop": 81103,
+"region": ""
+},
+{
+"name": "Шостка",
+"place": "town",
+"pop": 79611,
+"region": ""
+},
+{
+"name": "Олександрія",
+"place": "town",
+"pop": 79289,
+"region": ""
+},
+{
+"name": "Кадіївка",
+"place": "town",
+"pop": 79010,
+"region": ""
+},
+{
+"name": "Бердичів",
+"place": "town",
+"pop": 78774,
+"region": ""
+},
+{
+"name": "Костянтинівка",
+"place": "town",
+"pop": 78179,
+"region": ""
+},
+{
+"name": "Дрогобич",
+"place": "town",
+"pop": 74610,
+"region": ""
+},
+{
+"name": "Ізмаїл",
+"place": "town",
+"pop": 74421,
+"region": ""
+},
+{
+"name": "Ніжин",
+"place": "town",
+"pop": 74058,
+"region": ""
+},
+{
+"name": "Лозова",
+"place": "town",
+"pop": 71500,
+"region": ""
+},
+{
+"name": "Ковель",
+"place": "town",
+"pop": 68703,
+"region": ""
+},
+{
+"name": "Сміла",
+"place": "town",
+"pop": 68520,
+"region": ""
+},
+{
+"name": "Шептицький",
+"place": "town",
+"pop": 68308,
+"region": ""
+},
+{
+"name": "Феодосія",
+"place": "town",
+"pop": 67750,
+"region": ""
+},
+{
+"name": "Калуш",
+"place": "town",
+"pop": 67559,
+"region": ""
+},
+{
+"name": "Первомайськ",
+"place": "town",
+"pop": 66965,
+"region": ""
+},
+{
+"name": "Довжанськ",
+"place": "town",
+"pop": 65868,
+"region": ""
+},
+{
+"name": "Коростень",
+"place": "town",
+"pop": 65643,
+"region": ""
+},
+{
+"name": "Покровськ",
+"place": "town",
+"pop": 63635,
+"region": ""
+},
+{
+"name": "Коломия",
+"place": "town",
+"pop": 61286,
+"region": ""
+},
+{
+"name": "Рубіжне",
+"place": "town",
+"pop": 60721,
+"region": ""
+},
+{
+"name": "Дружківка",
+"place": "town",
+"pop": 60581,
+"region": ""
+},
+{
+"name": "Харцизьк",
+"place": "town",
+"pop": 60016,
+"region": ""
+},
+{
+"name": "Шахтарськ",
+"place": "town",
+"pop": 60000,
+"region": ""
+},
+{
+"name": "Стрий",
+"place": "town",
+"pop": 59488,
+"region": ""
+},
+{
+"name": "Чорноморськ",
+"place": "town",
+"pop": 59229,
+"region": ""
+},
+{
+"name": "Прилуки",
+"place": "town",
+"pop": 58890,
+"region": ""
+},
+{
+"name": "Куп’янськ",
+"place": "town",
+"pop": 58306,
+"region": ""
+},
+{
+"name": "Бориспіль",
+"place": "town",
+"pop": 58227,
+"region": ""
+},
+{
+"name": "Нововолинськ",
+"place": "town",
+"pop": 57900,
+"region": ""
+},
+{
+"name": "Звягель",
+"place": "town",
+"pop": 56254,
+"region": ""
+},
+{
+"name": "Чистякове",
+"place": "town",
+"pop": 55924,
+"region": ""
+},
+{
+"name": "Антрацит",
+"place": "town",
+"pop": 55441,
+"region": ""
+},
+{
+"name": "Енергодар",
+"place": "town",
+"pop": 54658,
+"region": ""
+},
+{
+"name": "Ізюм",
+"place": "town",
+"pop": 51872,
+"region": ""
+},
+{
+"name": "Горішні Плавні",
+"place": "town",
+"pop": 51800,
+"region": ""
+},
+{
+"name": "Фастів",
+"place": "town",
+"pop": 50517,
+"region": ""
+},
+{
+"name": "Білгород-Дністровський",
+"place": "town",
+"pop": 50296,
+"region": ""
+},
+{
+"name": "Мирноград",
+"place": "town",
+"pop": 49644,
+"region": ""
+},
+{
+"name": "Охтирка",
+"place": "town",
+"pop": 49091,
+"region": ""
+},
+{
+"name": "Марганець",
+"place": "town",
+"pop": 48739,
+"region": ""
+},
+{
+"name": "Жовті Води",
+"place": "town",
+"pop": 48620,
+"region": ""
+},
+{
+"name": "Брянка",
+"place": "town",
+"pop": 48509,
+"region": ""
+},
+{
+"name": "Нова Каховка",
+"place": "town",
+"pop": 48298,
+"region": ""
+},
+{
+"name": "Лубни",
+"place": "town",
+"pop": 47845,
+"region": ""
+},
+{
+"name": "Сніжне",
+"place": "town",
+"pop": 46377,
+"region": ""
+},
+{
+"name": "Шепетівка",
+"place": "town",
+"pop": 43512,
+"region": ""
+},
+{
+"name": "Ромни",
+"place": "town",
+"pop": 43344,
+"region": ""
+},
+{
+"name": "Вараш",
+"place": "town",
+"pop": 43302,
+"region": ""
+},
+{
+"name": "Світловодськ",
+"place": "town",
+"pop": 43130,
+"region": ""
+},
+{
+"name": "Покров",
+"place": "town",
+"pop": 41894,
+"region": ""
+},
+{
+"name": "Ірпінь",
+"place": "town",
+"pop": 41533,
+"region": ""
+},
+{
+"name": "Миргород",
+"place": "town",
+"pop": 41200,
+"region": ""
+},
+{
+"name": "Подільськ",
+"place": "town",
+"pop": 40668,
+"region": ""
+},
+{
+"name": "Південноукраїнськ",
+"place": "town",
+"pop": 40206,
+"region": ""
+},
+{
+"name": "Вишневе",
+"place": "town",
+"pop": 39094,
+"region": ""
+},
+{
+"name": "Сокологірськ",
+"place": "town",
+"pop": 38801,
+"region": ""
+},
+{
+"name": "Володимир",
+"place": "town",
+"pop": 38800,
+"region": ""
+},
+{
+"name": "Дубно",
+"place": "town",
+"pop": 38037,
+"region": ""
+},
+{
+"name": "Васильків",
+"place": "town",
+"pop": 37495,
+"region": ""
+},
+{
+"name": "Каховка",
+"place": "town",
+"pop": 37409,
+"region": ""
+},
+{
+"name": "Джанкой",
+"place": "town",
+"pop": 37014,
+"region": ""
+},
+{
+"name": "Нетішин",
+"place": "town",
+"pop": 36497,
+"region": ""
+},
+{
+"name": "Торецьк",
+"place": "town",
+"pop": 36324,
+"region": ""
+},
+{
+"name": "Ясинувата",
+"place": "town",
+"pop": 35856,
+"region": ""
+},
+{
+"name": "Глухів",
+"place": "town",
+"pop": 35800,
+"region": ""
+},
+{
+"name": "Боярка",
+"place": "town",
+"pop": 35558,
+"region": ""
+},
+{
+"name": "Жмеринка",
+"place": "town",
+"pop": 35513,
+"region": ""
+},
+{
+"name": "Славута",
+"place": "town",
+"pop": 35506,
+"region": ""
+},
+{
+"name": "Старокостянтинів",
+"place": "town",
+"pop": 35016,
+"region": ""
+},
+{
+"name": "Самбір",
+"place": "town",
+"pop": 34823,
+"region": ""
+},
+{
+"name": "Вознесенськ",
+"place": "town",
+"pop": 34404,
+"region": ""
+},
+{
+"name": "Токмак",
+"place": "town",
+"pop": 33153,
+"region": ""
+},
+{
+"name": "Борислав",
+"place": "town",
+"pop": 32913,
+"region": ""
+},
+{
+"name": "Обухів",
+"place": "town",
+"pop": 32615,
+"region": ""
+},
+{
+"name": "Могилів-Подільський",
+"place": "town",
+"pop": 32468,
+"region": ""
+},
+{
+"name": "Чугуїв",
+"place": "town",
+"pop": 32290,
+"region": ""
+},
+{
+"name": "Балаклія",
+"place": "town",
+"pop": 32117,
+"region": ""
+},
+{
+"name": "Добропілля",
+"place": "town",
+"pop": 31701,
+"region": ""
+},
+{
+"name": "Синельникове",
+"place": "town",
+"pop": 31552,
+"region": ""
+},
+{
+"name": "Златопіль",
+"place": "town",
+"pop": 31275,
+"region": ""
+},
+{
+"name": "Костопіль",
+"place": "town",
+"pop": 31159,
+"region": ""
+},
+{
+"name": "Новояворівськ",
+"place": "town",
+"pop": 30271,
+"region": ""
+},
+{
+"name": "Яни Капу",
+"place": "town",
+"pop": 30033,
+"region": ""
+},
+{
+"name": "Шахтарське",
+"place": "town",
+"pop": 29173,
+"region": ""
+},
+{
+"name": "Тернівка",
+"place": "town",
+"pop": 29066,
+"region": ""
+},
+{
+"name": "Алушта",
+"place": "town",
+"pop": 28672,
+"region": ""
+},
+{
+"name": "Сарни",
+"place": "town",
+"pop": 28604,
+"region": ""
+},
+{
+"name": "Новий Розділ",
+"place": "town",
+"pop": 28530,
+"region": ""
+},
+{
+"name": "Трускавець",
+"place": "town",
+"pop": 28474,
+"region": ""
+},
+{
+"name": "Золотоноша",
+"place": "town",
+"pop": 28464,
+"region": ""
+},
+{
+"name": "Хуст",
+"place": "town",
+"pop": 28438,
+"region": ""
+},
+{
+"name": "Хмільник",
+"place": "town",
+"pop": 28273,
+"region": ""
+},
+{
+"name": "Чортків",
+"place": "town",
+"pop": 28249,
+"region": ""
+},
+{
+"name": "Переяслав",
+"place": "town",
+"pop": 27975,
+"region": ""
+},
+{
+"name": "Берестин",
+"place": "town",
+"pop": 27600,
+"region": ""
+},
+{
+"name": "Буча",
+"place": "town",
+"pop": 27460,
+"region": ""
+},
+{
+"name": "Вишгород",
+"place": "town",
+"pop": 27251,
+"region": ""
+},
+{
+"name": "Хрестівка",
+"place": "town",
+"pop": 27016,
+"region": ""
+},
+{
+"name": "Малин",
+"place": "town",
+"pop": 27010,
+"region": ""
+},
+{
+"name": "Дебальцеве",
+"place": "town",
+"pop": 26255,
+"region": ""
+},
+{
+"name": "Лебедин",
+"place": "town",
+"pop": 26244,
+"region": ""
+},
+{
+"name": "Бахчисарай",
+"place": "town",
+"pop": 26215,
+"region": ""
+},
+{
+"name": "Перевальськ",
+"place": "town",
+"pop": 26132,
+"region": ""
+},
+{
+"name": "Коростишів",
+"place": "town",
+"pop": 25768,
+"region": ""
+},
+{
+"name": "Гайсин",
+"place": "town",
+"pop": 25711,
+"region": ""
+},
+{
+"name": "Люботин",
+"place": "town",
+"pop": 25700,
+"region": ""
+},
+{
+"name": "Виноградів",
+"place": "town",
+"pop": 25481,
+"region": ""
+},
+{
+"name": "Козятин",
+"place": "town",
+"pop": 25386,
+"region": ""
+},
+{
+"name": "Сокаль",
+"place": "town",
+"pop": 25145,
+"region": ""
+},
+{
+"name": "Мерефа",
+"place": "town",
+"pop": 25135,
+"region": ""
+},
+{
+"name": "Олешки",
+"place": "town",
+"pop": 24639,
+"region": ""
+},
+{
+"name": "Берегове",
+"place": "town",
+"pop": 24580,
+"region": ""
+},
+{
+"name": "Здолбунів",
+"place": "town",
+"pop": 24537,
+"region": ""
+},
+{
+"name": "Славутич",
+"place": "town",
+"pop": 24492,
+"region": ""
+},
+{
+"name": "Селидове",
+"place": "town",
+"pop": 24366,
+"region": ""
+},
+{
+"name": "Знам’янка",
+"place": "town",
+"pop": 24274,
+"region": ""
+},
+{
+"name": "Саки",
+"place": "town",
+"pop": 24156,
+"region": ""
+},
+{
+"name": "Канів",
+"place": "town",
+"pop": 23835,
+"region": ""
+},
+{
+"name": "Вільногірськ",
+"place": "town",
+"pop": 23795,
+"region": ""
+},
+{
+"name": "Гадяч",
+"place": "town",
+"pop": 23790,
+"region": ""
+},
+{
+"name": "Броди",
+"place": "town",
+"pop": 23752,
+"region": ""
+},
+{
+"name": "Докучаєвськ",
+"place": "town",
+"pop": 23726,
+"region": ""
+},
+{
+"name": "Кролевець",
+"place": "town",
+"pop": 23685,
+"region": ""
+},
+{
+"name": "Отаманівка",
+"place": "town",
+"pop": 23580,
+"region": ""
+},
+{
+"name": "Волноваха",
+"place": "town",
+"pop": 23442,
+"region": ""
+},
+{
+"name": "Лиман",
+"place": "town",
+"pop": 23307,
+"region": ""
+},
+{
+"name": "Балаклава",
+"place": "town",
+"pop": 22620,
+"region": ""
+},
+{
+"name": "Ладижин",
+"place": "town",
+"pop": 22459,
+"region": ""
+},
+{
+"name": "Попасна",
+"place": "town",
+"pop": 22211,
+"region": ""
+},
+{
+"name": "Полонне",
+"place": "town",
+"pop": 21999,
+"region": ""
+},
+{
+"name": "Надвірна",
+"place": "town",
+"pop": 21930,
+"region": ""
+},
+{
+"name": "Кременець",
+"place": "town",
+"pop": 21624,
+"region": ""
+},
+{
+"name": "Тростянець",
+"place": "town",
+"pop": 21583,
+"region": ""
+},
+{
+"name": "Суходільськ",
+"place": "town",
+"pop": 21324,
+"region": ""
+},
+{
+"name": "Кілія",
+"place": "town",
+"pop": 20829,
+"region": ""
+},
+{
+"name": "Ківшарівка",
+"place": "town",
+"pop": 20729,
+"region": ""
+},
+{
+"name": "Армянськ",
+"place": "town",
+"pop": 20692,
+"region": ""
+},
+{
+"name": "Яготин",
+"place": "town",
+"pop": 20569,
+"region": ""
+},
+{
+"name": "Долина",
+"place": "town",
+"pop": 20453,
+"region": ""
+},
+{
+"name": "Стебник",
+"place": "town",
+"pop": 20398,
+"region": ""
+},
+{
+"name": "Курахове",
+"place": "town",
+"pop": 20224,
+"region": ""
+},
+{
+"name": "Пологи",
+"place": "town",
+"pop": 20223,
+"region": ""
+},
+{
+"name": "Дергачі",
+"place": "town",
+"pop": 20196,
+"region": ""
+},
+{
+"name": "Кремінна",
+"place": "town",
+"pop": 20137,
+"region": ""
+},
+{
+"name": "Красилів",
+"place": "town",
+"pop": 19761,
+"region": ""
+},
+{
+"name": "Волочиськ",
+"place": "town",
+"pop": 19723,
+"region": ""
+},
+{
+"name": "Дніпрорудне",
+"place": "town",
+"pop": 19720,
+"region": ""
+},
+{
+"name": "Рені",
+"place": "town",
+"pop": 19488,
+"region": ""
+},
+{
+"name": "Богодухів",
+"place": "town",
+"pop": 19365,
+"region": ""
+},
+{
+"name": "Балта",
+"place": "town",
+"pop": 19353,
+"region": ""
+},
+{
+"name": "Долинська",
+"place": "town",
+"pop": 19319,
+"region": ""
+},
+{
+"name": "Генічеськ",
+"place": "town",
+"pop": 19253,
+"region": ""
+},
+{
+"name": "Амвросіївка",
+"place": "town",
+"pop": 19238,
+"region": ""
+},
+{
+"name": "Білопілля",
+"place": "town",
+"pop": 19200,
+"region": ""
+},
+{
+"name": "Скадовськ",
+"place": "town",
+"pop": 19073,
+"region": ""
+},
+{
+"name": "П’ятихатки",
+"place": "town",
+"pop": 18981,
+"region": ""
+},
+{
+"name": "Бахмач",
+"place": "town",
+"pop": 18798,
+"region": ""
+},
+{
+"name": "Старобільськ",
+"place": "town",
+"pop": 18796,
+"region": ""
+},
+{
+"name": "Вовчанськ",
+"place": "town",
+"pop": 18617,
+"region": ""
+},
+{
+"name": "Зугрес",
+"place": "town",
+"pop": 18554,
+"region": ""
+},
+{
+"name": "Сватове",
+"place": "town",
+"pop": 18417,
+"region": ""
+},
+{
+"name": "Корсунь-Шевченківський",
+"place": "town",
+"pop": 18266,
+"region": ""
+},
+{
+"name": "Звенигородка",
+"place": "town",
+"pop": 18219,
+"region": ""
+},
+{
+"name": "Білогірськ",
+"place": "town",
+"pop": 18208,
+"region": ""
+},
+{
+"name": "Бережани",
+"place": "town",
+"pop": 18116,
+"region": ""
+},
+{
+"name": "Шпола",
+"place": "town",
+"pop": 18112,
+"region": ""
+},
+{
+"name": "Лутугине",
+"place": "town",
+"pop": 18107,
+"region": ""
+},
+{
+"name": "Сквира",
+"place": "town",
+"pop": 18000,
+"region": ""
+},
+{
+"name": "Новоукраїнка",
+"place": "town",
+"pop": 17945,
+"region": ""
+},
+{
+"name": "Пелагіївка",
+"place": "town",
+"pop": 17891,
+"region": ""
+},
+{
+"name": "Карлівка",
+"place": "town",
+"pop": 17849,
+"region": ""
+},
+{
+"name": "Багачеве",
+"place": "town",
+"pop": 17805,
+"region": ""
+},
+{
+"name": "Пісочин",
+"place": "town",
+"pop": 17801,
+"region": ""
+},
+{
+"name": "Підгороднє",
+"place": "town",
+"pop": 17778,
+"region": ""
+},
+{
+"name": "Винники",
+"place": "town",
+"pop": 17642,
+"region": ""
+},
+{
+"name": "Роздільна",
+"place": "town",
+"pop": 17593,
+"region": ""
+},
+{
+"name": "Новогродівка",
+"place": "town",
+"pop": 17473,
+"region": ""
+},
+{
+"name": "Кобеляки",
+"place": "town",
+"pop": 17350,
+"region": ""
+},
+{
+"name": "Ізяслав",
+"place": "town",
+"pop": 17203,
+"region": ""
+},
+{
+"name": "Зміїв",
+"place": "town",
+"pop": 16976,
+"region": ""
+},
+{
+"name": "Свалява",
+"place": "town",
+"pop": 16871,
+"region": ""
+},
+{
+"name": "Богуслав",
+"place": "town",
+"pop": 16810,
+"region": ""
+},
+{
+"name": "Катеринівка",
+"place": "town",
+"pop": 16723,
+"region": ""
+},
+{
+"name": "Овруч",
+"place": "town",
+"pop": 16681,
+"region": ""
+},
+{
+"name": "Верхньодніпровськ",
+"place": "town",
+"pop": 16680,
+"region": ""
+},
+{
+"name": "Пирятин",
+"place": "town",
+"pop": 16600,
+"region": ""
+},
+{
+"name": "Березань",
+"place": "town",
+"pop": 16559,
+"region": ""
+},
+{
+"name": "Путивль",
+"place": "town",
+"pop": 16361,
+"region": ""
+},
+{
+"name": "Білозерське",
+"place": "town",
+"pop": 16251,
+"region": ""
+},
+{
+"name": "Дунаївці",
+"place": "town",
+"pop": 16147,
+"region": ""
+},
+{
+"name": "Іловайськ",
+"place": "town",
+"pop": 16143,
+"region": ""
+},
+{
+"name": "Красногорівка",
+"place": "town",
+"pop": 16003,
+"region": ""
+},
+{
+"name": "Вільнянськ",
+"place": "town",
+"pop": 15901,
+"region": ""
+},
+{
+"name": "Миколаївка",
+"place": "town",
+"pop": 15847,
+"region": ""
+},
+{
+"name": "Вознесенівка",
+"place": "town",
+"pop": 15843,
+"region": ""
+},
+{
+"name": "Городок",
+"place": "town",
+"pop": 15825,
+"region": ""
+},
+{
+"name": "Слобожанське",
+"place": "town",
+"pop": 15825,
+"region": ""
+},
+{
+"name": "Новий Буг",
+"place": "town",
+"pop": 15686,
+"region": ""
+},
+{
+"name": "Тульчин",
+"place": "town",
+"pop": 15631,
+"region": ""
+},
+{
+"name": "Бар",
+"place": "town",
+"pop": 15563,
+"region": ""
+},
+{
+"name": "Оріхів",
+"place": "town",
+"pop": 15544,
+"region": ""
+},
+{
+"name": "Острог",
+"place": "town",
+"pop": 15528,
+"region": ""
+},
+{
+"name": "Вугледар",
+"place": "town",
+"pop": 15486,
+"region": ""
+},
+{
+"name": "Болград",
+"place": "town",
+"pop": 15479,
+"region": ""
+},
+{
+"name": "Бурштин",
+"place": "town",
+"pop": 15348,
+"region": ""
+},
+{
+"name": "Українка",
+"place": "town",
+"pop": 15338,
+"region": ""
+},
+{
+"name": "Судак",
+"place": "town",
+"pop": 15300,
+"region": ""
+},
+{
+"name": "Арциз",
+"place": "town",
+"pop": 15229,
+"region": ""
+},
+{
+"name": "Гайворон",
+"place": "town",
+"pop": 15214,
+"region": ""
+},
+{
+"name": "Рахів",
+"place": "town",
+"pop": 15137,
+"region": ""
+},
+{
+"name": "Коцюбинське",
+"place": "town",
+"pop": 15038,
+"region": ""
+},
+{
+"name": "Радомишль",
+"place": "town",
+"pop": 15003,
+"region": ""
+},
+{
+"name": "Золоте",
+"place": "town",
+"pop": 14974,
+"region": ""
+},
+{
+"name": "Ківерці",
+"place": "town",
+"pop": 14916,
+"region": "Волинська"
+},
+{
+"name": "Приморський",
+"place": "town",
+"pop": 14860,
+"region": ""
+},
+{
+"name": "Очаків",
+"place": "town",
+"pop": 14834,
+"region": ""
+},
+{
+"name": "Корюківка",
+"place": "town",
+"pop": 14805,
+"region": ""
+},
+{
+"name": "Гола Пристань",
+"place": "town",
+"pop": 14755,
+"region": ""
+},
+{
+"name": "Хорол",
+"place": "town",
+"pop": 14643,
+"region": ""
+},
+{
+"name": "Бунге",
+"place": "town",
+"pop": 14570,
+"region": ""
+},
+{
+"name": "Гуляйполе",
+"place": "town",
+"pop": 14556,
+"region": ""
+},
+{
+"name": "Апостолове",
+"place": "town",
+"pop": 14513,
+"region": ""
+},
+{
+"name": "Сторожинець",
+"place": "town",
+"pop": 14508,
+"region": ""
+},
+{
+"name": "Городище",
+"place": "town",
+"pop": 14480,
+"region": ""
+},
+{
+"name": "Чигирин",
+"place": "town",
+"pop": 14440,
+"region": ""
+},
+{
+"name": "Тальне",
+"place": "town",
+"pop": 14420,
+"region": ""
+},
+{
+"name": "Деражня",
+"place": "town",
+"pop": 14381,
+"region": ""
+},
+{
+"name": "Жашків",
+"place": "town",
+"pop": 14368,
+"region": ""
+},
+{
+"name": "Часів Яр",
+"place": "town",
+"pop": 14360,
+"region": ""
+},
+{
+"name": "Гостомель",
+"place": "town",
+"pop": 14268,
+"region": ""
+},
+{
+"name": "Носівка",
+"place": "town",
+"pop": 14185,
+"region": ""
+},
+{
+"name": "Василівка",
+"place": "town",
+"pop": 14134,
+"region": ""
+},
+{
+"name": "Зеленодольськ",
+"place": "town",
+"pop": 14134,
+"region": ""
+},
+{
+"name": "Високий",
+"place": "town",
+"pop": 14107,
+"region": ""
+},
+{
+"name": "Новгород-Сіверський",
+"place": "town",
+"pop": 14025,
+"region": ""
+},
+{
+"name": "Нижня Кринка",
+"place": "town",
+"pop": 13956,
+"region": ""
+},
+{
+"name": "Збараж",
+"place": "town",
+"pop": 13915,
+"region": ""
+},
+{
+"name": "Жовква",
+"place": "town",
+"pop": 13852,
+"region": ""
+},
+{
+"name": "Теребовля",
+"place": "town",
+"pop": 13769,
+"region": ""
+},
+{
+"name": "Кагарлик",
+"place": "town",
+"pop": 13682,
+"region": ""
+},
+{
+"name": "Кам’янка-Дніпровська",
+"place": "town",
+"pop": 13653,
+"region": ""
+},
+{
+"name": "Нова Водолага",
+"place": "town",
+"pop": 13538,
+"region": ""
+},
+{
+"name": "Петрово-Красносілля",
+"place": "town",
+"pop": 13500,
+"region": ""
+},
+{
+"name": "Берислав",
+"place": "town",
+"pop": 13457,
+"region": ""
+},
+{
+"name": "Ширяєве",
+"place": "town",
+"pop": 13455,
+"region": ""
+},
+{
+"name": "Снігурівка",
+"place": "town",
+"pop": 13454,
+"region": ""
+},
+{
+"name": "Рожище",
+"place": "town",
+"pop": 13441,
+"region": ""
+},
+{
+"name": "Березне",
+"place": "town",
+"pop": 13390,
+"region": ""
+},
+{
+"name": "Тетіїв",
+"place": "town",
+"pop": 13235,
+"region": ""
+},
+{
+"name": "Бершадь",
+"place": "town",
+"pop": 13223,
+"region": ""
+},
+{
+"name": "Солоницівка",
+"place": "town",
+"pop": 13153,
+"region": ""
+},
+{
+"name": "Щастя",
+"place": "town",
+"pop": 13105,
+"region": ""
+},
+{
+"name": "Станиця Луганська",
+"place": "town",
+"pop": 13089,
+"region": ""
+},
+{
+"name": "Лиманка",
+"place": "town",
+"pop": 13085,
+"region": ""
+},
+{
+"name": "Великодолинське",
+"place": "town",
+"pop": 13036,
+"region": ""
+},
+{
+"name": "Жданівка",
+"place": "town",
+"pop": 12985,
+"region": ""
+},
+{
+"name": "Бородянка",
+"place": "town",
+"pop": 12980,
+"region": ""
+},
+{
+"name": "Кам’янка",
+"place": "town",
+"pop": 12956,
+"region": ""
+},
+{
+"name": "Яворів",
+"place": "town",
+"pop": 12948,
+"region": ""
+},
+{
+"name": "Глобине",
+"place": "town",
+"pop": 12801,
+"region": ""
+},
+{
+"name": "Антонівка",
+"place": "town",
+"pop": 12790,
+"region": ""
+},
+{
+"name": "Городня",
+"place": "town",
+"pop": 12766,
+"region": ""
+},
+{
+"name": "Баштанка",
+"place": "town",
+"pop": 12696,
+"region": ""
+},
+{
+"name": "Гвардійське",
+"place": "town",
+"pop": 12660,
+"region": ""
+},
+{
+"name": "Гнівань",
+"place": "town",
+"pop": 12592,
+"region": ""
+},
+{
+"name": "Бучач",
+"place": "town",
+"pop": 12514,
+"region": ""
+},
+{
+"name": "Перегінське",
+"place": "town",
+"pop": 12486,
+"region": ""
+},
+{
+"name": "Мена",
+"place": "town",
+"pop": 12425,
+"region": ""
+},
+{
+"name": "Нова Одеса",
+"place": "town",
+"pop": 12410,
+"region": ""
+},
+{
+"name": "Сіверськ",
+"place": "town",
+"pop": 12392,
+"region": ""
+},
+{
+"name": "Лохвиця",
+"place": "town",
+"pop": 12307,
+"region": ""
+},
+{
+"name": "Котельва",
+"place": "town",
+"pop": 12300,
+"region": ""
+},
+{
+"name": "Світлодарськ",
+"place": "town",
+"pop": 12273,
+"region": ""
+},
+{
+"name": "Біляївка",
+"place": "town",
+"pop": 12213,
+"region": ""
+},
+{
+"name": "Боково-Хрустальне",
+"place": "town",
+"pop": 12197,
+"region": ""
+},
+{
+"name": "Приморськ",
+"place": "town",
+"pop": 12183,
+"region": ""
+},
+{
+"name": "Узин",
+"place": "town",
+"pop": 12166,
+"region": ""
+},
+{
+"name": "Українськ",
+"place": "town",
+"pop": 12161,
+"region": ""
+},
+{
+"name": "Заставна",
+"place": "town",
+"pop": 12159,
+"region": ""
+},
+{
+"name": "Баранівка",
+"place": "town",
+"pop": 12128,
+"region": ""
+},
+{
+"name": "Якимівка",
+"place": "town",
+"pop": 12001,
+"region": ""
+},
+{
+"name": "Миронівка",
+"place": "town",
+"pop": 11999,
+"region": ""
+},
+{
+"name": "Родинське",
+"place": "town",
+"pop": 11996,
+"region": ""
+},
+{
+"name": "Новоазовськ",
+"place": "town",
+"pop": 11950,
+"region": ""
+},
+{
+"name": "Інкерман",
+"place": "town",
+"pop": 11918,
+"region": ""
+},
+{
+"name": "Кальміуське",
+"place": "town",
+"pop": 11909,
+"region": ""
+},
+{
+"name": "Соледар",
+"place": "town",
+"pop": 11898,
+"region": ""
+},
+{
+"name": "Васильківка",
+"place": "town",
+"pop": 11885,
+"region": ""
+},
+{
+"name": "Гірник",
+"place": "town",
+"pop": 11822,
+"region": ""
+},
+{
+"name": "Ічня",
+"place": "town",
+"pop": 11781,
+"region": ""
+},
+{
+"name": "Камінь-Каширський",
+"place": "town",
+"pop": 11756,
+"region": ""
+},
+{
+"name": "Овідіополь",
+"place": "town",
+"pop": 11741,
+"region": ""
+},
+{
+"name": "Новомиргород",
+"place": "town",
+"pop": 11677,
+"region": ""
+},
+{
+"name": "Покровське",
+"place": "town",
+"pop": 11661,
+"region": ""
+},
+{
+"name": "Соснівка",
+"place": "town",
+"pop": 11588,
+"region": ""
+},
+{
+"name": "Тараща",
+"place": "town",
+"pop": 11572,
+"region": ""
+},
+{
+"name": "Гребінка",
+"place": "town",
+"pop": 11562,
+"region": ""
+},
+{
+"name": "Октябрське",
+"place": "town",
+"pop": 11489,
+"region": ""
+},
+{
+"name": "Сновськ",
+"place": "town",
+"pop": 11393,
+"region": ""
+},
+{
+"name": "Іллінці",
+"place": "town",
+"pop": 11340,
+"region": ""
+},
+{
+"name": "Гаспра",
+"place": "town",
+"pop": 11313,
+"region": ""
+},
+{
+"name": "Борщів",
+"place": "town",
+"pop": 11273,
+"region": ""
+},
+{
+"name": "Мала Виска",
+"place": "town",
+"pop": 11269,
+"region": ""
+},
+{
+"name": "Бобровиця",
+"place": "town",
+"pop": 11244,
+"region": ""
+},
+{
+"name": "Щолкіне",
+"place": "town",
+"pop": 11231,
+"region": ""
+},
+{
+"name": "Жидачів",
+"place": "town",
+"pop": 11204,
+"region": ""
+},
+{
+"name": "Гресівський",
+"place": "town",
+"pop": 11139,
+"region": ""
+},
+{
+"name": "Веселе",
+"place": "town",
+"pop": 11098,
+"region": ""
+},
+{
+"name": "Таврійськ",
+"place": "town",
+"pop": 11051,
+"region": ""
+},
+{
+"name": "Мостиська",
+"place": "town",
+"pop": 11000,
+"region": ""
+},
+{
+"name": "Баришівка",
+"place": "town",
+"pop": 10950,
+"region": ""
+},
+{
+"name": "Нью-Йорк",
+"place": "town",
+"pop": 10948,
+"region": ""
+},
+{
+"name": "Бобринець",
+"place": "town",
+"pop": 10945,
+"region": ""
+},
+{
+"name": "Кам’янка-Бузька",
+"place": "town",
+"pop": 10921,
+"region": ""
+},
+{
+"name": "Татарбунари",
+"place": "town",
+"pop": 10881,
+"region": ""
+},
+{
+"name": "Дубляни",
+"place": "town",
+"pop": 10795,
+"region": ""
+},
+{
+"name": "Сартана",
+"place": "town",
+"pop": 10772,
+"region": ""
+},
+{
+"name": "Болехів",
+"place": "town",
+"pop": 10766,
+"region": ""
+},
+{
+"name": "Моспине",
+"place": "town",
+"pop": 10753,
+"region": ""
+},
+{
+"name": "Красногвардійське",
+"place": "town",
+"pop": 10742,
+"region": ""
+},
+{
+"name": "Новодністровськ",
+"place": "town",
+"pop": 10701,
+"region": ""
+},
+{
+"name": "Барвінкове",
+"place": "town",
+"pop": 10700,
+"region": ""
+},
+{
+"name": "Іванків",
+"place": "town",
+"pop": 10602,
+"region": ""
+},
+{
+"name": "Летичів",
+"place": "town",
+"pop": 10577,
+"region": ""
+},
+{
+"name": "Маневичі",
+"place": "town",
+"pop": 10500,
+"region": ""
+},
+{
+"name": "Радивилів",
+"place": "town",
+"pop": 10487,
+"region": ""
+},
+{
+"name": "Добротвір",
+"place": "town",
+"pop": 10457,
+"region": ""
+},
+{
+"name": "Зіньків",
+"place": "town",
+"pop": 10393,
+"region": ""
+},
+{
+"name": "Макарів",
+"place": "town",
+"pop": 10389,
+"region": ""
+},
+{
+"name": "Ірміно",
+"place": "town",
+"pop": 10355,
+"region": ""
+},
+{
+"name": "Північне",
+"place": "town",
+"pop": 10330,
+"region": ""
+},
+{
+"name": "Гірське",
+"place": "town",
+"pop": 10317,
+"region": ""
+},
+{
+"name": "Валки",
+"place": "town",
+"pop": 10295,
+"region": ""
+},
+{
+"name": "Олевськ",
+"place": "town",
+"pop": 10229,
+"region": ""
+},
+{
+"name": "Снятин",
+"place": "town",
+"pop": 10161,
+"region": ""
+},
+{
+"name": "Перещепине",
+"place": "town",
+"pop": 10150,
+"region": ""
+},
+{
+"name": "Зимогір’я",
+"place": "town",
+"pop": 10148,
+"region": ""
+},
+{
+"name": "Верхівцеве",
+"place": "town",
+"pop": 10134,
+"region": ""
+},
+{
+"name": "Любомль",
+"place": "town",
+"pop": 10129,
+"region": ""
+},
+{
+"name": "Теплодар",
+"place": "town",
+"pop": 10081,
+"region": ""
+},
+{
+"name": "Новоолексіївка",
+"place": "town",
+"pop": 10080,
+"region": ""
+},
+{
+"name": "Чаплинка",
+"place": "town",
+"pop": 10021,
+"region": ""
+},
+{
+"name": "Погребище",
+"place": "town",
+"pop": 10013,
+"region": ""
+},
+{
+"name": "Софіївка",
+"place": "town",
+"pop": 10013,
+"region": ""
+},
+{
+"name": "Ічкі",
+"place": "town",
+"pop": 9947,
+"region": ""
+},
+{
+"name": "Айдар",
+"place": "town",
+"pop": 9900,
+"region": ""
+},
+{
+"name": "Ходорів",
+"place": "town",
+"pop": 9900,
+"region": ""
+},
+{
+"name": "Донець",
+"place": "town",
+"pop": 9883,
+"region": ""
+},
+{
+"name": "Сєверне",
+"place": "town",
+"pop": 9868,
+"region": ""
+},
+{
+"name": "Золочів",
+"place": "town",
+"pop": 9860,
+"region": ""
+},
+{
+"name": "Білозерка",
+"place": "town",
+"pop": 9804,
+"region": ""
+},
+{
+"name": "Ворожба",
+"place": "town",
+"pop": 9800,
+"region": ""
+},
+{
+"name": "Куп’янськ-Вузловий",
+"place": "town",
+"pop": 9789,
+"region": ""
+},
+{
+"name": "Смоліне",
+"place": "town",
+"pop": 9745,
+"region": ""
+},
+{
+"name": "Красноїльськ",
+"place": "town",
+"pop": 9738,
+"region": ""
+},
+{
+"name": "Черняхів",
+"place": "town",
+"pop": 9726,
+"region": ""
+},
+{
+"name": "Безлюдівка",
+"place": "town",
+"pop": 9693,
+"region": ""
+},
+{
+"name": "Тисмениця",
+"place": "town",
+"pop": 9618,
+"region": ""
+},
+{
+"name": "Дубове",
+"place": "town",
+"pop": 9591,
+"region": ""
+},
+{
+"name": "Велика Димерка",
+"place": "town",
+"pop": 9564,
+"region": ""
+},
+{
+"name": "Млинів",
+"place": "town",
+"pop": 9564,
+"region": ""
+},
+{
+"name": "Нижньогірський",
+"place": "town",
+"pop": 9564,
+"region": ""
+},
+{
+"name": "Біленьке",
+"place": "town",
+"pop": 9551,
+"region": ""
+},
+{
+"name": "Міжгір’я",
+"place": "town",
+"pop": 9549,
+"region": ""
+},
+{
+"name": "Сокиряни",
+"place": "town",
+"pop": 9538,
+"region": ""
+},
+{
+"name": "Покотилівка",
+"place": "town",
+"pop": 9536,
+"region": ""
+},
+{
+"name": "Каланчак",
+"place": "town",
+"pop": 9518,
+"region": ""
+},
+{
+"name": "Ратне",
+"place": "town",
+"pop": 9483,
+"region": ""
+},
+{
+"name": "Радехів",
+"place": "town",
+"pop": 9463,
+"region": ""
+},
+{
+"name": "Борзна",
+"place": "town",
+"pop": 9454,
+"region": ""
+},
+{
+"name": "Дубровиця",
+"place": "town",
+"pop": 9430,
+"region": ""
+},
+{
+"name": "Любашівка",
+"place": "town",
+"pop": 9429,
+"region": ""
+},
+{
+"name": "Городенка",
+"place": "town",
+"pop": 9428,
+"region": ""
+},
+{
+"name": "Заліщики",
+"place": "town",
+"pop": 9426,
+"region": ""
+},
+{
+"name": "Хотин",
+"place": "town",
+"pop": 9422,
+"region": ""
+},
+{
+"name": "Козова",
+"place": "town",
+"pop": 9389,
+"region": ""
+},
+{
+"name": "Глибока",
+"place": "town",
+"pop": 9376,
+"region": ""
+},
+{
+"name": "Великий Бичків",
+"place": "town",
+"pop": 9367,
+"region": ""
+},
+{
+"name": "Ананьїв",
+"place": "town",
+"pop": 9355,
+"region": ""
+},
+{
+"name": "Новий Світ",
+"place": "town",
+"pop": 9329,
+"region": ""
+},
+{
+"name": "Решетилівка",
+"place": "town",
+"pop": 9297,
+"region": ""
+},
+{
+"name": "Тячів",
+"place": "town",
+"pop": 9184,
+"region": ""
+},
+{
+"name": "Іршава",
+"place": "town",
+"pop": 9166,
+"region": ""
+},
+{
+"name": "Андрушівка",
+"place": "town",
+"pop": 9092,
+"region": ""
+},
+{
+"name": "Гурзуф",
+"place": "town",
+"pop": 9068,
+"region": ""
+},
+{
+"name": "Крижопіль",
+"place": "town",
+"pop": 9024,
+"region": ""
+},
+{
+"name": "Ясенівський",
+"place": "town",
+"pop": 9017,
+"region": ""
+},
+{
+"name": "Пустомити",
+"place": "town",
+"pop": 9016,
+"region": ""
+},
+{
+"name": "Королево",
+"place": "town",
+"pop": 8993,
+"region": ""
+},
+{
+"name": "Чоп",
+"place": "town",
+"pop": 8981,
+"region": ""
+},
+{
+"name": "Солотвино",
+"place": "town",
+"pop": 8977,
+"region": ""
+},
+{
+"name": "Успенка",
+"place": "town",
+"pop": 8974,
+"region": ""
+},
+{
+"name": "Кодима",
+"place": "town",
+"pop": 8932,
+"region": ""
+},
+{
+"name": "Краснопілля",
+"place": "town",
+"pop": 8905,
+"region": ""
+},
+{
+"name": "Стрижавка",
+"place": "town",
+"pop": 8869,
+"region": ""
+},
+{
+"name": "Липовець",
+"place": "town",
+"pop": 8867,
+"region": ""
+},
+{
+"name": "Володимирець",
+"place": "town",
+"pop": 8857,
+"region": ""
+},
+{
+"name": "Тлумач",
+"place": "town",
+"pop": 8841,
+"region": ""
+},
+{
+"name": "Буринь",
+"place": "town",
+"pop": 8787,
+"region": ""
+},
+{
+"name": "Білицьке",
+"place": "town",
+"pop": 8768,
+"region": ""
+},
+{
+"name": "Заводське",
+"place": "town",
+"pop": 8700,
+"region": ""
+},
+{
+"name": "Ланівці",
+"place": "town",
+"pop": 8682,
+"region": ""
+},
+{
+"name": "Глеваха",
+"place": "town",
+"pop": 8679,
+"region": ""
+},
+{
+"name": "Христинівка",
+"place": "town",
+"pop": 8671,
+"region": ""
+},
+{
+"name": "Врадіївка",
+"place": "town",
+"pop": 8669,
+"region": ""
+},
+{
+"name": "Нове",
+"place": "town",
+"pop": 8653,
+"region": ""
+},
+{
+"name": "Буштино",
+"place": "town",
+"pop": 8634,
+"region": ""
+},
+{
+"name": "Сахновщина",
+"place": "town",
+"pop": 8625,
+"region": ""
+},
+{
+"name": "Новоайдар",
+"place": "town",
+"pop": 8622,
+"region": ""
+},
+{
+"name": "Помічна",
+"place": "town",
+"pop": 8608,
+"region": ""
+},
+{
+"name": "Любимівка",
+"place": "town",
+"pop": 8599,
+"region": ""
+},
+{
+"name": "Маньківка",
+"place": "town",
+"pop": 8596,
+"region": ""
+},
+{
+"name": "Вилкове",
+"place": "town",
+"pop": 8570,
+"region": ""
+},
+{
+"name": "Микільське",
+"place": "town",
+"pop": 8539,
+"region": ""
+},
+{
+"name": "Варва",
+"place": "town",
+"pop": 8518,
+"region": ""
+},
+{
+"name": "Алупка",
+"place": "town",
+"pop": 8497,
+"region": ""
+},
+{
+"name": "Яворницьке",
+"place": "town",
+"pop": 8495,
+"region": ""
+},
+{
+"name": "Диканька",
+"place": "town",
+"pop": 8468,
+"region": ""
+},
+{
+"name": "Косів",
+"place": "town",
+"pop": 8456,
+"region": ""
+},
+{
+"name": "Семенівка",
+"place": "town",
+"pop": 8450,
+"region": ""
+},
+{
+"name": "Горохів",
+"place": "town",
+"pop": 8444,
+"region": ""
+},
+{
+"name": "Монастирище",
+"place": "town",
+"pop": 8425,
+"region": ""
+},
+{
+"name": "Масандра",
+"place": "town",
+"pop": 8413,
+"region": ""
+},
+{
+"name": "Буськ",
+"place": "town",
+"pop": 8355,
+"region": ""
+},
+{
+"name": "Мангуш",
+"place": "town",
+"pop": 8331,
+"region": ""
+},
+{
+"name": "Рава-Руська",
+"place": "town",
+"pop": 8328,
+"region": ""
+},
+{
+"name": "Біловодськ",
+"place": "town",
+"pop": 8313,
+"region": ""
+},
+{
+"name": "Вишково",
+"place": "town",
+"pop": 8312,
+"region": ""
+},
+{
+"name": "Ясногірка",
+"place": "town",
+"pop": 8312,
+"region": ""
+},
+{
+"name": "Ясіня",
+"place": "town",
+"pop": 8308,
+"region": ""
+},
+{
+"name": "Борова",
+"place": "town",
+"pop": 8300,
+"region": ""
+},
+{
+"name": "Обухівка",
+"place": "town",
+"pop": 8266,
+"region": ""
+},
+{
+"name": "Козелець",
+"place": "town",
+"pop": 8251,
+"region": ""
+},
+{
+"name": "Вуглегірськ",
+"place": "town",
+"pop": 8226,
+"region": ""
+},
+{
+"name": "Лисянка",
+"place": "town",
+"pop": 8206,
+"region": ""
+},
+{
+"name": "Делятин",
+"place": "town",
+"pop": 8184,
+"region": ""
+},
+{
+"name": "Кушугум",
+"place": "town",
+"pop": 8176,
+"region": ""
+},
+{
+"name": "Нові Санжари",
+"place": "town",
+"pop": 8146,
+"region": ""
+},
+{
+"name": "Квасилів",
+"place": "town",
+"pop": 8117,
+"region": ""
+},
+{
+"name": "Миронівський",
+"place": "town",
+"pop": 8100,
+"region": ""
+},
+{
+"name": "Рогатин",
+"place": "town",
+"pop": 8097,
+"region": ""
+},
+{
+"name": "Слов’яносербськ",
+"place": "town",
+"pop": 8065,
+"region": ""
+},
+{
+"name": "Межова",
+"place": "town",
+"pop": 8049,
+"region": ""
+},
+{
+"name": "Яремче",
+"place": "town",
+"pop": 8047,
+"region": ""
+},
+{
+"name": "Пантелеймонівка",
+"place": "town",
+"pop": 8009,
+"region": ""
+},
+{
+"name": "Краснокутськ",
+"place": "town",
+"pop": 8008,
+"region": ""
+},
+{
+"name": "Градизьк",
+"place": "town",
+"pop": 8002,
+"region": ""
+},
+{
+"name": "Підволочиськ",
+"place": "town",
+"pop": 8002,
+"region": ""
+},
+{
+"name": "Троїцьке",
+"place": "town",
+"pop": 7975,
+"region": ""
+},
+{
+"name": "Криве Озеро",
+"place": "town",
+"pop": 7958,
+"region": ""
+},
+{
+"name": "Ярмолинці",
+"place": "town",
+"pop": 7954,
+"region": ""
+},
+{
+"name": "Ланчин",
+"place": "town",
+"pop": 7938,
+"region": ""
+},
+{
+"name": "Єди-Кую",
+"place": "town",
+"pop": 7936,
+"region": ""
+},
+{
+"name": "Богородчани",
+"place": "town",
+"pop": 7916,
+"region": ""
+},
+{
+"name": "Привілля",
+"place": "town",
+"pop": 7901,
+"region": ""
+},
+{
+"name": "Новоселиця",
+"place": "town",
+"pop": 7892,
+"region": ""
+},
+{
+"name": "Вапнярка",
+"place": "town",
+"pop": 7891,
+"region": ""
+},
+{
+"name": "Новодружеськ",
+"place": "town",
+"pop": 7870,
+"region": ""
+},
+{
+"name": "Почаїв",
+"place": "town",
+"pop": 7842,
+"region": ""
+},
+{
+"name": "Царичанка",
+"place": "town",
+"pop": 7839,
+"region": ""
+},
+{
+"name": "Велика Лепетиха",
+"place": "town",
+"pop": 7830,
+"region": ""
+},
+{
+"name": "Краснопавлівка",
+"place": "town",
+"pop": 7828,
+"region": ""
+},
+{
+"name": "Романів",
+"place": "town",
+"pop": 7800,
+"region": ""
+},
+{
+"name": "Свеса",
+"place": "town",
+"pop": 7758,
+"region": ""
+},
+{
+"name": "Олексієво-Дружківка",
+"place": "town",
+"pop": 7746,
+"region": ""
+},
+{
+"name": "Берегомет",
+"place": "town",
+"pop": 7741,
+"region": ""
+},
+{
+"name": "Малинівка",
+"place": "town",
+"pop": 7725,
+"region": ""
+},
+{
+"name": "Власівка",
+"place": "town",
+"pop": 7724,
+"region": ""
+},
+{
+"name": "Клевань",
+"place": "town",
+"pop": 7708,
+"region": ""
+},
+{
+"name": "Березнегувате",
+"place": "town",
+"pop": 7676,
+"region": ""
+},
+{
+"name": "Випасне",
+"place": "town",
+"pop": 7675,
+"region": ""
+},
+{
+"name": "Вороніж",
+"place": "town",
+"pop": 7652,
+"region": ""
+},
+{
+"name": "Тересва",
+"place": "town",
+"pop": 7625,
+"region": ""
+},
+{
+"name": "Кипуче",
+"place": "town",
+"pop": 7616,
+"region": ""
+},
+{
+"name": "Чорнобай",
+"place": "town",
+"pop": 7573,
+"region": ""
+},
+{
+"name": "Солоне",
+"place": "town",
+"pop": 7567,
+"region": ""
+},
+{
+"name": "Ржищів",
+"place": "town",
+"pop": 7564,
+"region": ""
+},
+{
+"name": "Десна",
+"place": "town",
+"pop": 7562,
+"region": ""
+},
+{
+"name": "Кельменці",
+"place": "town",
+"pop": 7552,
+"region": ""
+},
+{
+"name": "Сосниця",
+"place": "town",
+"pop": 7534,
+"region": ""
+},
+{
+"name": "Зоринськ",
+"place": "town",
+"pop": 7532,
+"region": ""
+},
+{
+"name": "Середина-Буда",
+"place": "town",
+"pop": 7500,
+"region": ""
+},
+{
+"name": "Мала Данилівка",
+"place": "town",
+"pop": 7471,
+"region": ""
+},
+{
+"name": "Понінка",
+"place": "town",
+"pop": 7464,
+"region": ""
+},
+{
+"name": "Ріпки",
+"place": "town",
+"pop": 7458,
+"region": ""
+},
+{
+"name": "Корець",
+"place": "town",
+"pop": 7428,
+"region": ""
+},
+{
+"name": "Хорошів",
+"place": "town",
+"pop": 7382,
+"region": ""
+},
+{
+"name": "Казанка",
+"place": "town",
+"pop": 7343,
+"region": ""
+},
+{
+"name": "Іванівка",
+"place": "town",
+"pop": 7333,
+"region": ""
+},
+{
+"name": "Лиманівка",
+"place": "town",
+"pop": 7332,
+"region": ""
+},
+{
+"name": "Бабаї",
+"place": "town",
+"pop": 7304,
+"region": ""
+},
+{
+"name": "Лиманське",
+"place": "town",
+"pop": 7301,
+"region": ""
+},
+{
+"name": "Роздольне",
+"place": "town",
+"pop": 7300,
+"region": ""
+},
+{
+"name": "Нова Прага",
+"place": "town",
+"pop": 7273,
+"region": ""
+},
+{
+"name": "Вільшани",
+"place": "town",
+"pop": 7252,
+"region": ""
+},
+{
+"name": "Велика Березовиця",
+"place": "town",
+"pop": 7249,
+"region": ""
+},
+{
+"name": "Рудно",
+"place": "town",
+"pop": 7244,
+"region": ""
+},
+{
+"name": "Новоозерне",
+"place": "town",
+"pop": 7242,
+"region": ""
+},
+{
+"name": "Петрове",
+"place": "town",
+"pop": 7224,
+"region": ""
+},
+{
+"name": "Нова Маячка",
+"place": "town",
+"pop": 7181,
+"region": ""
+},
+{
+"name": "Пересічне",
+"place": "town",
+"pop": 7176,
+"region": ""
+},
+{
+"name": "Зборів",
+"place": "town",
+"pop": 7163,
+"region": ""
+},
+{
+"name": "Молодіжне",
+"place": "town",
+"pop": 7151,
+"region": ""
+},
+{
+"name": "Гольмівський",
+"place": "town",
+"pop": 7127,
+"region": ""
+},
+{
+"name": "Турка",
+"place": "town",
+"pop": 7114,
+"region": ""
+},
+{
+"name": "Воловець",
+"place": "town",
+"pop": 7104,
+"region": ""
+},
+{
+"name": "Гусятин",
+"place": "town",
+"pop": 7104,
+"region": ""
+},
+{
+"name": "Новотроїцьке",
+"place": "town",
+"pop": 7093,
+"region": ""
+},
+{
+"name": "Молочанськ",
+"place": "town",
+"pop": 7090,
+"region": ""
+},
+{
+"name": "Перемишляни",
+"place": "town",
+"pop": 7085,
+"region": ""
+},
+{
+"name": "Великий Березний",
+"place": "town",
+"pop": 7078,
+"region": ""
+},
+{
+"name": "Хоростків",
+"place": "town",
+"pop": 7067,
+"region": ""
+},
+{
+"name": "Пісківка",
+"place": "town",
+"pop": 7030,
+"region": ""
+},
+{
+"name": "Зуя",
+"place": "town",
+"pop": 7027,
+"region": ""
+},
+{
+"name": "Кіровське",
+"place": "town",
+"pop": 7024,
+"region": ""
+},
+{
+"name": "Буди",
+"place": "town",
+"pop": 7004,
+"region": ""
+},
+{
+"name": "Старий Самбір",
+"place": "town",
+"pop": 7000,
+"region": ""
+},
+{
+"name": "Кіцмань",
+"place": "town",
+"pop": 6995,
+"region": ""
+},
+{
+"name": "Ставище",
+"place": "town",
+"pop": 6974,
+"region": ""
+},
+{
+"name": "Немішаєве",
+"place": "town",
+"pop": 6968,
+"region": ""
+},
+{
+"name": "Велика Олександрівка",
+"place": "town",
+"pop": 6966,
+"region": ""
+},
+{
+"name": "Шаргород",
+"place": "town",
+"pop": 6949,
+"region": ""
+},
+{
+"name": "Білокуракине",
+"place": "town",
+"pop": 6944,
+"region": ""
+},
+{
+"name": "Кріпенський",
+"place": "town",
+"pop": 6941,
+"region": ""
+},
+{
+"name": "Копичинці",
+"place": "town",
+"pop": 6869,
+"region": ""
+},
+{
+"name": "Доброслав",
+"place": "town",
+"pop": 6863,
+"region": ""
+},
+{
+"name": "Ємільчине",
+"place": "town",
+"pop": 6842,
+"region": ""
+},
+{
+"name": "Драбів",
+"place": "town",
+"pop": 6838,
+"region": ""
+},
+{
+"name": "Савинці",
+"place": "town",
+"pop": 6830,
+"region": ""
+},
+{
+"name": "Слатине",
+"place": "town",
+"pop": 6826,
+"region": ""
+},
+{
+"name": "Рокитне",
+"place": "town",
+"pop": 6825,
+"region": ""
+},
+{
+"name": "Чинадійово",
+"place": "town",
+"pop": 6822,
+"region": ""
+},
+{
+"name": "Приазовське",
+"place": "town",
+"pop": 6818,
+"region": ""
+},
+{
+"name": "Іваничі",
+"place": "town",
+"pop": 6784,
+"region": ""
+},
+{
+"name": "Вінницькі Хутори",
+"place": "town",
+"pop": 6770,
+"region": ""
+},
+{
+"name": "Теофіполь",
+"place": "town",
+"pop": 6763,
+"region": ""
+},
+{
+"name": "Літин",
+"place": "town",
+"pop": 6751,
+"region": ""
+},
+{
+"name": "Червоногригорівка",
+"place": "town",
+"pop": 6710,
+"region": ""
+},
+{
+"name": "Олександрівськ",
+"place": "town",
+"pop": 6709,
+"region": ""
+},
+{
+"name": "Перечин",
+"place": "town",
+"pop": 6705,
+"region": ""
+},
+{
+"name": "Володимирівка",
+"place": "town",
+"pop": 6698,
+"region": ""
+},
+{
+"name": "Іршанськ",
+"place": "town",
+"pop": 6652,
+"region": ""
+},
+{
+"name": "Шевченкове",
+"place": "town",
+"pop": 6627,
+"region": ""
+},
+{
+"name": "Саврань",
+"place": "town",
+"pop": 6616,
+"region": ""
+},
+{
+"name": "Карнаухівка",
+"place": "town",
+"pop": 6597,
+"region": ""
+},
+{
+"name": "Біле",
+"place": "town",
+"pop": 6593,
+"region": ""
+},
+{
+"name": "Томаківка",
+"place": "town",
+"pop": 6559,
+"region": ""
+},
+{
+"name": "Турбів",
+"place": "town",
+"pop": 6558,
+"region": ""
+},
+{
+"name": "Нововоронцовка",
+"place": "town",
+"pop": 6549,
+"region": ""
+},
+{
+"name": "Теплик",
+"place": "town",
+"pop": 6544,
+"region": ""
+},
+{
+"name": "Кегичівка",
+"place": "town",
+"pop": 6539,
+"region": ""
+},
+{
+"name": "Магдалинівка",
+"place": "town",
+"pop": 6493,
+"region": ""
+},
+{
+"name": "Новофедорівка",
+"place": "town",
+"pop": 6493,
+"region": ""
+},
+{
+"name": "Віньківці",
+"place": "town",
+"pop": 6473,
+"region": ""
+},
+{
+"name": "Вороновиця",
+"place": "town",
+"pop": 6466,
+"region": ""
+},
+{
+"name": "Ладан",
+"place": "town",
+"pop": 6466,
+"region": ""
+},
+{
+"name": "Георгіївка",
+"place": "town",
+"pop": 6465,
+"region": ""
+},
+{
+"name": "Арбузинка",
+"place": "town",
+"pop": 6457,
+"region": ""
+},
+{
+"name": "Судова Вишня",
+"place": "town",
+"pop": 6434,
+"region": ""
+},
+{
+"name": "Старобешеве",
+"place": "town",
+"pop": 6424,
+"region": ""
+},
+{
+"name": "Марківка",
+"place": "town",
+"pop": 6421,
+"region": ""
+},
+{
+"name": "Володарка",
+"place": "town",
+"pop": 6395,
+"region": ""
+},
+{
+"name": "Горностаївка",
+"place": "town",
+"pop": 6388,
+"region": ""
+},
+{
+"name": "Івано-Франкове",
+"place": "town",
+"pop": 6346,
+"region": ""
+},
+{
+"name": "Билбасівка",
+"place": "town",
+"pop": 6310,
+"region": ""
+},
+{
+"name": "Красне",
+"place": "town",
+"pop": 6308,
+"region": ""
+},
+{
+"name": "Галич",
+"place": "town",
+"pop": 6307,
+"region": ""
+},
+{
+"name": "Кореїз",
+"place": "town",
+"pop": 6294,
+"region": ""
+},
+{
+"name": "Родакове",
+"place": "town",
+"pop": 6292,
+"region": ""
+},
+{
+"name": "Доманівка",
+"place": "town",
+"pop": 6288,
+"region": ""
+},
+{
+"name": "Чернігівка",
+"place": "town",
+"pop": 6282,
+"region": ""
+},
+{
+"name": "Сколе",
+"place": "town",
+"pop": 6269,
+"region": ""
+},
+{
+"name": "Велика Новосілка",
+"place": "town",
+"pop": 6265,
+"region": ""
+},
+{
+"name": "Веселинове",
+"place": "town",
+"pop": 6238,
+"region": ""
+},
+{
+"name": "Цумань",
+"place": "town",
+"pop": 6235,
+"region": ""
+},
+{
+"name": "Брюховичі",
+"place": "town",
+"pop": 6223,
+"region": ""
+},
+{
+"name": "Сутиски",
+"place": "town",
+"pop": 6207,
+"region": ""
+},
+{
+"name": "Недригайлів",
+"place": "town",
+"pop": 6186,
+"region": ""
+},
+{
+"name": "Балабине",
+"place": "town",
+"pop": 6168,
+"region": ""
+},
+{
+"name": "Голованівськ",
+"place": "town",
+"pop": 6150,
+"region": ""
+},
+{
+"name": "Чутове",
+"place": "town",
+"pop": 6147,
+"region": ""
+},
+{
+"name": "Чорнушине",
+"place": "town",
+"pop": 6137,
+"region": ""
+},
+{
+"name": "Монастириська",
+"place": "town",
+"pop": 6134,
+"region": ""
+},
+{
+"name": "Муровані Курилівці",
+"place": "town",
+"pop": 6113,
+"region": ""
+},
+{
+"name": "Калинопіль",
+"place": "town",
+"pop": 6092,
+"region": ""
+},
+{
+"name": "Остер",
+"place": "town",
+"pop": 6092,
+"region": ""
+},
+{
+"name": "Васищеве",
+"place": "town",
+"pop": 6069,
+"region": ""
+},
+{
+"name": "Старий Крим",
+"place": "town",
+"pop": 6069,
+"region": ""
+},
+{
+"name": "Партеніт",
+"place": "town",
+"pop": 6061,
+"region": ""
+},
+{
+"name": "Побузьке",
+"place": "town",
+"pop": 6042,
+"region": ""
+},
+{
+"name": "Великі Мости",
+"place": "town",
+"pop": 6037,
+"region": ""
+},
+{
+"name": "Печеніги",
+"place": "town",
+"pop": 6033,
+"region": ""
+},
+{
+"name": "Попільня",
+"place": "town",
+"pop": 6028,
+"region": ""
+},
+{
+"name": "Опішня",
+"place": "town",
+"pop": 6003,
+"region": ""
+},
+{
+"name": "Бессарабське",
+"place": "town",
+"pop": 5986,
+"region": ""
+},
+{
+"name": "Чорноморське",
+"place": "town",
+"pop": 5978,
+"region": ""
+},
+{
+"name": "Мілове",
+"place": "town",
+"pop": 5975,
+"region": ""
+},
+{
+"name": "Борівське",
+"place": "town",
+"pop": 5949,
+"region": ""
+},
+{
+"name": "Аграрне",
+"place": "town",
+"pop": 5938,
+"region": ""
+},
+{
+"name": "Маяки",
+"place": "town",
+"pop": 5937,
+"region": ""
+},
+{
+"name": "Добровеличківка",
+"place": "town",
+"pop": 5931,
+"region": ""
+},
+{
+"name": "Новоархангельськ",
+"place": "town",
+"pop": 5882,
+"region": ""
+},
+{
+"name": "Новодонецьке",
+"place": "town",
+"pop": 5880,
+"region": ""
+},
+{
+"name": "Козача Лопань",
+"place": "town",
+"pop": 5878,
+"region": ""
+},
+{
+"name": "Брошнів-Осада",
+"place": "town",
+"pop": 5863,
+"region": ""
+},
+{
+"name": "Дніпровське",
+"place": "town",
+"pop": 5809,
+"region": ""
+},
+{
+"name": "Моршин",
+"place": "town",
+"pop": 5793,
+"region": ""
+},
+{
+"name": "Білики",
+"place": "town",
+"pop": 5786,
+"region": ""
+},
+{
+"name": "Зеленівка",
+"place": "town",
+"pop": 5785,
+"region": ""
+},
+{
+"name": "Хутір-Михайлівський",
+"place": "town",
+"pop": 5771,
+"region": ""
+},
+{
+"name": "Губиниха",
+"place": "town",
+"pop": 5768,
+"region": ""
+},
+{
+"name": "Шкло",
+"place": "town",
+"pop": 5754,
+"region": ""
+},
+{
+"name": "Велика Михайлівка",
+"place": "town",
+"pop": 5753,
+"region": ""
+},
+{
+"name": "Чуднів",
+"place": "town",
+"pop": 5752,
+"region": ""
+},
+{
+"name": "Гребінки",
+"place": "town",
+"pop": 5736,
+"region": ""
+},
+{
+"name": "Щирець",
+"place": "town",
+"pop": 5733,
+"region": ""
+},
+{
+"name": "Залізне",
+"place": "town",
+"pop": 5720,
+"region": ""
+},
+{
+"name": "Турійськ",
+"place": "town",
+"pop": 5697,
+"region": ""
+},
+{
+"name": "Шишаки",
+"place": "town",
+"pop": 5671,
+"region": ""
+},
+{
+"name": "Городківка",
+"place": "town",
+"pop": 5634,
+"region": ""
+},
+{
+"name": "Любешів",
+"place": "town",
+"pop": 5627,
+"region": ""
+},
+{
+"name": "Просяна",
+"place": "town",
+"pop": 5618,
+"region": ""
+},
+{
+"name": "Димер",
+"place": "town",
+"pop": 5609,
+"region": ""
+},
+{
+"name": "Ворзель",
+"place": "town",
+"pop": 5603,
+"region": ""
+},
+{
+"name": "Есхар",
+"place": "town",
+"pop": 5602,
+"region": ""
+},
+{
+"name": "Стара Синява",
+"place": "town",
+"pop": 5581,
+"region": ""
+},
+{
+"name": "Велика Багачка",
+"place": "town",
+"pop": 5580,
+"region": ""
+},
+{
+"name": "Нова Борова",
+"place": "town",
+"pop": 5572,
+"region": ""
+},
+{
+"name": "Куликівка",
+"place": "town",
+"pop": 5567,
+"region": ""
+},
+{
+"name": "Степанівка",
+"place": "town",
+"pop": 5543,
+"region": ""
+},
+{
+"name": "Томашпіль",
+"place": "town",
+"pop": 5522,
+"region": ""
+},
+{
+"name": "Короп",
+"place": "town",
+"pop": 5505,
+"region": ""
+},
+{
+"name": "Білогір’я",
+"place": "town",
+"pop": 5483,
+"region": ""
+},
+{
+"name": "Городниця",
+"place": "town",
+"pop": 5470,
+"region": ""
+},
+{
+"name": "Отинія",
+"place": "town",
+"pop": 5466,
+"region": ""
+},
+{
+"name": "Братське",
+"place": "town",
+"pop": 5456,
+"region": ""
+},
+{
+"name": "Вашківці",
+"place": "town",
+"pop": 5455,
+"region": ""
+},
+{
+"name": "Згурівка",
+"place": "town",
+"pop": 5447,
+"region": ""
+},
+{
+"name": "Кам’янець",
+"place": "town",
+"pop": 5425,
+"region": ""
+},
+{
+"name": "Верховина",
+"place": "town",
+"pop": 5412,
+"region": ""
+},
+{
+"name": "Рудки",
+"place": "town",
+"pop": 5408,
+"region": ""
+},
+{
+"name": "Велика Писарівка",
+"place": "town",
+"pop": 5399,
+"region": ""
+},
+{
+"name": "Окни",
+"place": "town",
+"pop": 5399,
+"region": ""
+},
+{
+"name": "Чемерівці",
+"place": "town",
+"pop": 5399,
+"region": ""
+},
+{
+"name": "Тепле",
+"place": "town",
+"pop": 5398,
+"region": ""
+},
+{
+"name": "Піщанка",
+"place": "town",
+"pop": 5387,
+"region": ""
+},
+{
+"name": "Шумськ",
+"place": "town",
+"pop": 5387,
+"region": ""
+},
+{
+"name": "Шацьк",
+"place": "town",
+"pop": 5370,
+"region": ""
+},
+{
+"name": "Гоща",
+"place": "town",
+"pop": 5360,
+"region": ""
+},
+{
+"name": "Липова Долина",
+"place": "town",
+"pop": 5348,
+"region": ""
+},
+{
+"name": "Старомихайлівка",
+"place": "town",
+"pop": 5337,
+"region": ""
+},
+{
+"name": "Кирнасівка",
+"place": "town",
+"pop": 5334,
+"region": ""
+},
+{
+"name": "Ялта",
+"place": "town",
+"pop": 5321,
+"region": ""
+},
+{
+"name": "Сергіївка",
+"place": "town",
+"pop": 5275,
+"region": ""
+},
+{
+"name": "Пулини",
+"place": "town",
+"pop": 5269,
+"region": ""
+},
+{
+"name": "Калинівка",
+"place": "town",
+"pop": 5260,
+"region": ""
+},
+{
+"name": "Печеніжин",
+"place": "town",
+"pop": 5259,
+"region": ""
+},
+{
+"name": "Верхній Рогачик",
+"place": "town",
+"pop": 5204,
+"region": ""
+},
+{
+"name": "Чечельник",
+"place": "town",
+"pop": 5187,
+"region": ""
+},
+{
+"name": "Знам’янка Друга",
+"place": "town",
+"pop": 5184,
+"region": ""
+},
+{
+"name": "Захарівка",
+"place": "town",
+"pop": 5174,
+"region": ""
+},
+{
+"name": "Кача",
+"place": "town",
+"pop": 5173,
+"region": ""
+},
+{
+"name": "Стара Вижівка",
+"place": "town",
+"pop": 5161,
+"region": ""
+},
+{
+"name": "Лозівський",
+"place": "town",
+"pop": 5146,
+"region": ""
+},
+{
+"name": "Донське",
+"place": "town",
+"pop": 5132,
+"region": ""
+},
+{
+"name": "Сарата",
+"place": "town",
+"pop": 5084,
+"region": ""
+},
+{
+"name": "Коротич",
+"place": "town",
+"pop": 5081,
+"region": ""
+},
+{
+"name": "Благовіщенське",
+"place": "town",
+"pop": 5073,
+"region": ""
+},
+{
+"name": "Озерне",
+"place": "town",
+"pop": 5072,
+"region": ""
+},
+{
+"name": "Розсипне",
+"place": "town",
+"pop": 5071,
+"region": ""
+},
+{
+"name": "Талалаївка",
+"place": "town",
+"pop": 5055,
+"region": ""
+},
+{
+"name": "Брусилів",
+"place": "town",
+"pop": 5046,
+"region": ""
+},
+{
+"name": "Рогань",
+"place": "town",
+"pop": 5046,
+"region": ""
+},
+{
+"name": "Новопокровка",
+"place": "town",
+"pop": 5027,
+"region": ""
+},
+{
+"name": "Міусинськ",
+"place": "town",
+"pop": 4999,
+"region": ""
+},
+{
+"name": "Клавдієво-Тарасове",
+"place": "town",
+"pop": 4995,
+"region": ""
+},
+{
+"name": "Брацлав",
+"place": "town",
+"pop": 4994,
+"region": ""
+},
+{
+"name": "Петропавлівка",
+"place": "town",
+"pop": 4981,
+"region": ""
+},
+{
+"name": "Єланець",
+"place": "town",
+"pop": 4969,
+"region": ""
+},
+{
+"name": "Заозерне",
+"place": "town",
+"pop": 4940,
+"region": ""
+},
+{
+"name": "Петриківка",
+"place": "town",
+"pop": 4913,
+"region": ""
+},
+{
+"name": "Березна",
+"place": "town",
+"pop": 4902,
+"region": ""
+},
+{
+"name": "Рахни-Лісові",
+"place": "town",
+"pop": 4900,
+"region": ""
+},
+{
+"name": "Вільшанка",
+"place": "town",
+"pop": 4877,
+"region": ""
+},
+{
+"name": "Олександрійське",
+"place": "town",
+"pop": 4876,
+"region": ""
+},
+{
+"name": "Фащівка",
+"place": "town",
+"pop": 4845,
+"region": ""
+},
+{
+"name": "Миропіль",
+"place": "town",
+"pop": 4834,
+"region": ""
+},
+{
+"name": "Новогуйвинське",
+"place": "town",
+"pop": 4805,
+"region": ""
+},
+{
+"name": "Комсомольське",
+"place": "town",
+"pop": 4787,
+"region": ""
+},
+{
+"name": "Лужани",
+"place": "town",
+"pop": 4738,
+"region": ""
+},
+{
+"name": "Ружин",
+"place": "town",
+"pop": 4712,
+"region": ""
+},
+{
+"name": "Завалля",
+"place": "town",
+"pop": 4700,
+"region": ""
+},
+{
+"name": "Павлиш",
+"place": "town",
+"pop": 4699,
+"region": ""
+},
+{
+"name": "Святогірськ",
+"place": "town",
+"pop": 4692,
+"region": ""
+},
+{
+"name": "Браїлів",
+"place": "town",
+"pop": 4691,
+"region": ""
+},
+{
+"name": "Катлабуг",
+"place": "town",
+"pop": 4665,
+"region": ""
+},
+{
+"name": "Кринички",
+"place": "town",
+"pop": 4657,
+"region": ""
+},
+{
+"name": "Буялик",
+"place": "town",
+"pop": 4647,
+"region": ""
+},
+{
+"name": "Іванів",
+"place": "town",
+"pop": 4628,
+"region": ""
+},
+{
+"name": "Хорошеве",
+"place": "town",
+"pop": 4620,
+"region": ""
+},
+{
+"name": "Воскресенське",
+"place": "town",
+"pop": 4597,
+"region": ""
+},
+{
+"name": "Красноріченське",
+"place": "town",
+"pop": 4595,
+"region": ""
+},
+{
+"name": "Красносілка",
+"place": "town",
+"pop": 4580,
+"region": ""
+},
+{
+"name": "Бойківське",
+"place": "town",
+"pop": 4577,
+"region": ""
+},
+{
+"name": "Довбиш",
+"place": "town",
+"pop": 4571,
+"region": ""
+},
+{
+"name": "Великий Любінь",
+"place": "town",
+"pop": 4550,
+"region": ""
+},
+{
+"name": "Нижні Сірогози",
+"place": "town",
+"pop": 4544,
+"region": ""
+},
+{
+"name": "Клесів",
+"place": "town",
+"pop": 4543,
+"region": ""
+},
+{
+"name": "Добромиль",
+"place": "town",
+"pop": 4537,
+"region": ""
+},
+{
+"name": "Кринична",
+"place": "town",
+"pop": 4520,
+"region": ""
+},
+{
+"name": "Лиса Гора",
+"place": "town",
+"pop": 4502,
+"region": ""
+},
+{
+"name": "Боромля",
+"place": "town",
+"pop": 4482,
+"region": ""
+},
+{
+"name": "Компаніївка",
+"place": "town",
+"pop": 4478,
+"region": ""
+},
+{
+"name": "Люблинець",
+"place": "town",
+"pop": 4477,
+"region": ""
+},
+{
+"name": "Торчин",
+"place": "town",
+"pop": 4474,
+"region": ""
+},
+{
+"name": "Новодар’ївка",
+"place": "town",
+"pop": 4460,
+"region": ""
+},
+{
+"name": "Козельщина",
+"place": "town",
+"pop": 4434,
+"region": ""
+},
+{
+"name": "Дніпряни",
+"place": "town",
+"pop": 4431,
+"region": ""
+},
+{
+"name": "Брилівка",
+"place": "town",
+"pop": 4416,
+"region": ""
+},
+{
+"name": "Дворічна",
+"place": "town",
+"pop": 4410,
+"region": ""
+},
+{
+"name": "Зачепилівка",
+"place": "town",
+"pop": 4409,
+"region": ""
+},
+{
+"name": "Шабельківка",
+"place": "town",
+"pop": 4408,
+"region": ""
+},
+{
+"name": "Тошківка",
+"place": "town",
+"pop": 4406,
+"region": ""
+},
+{
+"name": "Нова Ушиця",
+"place": "town",
+"pop": 4404,
+"region": ""
+},
+{
+"name": "Алмазна",
+"place": "town",
+"pop": 4384,
+"region": ""
+},
+{
+"name": "Єрки",
+"place": "town",
+"pop": 4360,
+"region": ""
+},
+{
+"name": "Високопілля",
+"place": "town",
+"pop": 4353,
+"region": ""
+},
+{
+"name": "Кольчино",
+"place": "town",
+"pop": 4319,
+"region": ""
+},
+{
+"name": "Заболоття",
+"place": "town",
+"pop": 4299,
+"region": ""
+},
+{
+"name": "Вижниця",
+"place": "town",
+"pop": 4285,
+"region": ""
+},
+{
+"name": "Тиврів",
+"place": "town",
+"pop": 4261,
+"region": ""
+},
+{
+"name": "Скала-Подільська",
+"place": "town",
+"pop": 4234,
+"region": ""
+},
+{
+"name": "Лугини",
+"place": "town",
+"pop": 4220,
+"region": ""
+},
+{
+"name": "Мирний",
+"place": "town",
+"pop": 4210,
+"region": ""
+},
+{
+"name": "Лосинівка",
+"place": "town",
+"pop": 4200,
+"region": ""
+},
+{
+"name": "Новий Калинів",
+"place": "town",
+"pop": 4191,
+"region": ""
+},
+{
+"name": "Гніздичів",
+"place": "town",
+"pop": 4183,
+"region": ""
+},
+{
+"name": "Кути",
+"place": "town",
+"pop": 4161,
+"region": ""
+},
+{
+"name": "Сиваське",
+"place": "town",
+"pop": 4150,
+"region": ""
+},
+{
+"name": "Пролісне",
+"place": "town",
+"pop": 4139,
+"region": ""
+},
+{
+"name": "Голоби",
+"place": "town",
+"pop": 4131,
+"region": ""
+},
+{
+"name": "Талаківка",
+"place": "town",
+"pop": 4129,
+"region": ""
+},
+{
+"name": "Березанка",
+"place": "town",
+"pop": 4118,
+"region": ""
+},
+{
+"name": "Ворохта",
+"place": "town",
+"pop": 4108,
+"region": ""
+},
+{
+"name": "Степань",
+"place": "town",
+"pop": 4108,
+"region": ""
+},
+{
+"name": "Хирів",
+"place": "town",
+"pop": 4106,
+"region": ""
+},
+{
+"name": "Шарівка",
+"place": "town",
+"pop": 4100,
+"region": ""
+},
+{
+"name": "Криничне",
+"place": "town",
+"pop": 4097,
+"region": ""
+},
+{
+"name": "Зідьки",
+"place": "town",
+"pop": 4087,
+"region": ""
+},
+{
+"name": "Стіжківське",
+"place": "town",
+"pop": 4084,
+"region": ""
+},
+{
+"name": "Дубівський",
+"place": "town",
+"pop": 4074,
+"region": ""
+},
+{
+"name": "Старий Салтів",
+"place": "town",
+"pop": 4073,
+"region": ""
+},
+{
+"name": "Великий Бурлук",
+"place": "town",
+"pop": 4072,
+"region": ""
+},
+{
+"name": "Заболотів",
+"place": "town",
+"pop": 4067,
+"region": ""
+},
+{
+"name": "Верхнячка",
+"place": "town",
+"pop": 4058,
+"region": ""
+},
+{
+"name": "Софіївський",
+"place": "town",
+"pop": 4050,
+"region": ""
+},
+{
+"name": "Білолуцьк",
+"place": "town",
+"pop": 4049,
+"region": ""
+},
+{
+"name": "Черкаське",
+"place": "town",
+"pop": 4046,
+"region": ""
+},
+{
+"name": "Онуфріївка",
+"place": "town",
+"pop": 4043,
+"region": ""
+},
+{
+"name": "Колки",
+"place": "town",
+"pop": 4035,
+"region": ""
+},
+{
+"name": "Аджамка",
+"place": "town",
+"pop": 4010,
+"region": ""
+},
+{
+"name": "Грушівка",
+"place": "town",
+"pop": 3998,
+"region": ""
+},
+{
+"name": "Дашів",
+"place": "town",
+"pop": 3989,
+"region": ""
+},
+{
+"name": "Скалат",
+"place": "town",
+"pop": 3989,
+"region": ""
+},
+{
+"name": "Оржиця",
+"place": "town",
+"pop": 3983,
+"region": ""
+},
+{
+"name": "Вендичани",
+"place": "town",
+"pop": 3970,
+"region": ""
+},
+{
+"name": "Куликів",
+"place": "town",
+"pop": 3963,
+"region": ""
+},
+{
+"name": "Багерове",
+"place": "town",
+"pop": 3962,
+"region": ""
+},
+{
+"name": "Оржів",
+"place": "town",
+"pop": 3961,
+"region": ""
+},
+{
+"name": "Білий Колодязь",
+"place": "town",
+"pop": 3953,
+"region": ""
+},
+{
+"name": "Сімеїз",
+"place": "town",
+"pop": 3950,
+"region": ""
+},
+{
+"name": "Чаплине",
+"place": "town",
+"pop": 3928,
+"region": ""
+},
+{
+"name": "Аули",
+"place": "town",
+"pop": 3922,
+"region": ""
+},
+{
+"name": "Солотвин",
+"place": "town",
+"pop": 3916,
+"region": ""
+},
+{
+"name": "Орілька",
+"place": "town",
+"pop": 3909,
+"region": ""
+},
+{
+"name": "Комарно",
+"place": "town",
+"pop": 3884,
+"region": ""
+},
+{
+"name": "Рожнятів",
+"place": "town",
+"pop": 3883,
+"region": ""
+},
+{
+"name": "Клекотина",
+"place": "town",
+"pop": 3872,
+"region": ""
+},
+{
+"name": "Коломак",
+"place": "town",
+"pop": 3844,
+"region": ""
+},
+{
+"name": "Клембівка",
+"place": "town",
+"pop": 3842,
+"region": ""
+},
+{
+"name": "Щотове",
+"place": "town",
+"pop": 3818,
+"region": ""
+},
+{
+"name": "Терни",
+"place": "town",
+"pop": 3817,
+"region": ""
+},
+{
+"name": "Азовське",
+"place": "town",
+"pop": 3811,
+"region": ""
+},
+{
+"name": "Козацьке",
+"place": "town",
+"pop": 3809,
+"region": ""
+},
+{
+"name": "Цибулів",
+"place": "town",
+"pop": 3800,
+"region": ""
+},
+{
+"name": "Стеблів",
+"place": "town",
+"pop": 3791,
+"region": ""
+},
+{
+"name": "Низи",
+"place": "town",
+"pop": 3790,
+"region": ""
+},
+{
+"name": "Машівка",
+"place": "town",
+"pop": 3786,
+"region": ""
+},
+{
+"name": "Донецький",
+"place": "town",
+"pop": 3783,
+"region": ""
+},
+{
+"name": "Бібрка",
+"place": "town",
+"pop": 3781,
+"region": ""
+},
+{
+"name": "Ольшанське",
+"place": "town",
+"pop": 3775,
+"region": ""
+},
+{
+"name": "Новосвітлівка",
+"place": "town",
+"pop": 3755,
+"region": ""
+},
+{
+"name": "Локачі",
+"place": "town",
+"pop": 3746,
+"region": ""
+},
+{
+"name": "Джурин",
+"place": "town",
+"pop": 3734,
+"region": ""
+},
+{
+"name": "Середнє",
+"place": "town",
+"pop": 3733,
+"region": ""
+},
+{
+"name": "Микулинці",
+"place": "town",
+"pop": 3728,
+"region": ""
+},
+{
+"name": "Липняжка",
+"place": "town",
+"pop": 3721,
+"region": ""
+},
+{
+"name": "Малотаранівка",
+"place": "town",
+"pop": 3713,
+"region": ""
+},
+{
+"name": "Мельниця-Подільська",
+"place": "town",
+"pop": 3712,
+"region": ""
+},
+{
+"name": "Жвирка",
+"place": "town",
+"pop": 3710,
+"region": ""
+},
+{
+"name": "Очеретине",
+"place": "town",
+"pop": 3686,
+"region": ""
+},
+{
+"name": "Щербинівка",
+"place": "town",
+"pop": 3662,
+"region": ""
+},
+{
+"name": "Скороходове",
+"place": "town",
+"pop": 3648,
+"region": ""
+},
+{
+"name": "Кочеток",
+"place": "town",
+"pop": 3633,
+"region": ""
+},
+{
+"name": "Райгородок",
+"place": "town",
+"pop": 3628,
+"region": ""
+},
+{
+"name": "Борівка",
+"place": "town",
+"pop": 3626,
+"region": ""
+},
+{
+"name": "Журавно",
+"place": "town",
+"pop": 3611,
+"region": ""
+},
+{
+"name": "Гриців",
+"place": "town",
+"pop": 3607,
+"region": ""
+},
+{
+"name": "Близнюки",
+"place": "town",
+"pop": 3557,
+"region": ""
+},
+{
+"name": "Мізоч",
+"place": "town",
+"pop": 3550,
+"region": ""
+},
+{
+"name": "Затишшя",
+"place": "town",
+"pop": 3542,
+"region": ""
+},
+{
+"name": "Устинівка",
+"place": "town",
+"pop": 3538,
+"region": ""
+},
+{
+"name": "Розівка",
+"place": "town",
+"pop": 3537,
+"region": ""
+},
+{
+"name": "Великі Сорочинці",
+"place": "town",
+"pop": 3533,
+"region": ""
+},
+{
+"name": "Зайцеве",
+"place": "town",
+"pop": 3523,
+"region": ""
+},
+{
+"name": "Коропець",
+"place": "town",
+"pop": 3508,
+"region": ""
+},
+{
+"name": "Славсько",
+"place": "town",
+"pop": 3508,
+"region": ""
+},
+{
+"name": "Рикове",
+"place": "town",
+"pop": 3501,
+"region": ""
+},
+{
+"name": "Демидівка",
+"place": "town",
+"pop": 3500,
+"region": ""
+},
+{
+"name": "Тишківка",
+"place": "town",
+"pop": 3497,
+"region": ""
+},
+{
+"name": "Соборне",
+"place": "town",
+"pop": 3483,
+"region": ""
+},
+{
+"name": "Малокатеринівка",
+"place": "town",
+"pop": 3473,
+"region": ""
+},
+{
+"name": "Кирилівка",
+"place": "town",
+"pop": 3472,
+"region": ""
+},
+{
+"name": "Глухівці",
+"place": "town",
+"pop": 3463,
+"region": ""
+},
+{
+"name": "Перегонівка",
+"place": "town",
+"pop": 3448,
+"region": ""
+},
+{
+"name": "Вальянівське",
+"place": "town",
+"pop": 3446,
+"region": ""
+},
+{
+"name": "Білоріченський",
+"place": "town",
+"pop": 3443,
+"region": ""
+},
+{
+"name": "Щебетовка",
+"place": "town",
+"pop": 3434,
+"region": ""
+},
+{
+"name": "Великі Бірки",
+"place": "town",
+"pop": 3429,
+"region": ""
+},
+{
+"name": "Гірне",
+"place": "town",
+"pop": 3428,
+"region": ""
+},
+{
+"name": "Вишнівець",
+"place": "town",
+"pop": 3424,
+"region": ""
+},
+{
+"name": "Кобилецька Поляна",
+"place": "town",
+"pop": 3411,
+"region": ""
+},
+{
+"name": "Южна Ломуватка",
+"place": "town",
+"pop": 3408,
+"region": ""
+},
+{
+"name": "Мазурівка",
+"place": "town",
+"pop": 3390,
+"region": ""
+},
+{
+"name": "Лопатин",
+"place": "town",
+"pop": 3388,
+"region": ""
+},
+{
+"name": "Товсте",
+"place": "town",
+"pop": 3384,
+"region": ""
+},
+{
+"name": "Радушне",
+"place": "town",
+"pop": 3366,
+"region": ""
+},
+{
+"name": "Новоселівське",
+"place": "town",
+"pop": 3362,
+"region": ""
+},
+{
+"name": "Підбуж",
+"place": "town",
+"pop": 3362,
+"region": ""
+},
+{
+"name": "Добрянка",
+"place": "town",
+"pop": 3360,
+"region": ""
+},
+{
+"name": "Кириківка",
+"place": "town",
+"pop": 3356,
+"region": ""
+},
+{
+"name": "Верхнє Синьовидне",
+"place": "town",
+"pop": 3348,
+"region": ""
+},
+{
+"name": "Рафалівка",
+"place": "town",
+"pop": 3341,
+"region": ""
+},
+{
+"name": "Путила",
+"place": "town",
+"pop": 3335,
+"region": ""
+},
+{
+"name": "Козин",
+"place": "town",
+"pop": 3330,
+"region": ""
+},
+{
+"name": "Меденичі",
+"place": "town",
+"pop": 3321,
+"region": ""
+},
+{
+"name": "Сентянівка",
+"place": "town",
+"pop": 3321,
+"region": ""
+},
+{
+"name": "Вилок",
+"place": "town",
+"pop": 3316,
+"region": ""
+},
+{
+"name": "Гончарівське",
+"place": "town",
+"pop": 3312,
+"region": ""
+},
+{
+"name": "Зуївка",
+"place": "town",
+"pop": 3269,
+"region": ""
+},
+{
+"name": "Ольгинка",
+"place": "town",
+"pop": 3269,
+"region": ""
+},
+{
+"name": "П’ятипілля",
+"place": "town",
+"pop": 3263,
+"region": ""
+},
+{
+"name": "Вільшана",
+"place": "town",
+"pop": 3256,
+"region": ""
+},
+{
+"name": "Глиняни",
+"place": "town",
+"pop": 3242,
+"region": ""
+},
+{
+"name": "Обертин",
+"place": "town",
+"pop": 3225,
+"region": ""
+},
+{
+"name": "Булавинське",
+"place": "town",
+"pop": 3217,
+"region": ""
+},
+{
+"name": "Лазурне",
+"place": "town",
+"pop": 3214,
+"region": ""
+},
+{
+"name": "Велика Кісниця",
+"place": "town",
+"pop": 3212,
+"region": ""
+},
+{
+"name": "Шалигине",
+"place": "town",
+"pop": 3203,
+"region": ""
+},
+{
+"name": "Бугаївка",
+"place": "town",
+"pop": 3194,
+"region": ""
+},
+{
+"name": "Калинове",
+"place": "town",
+"pop": 3180,
+"region": ""
+},
+{
+"name": "Ольховатка",
+"place": "town",
+"pop": 3179,
+"region": ""
+},
+{
+"name": "Курахівка",
+"place": "town",
+"pop": 3166,
+"region": ""
+},
+{
+"name": "Шипинці",
+"place": "town",
+"pop": 3160,
+"region": ""
+},
+{
+"name": "Поштове",
+"place": "town",
+"pop": 3147,
+"region": ""
+},
+{
+"name": "Олика",
+"place": "town",
+"pop": 3127,
+"region": ""
+},
+{
+"name": "Новоекономічне",
+"place": "town",
+"pop": 3098,
+"region": ""
+},
+{
+"name": "Луків",
+"place": "town",
+"pop": 3088,
+"region": ""
+},
+{
+"name": "Ков’яги",
+"place": "town",
+"pop": 3079,
+"region": ""
+},
+{
+"name": "Головне",
+"place": "town",
+"pop": 3055,
+"region": ""
+},
+{
+"name": "Дробишеве",
+"place": "town",
+"pop": 3047,
+"region": ""
+},
+{
+"name": "Батьово",
+"place": "town",
+"pop": 3046,
+"region": ""
+},
+{
+"name": "Нові Білокоровичі",
+"place": "town",
+"pop": 3034,
+"region": ""
+},
+{
+"name": "Божедарівка",
+"place": "town",
+"pop": 3032,
+"region": ""
+},
+{
+"name": "Дубов’язівка",
+"place": "town",
+"pop": 3016,
+"region": ""
+},
+{
+"name": "Верхньоторецьке",
+"place": "town",
+"pop": 3008,
+"region": ""
+},
+{
+"name": "Дзиґівка",
+"place": "town",
+"pop": 3003,
+"region": ""
+},
+{
+"name": "Срібне",
+"place": "town",
+"pop": 3000,
+"region": ""
+},
+{
+"name": "Ярунь",
+"place": "town",
+"pop": 2995,
+"region": ""
+},
+{
+"name": "Красноторка",
+"place": "town",
+"pop": 2991,
+"region": ""
+},
+{
+"name": "Єзупіль",
+"place": "town",
+"pop": 2978,
+"region": ""
+},
+{
+"name": "Лисець",
+"place": "town",
+"pop": 2969,
+"region": ""
+},
+{
+"name": "Підгайці",
+"place": "town",
+"pop": 2937,
+"region": ""
+},
+{
+"name": "Чернівці",
+"place": "town",
+"pop": 2935,
+"region": ""
+},
+{
+"name": "Шпиків",
+"place": "town",
+"pop": 2928,
+"region": ""
+},
+{
+"name": "Михайло-Коцюбинське",
+"place": "town",
+"pop": 2927,
+"region": ""
+},
+{
+"name": "Оратів",
+"place": "town",
+"pop": 2913,
+"region": ""
+},
+{
+"name": "Ромодан",
+"place": "town",
+"pop": 2907,
+"region": ""
+},
+{
+"name": "Новий Яричів",
+"place": "town",
+"pop": 2904,
+"region": ""
+},
+{
+"name": "Холми",
+"place": "town",
+"pop": 2892,
+"region": ""
+},
+{
+"name": "Левків",
+"place": "town",
+"pop": 2886,
+"region": ""
+},
+{
+"name": "Коктебель",
+"place": "town",
+"pop": 2844,
+"region": ""
+},
+{
+"name": "Лісові Гринівці",
+"place": "town",
+"pop": 2835,
+"region": ""
+},
+{
+"name": "Линовиця",
+"place": "town",
+"pop": 2825,
+"region": ""
+},
+{
+"name": "Глибочиця",
+"place": "town",
+"pop": 2817,
+"region": ""
+},
+{
+"name": "Станіславчик",
+"place": "town",
+"pop": 2813,
+"region": ""
+},
+{
+"name": "Ведмеже",
+"place": "town",
+"pop": 2796,
+"region": ""
+},
+{
+"name": "Первомайський",
+"place": "town",
+"pop": 2793,
+"region": ""
+},
+{
+"name": "Ларине",
+"place": "town",
+"pop": 2789,
+"region": ""
+},
+{
+"name": "Мар’янівка",
+"place": "town",
+"pop": 2789,
+"region": ""
+},
+{
+"name": "Улянівка",
+"place": "town",
+"pop": 2777,
+"region": ""
+},
+{
+"name": "Червоне",
+"place": "town",
+"pop": 2763,
+"region": ""
+},
+{
+"name": "Батурин",
+"place": "town",
+"pop": 2758,
+"region": ""
+},
+{
+"name": "Кам’яне",
+"place": "town",
+"pop": 2758,
+"region": ""
+},
+{
+"name": "Цебрикове",
+"place": "town",
+"pop": 2754,
+"region": ""
+},
+{
+"name": "Уладівка",
+"place": "town",
+"pop": 2753,
+"region": ""
+},
+{
+"name": "Войнилів",
+"place": "town",
+"pop": 2747,
+"region": ""
+},
+{
+"name": "Пантаївка",
+"place": "town",
+"pop": 2744,
+"region": ""
+},
+{
+"name": "Мурафа",
+"place": "town",
+"pop": 2739,
+"region": ""
+},
+{
+"name": "Сєдове",
+"place": "town",
+"pop": 2734,
+"region": ""
+},
+{
+"name": "Чупахівка",
+"place": "town",
+"pop": 2732,
+"region": ""
+},
+{
+"name": "Запитів",
+"place": "town",
+"pop": 2730,
+"region": ""
+},
+{
+"name": "Кострижівка",
+"place": "town",
+"pop": 2728,
+"region": ""
+},
+{
+"name": "Введенка",
+"place": "town",
+"pop": 2710,
+"region": ""
+},
+{
+"name": "Залізці",
+"place": "town",
+"pop": 2706,
+"region": ""
+},
+{
+"name": "Полігон",
+"place": "town",
+"pop": 2705,
+"region": ""
+},
+{
+"name": "Боково-Платове",
+"place": "town",
+"pop": 2702,
+"region": ""
+},
+{
+"name": "Корсунь",
+"place": "town",
+"pop": 2696,
+"region": ""
+},
+{
+"name": "Розділ",
+"place": "town",
+"pop": 2696,
+"region": ""
+},
+{
+"name": "Бабинці",
+"place": "town",
+"pop": 2688,
+"region": ""
+},
+{
+"name": "Зарічне",
+"place": "town",
+"pop": 2688,
+"region": ""
+},
+{
+"name": "Хмельове",
+"place": "town",
+"pop": 2687,
+"region": ""
+},
+{
+"name": "Гоголеве",
+"place": "town",
+"pop": 2686,
+"region": ""
+},
+{
+"name": "Урало-Кавказ",
+"place": "town",
+"pop": 2673,
+"region": ""
+},
+{
+"name": "Кайгадор",
+"place": "town",
+"pop": 2669,
+"region": ""
+},
+{
+"name": "Нова Галещина",
+"place": "town",
+"pop": 2658,
+"region": ""
+},
+{
+"name": "Капітанівка",
+"place": "town",
+"pop": 2655,
+"region": ""
+},
+{
+"name": "Приколотне",
+"place": "town",
+"pop": 2654,
+"region": ""
+},
+{
+"name": "Смига",
+"place": "town",
+"pop": 2654,
+"region": ""
+},
+{
+"name": "Нижнє",
+"place": "town",
+"pop": 2651,
+"region": ""
+},
+{
+"name": "Гродівка",
+"place": "town",
+"pop": 2628,
+"region": ""
+},
+{
+"name": "Раухівка",
+"place": "town",
+"pop": 2603,
+"region": ""
+},
+{
+"name": "Асканія-Нова",
+"place": "town",
+"pop": 2585,
+"region": ""
+},
+{
+"name": "Народичі",
+"place": "town",
+"pop": 2585,
+"region": ""
+},
+{
+"name": "Селезнівка",
+"place": "town",
+"pop": 2568,
+"region": ""
+},
+{
+"name": "Красний Кут",
+"place": "town",
+"pop": 2563,
+"region": ""
+},
+{
+"name": "Хотінь",
+"place": "town",
+"pop": 2561,
+"region": ""
+},
+{
+"name": "Парафіївка",
+"place": "town",
+"pop": 2557,
+"region": ""
+},
+{
+"name": "Славгород",
+"place": "town",
+"pop": 2554,
+"region": ""
+},
+{
+"name": "Курилівка",
+"place": "town",
+"pop": 2551,
+"region": ""
+},
+{
+"name": "Бабанка",
+"place": "town",
+"pop": 2541,
+"region": ""
+},
+{
+"name": "Чорнухи",
+"place": "town",
+"pop": 2534,
+"region": ""
+},
+{
+"name": "Кам’яний Брід",
+"place": "town",
+"pop": 2533,
+"region": ""
+},
+{
+"name": "Юріївка",
+"place": "town",
+"pop": 2533,
+"region": ""
+},
+{
+"name": "Вовковинці",
+"place": "town",
+"pop": 2529,
+"region": ""
+},
+{
+"name": "Лихівка",
+"place": "town",
+"pop": 2508,
+"region": ""
+},
+{
+"name": "Старий Білоус",
+"place": "town",
+"pop": 2502,
+"region": ""
+},
+{
+"name": "Комишня",
+"place": "town",
+"pop": 2500,
+"region": ""
+},
+{
+"name": "Тетерівка",
+"place": "town",
+"pop": 2498,
+"region": ""
+},
+{
+"name": "Велика Виска",
+"place": "town",
+"pop": 2487,
+"region": ""
+},
+{
+"name": "Золотий Потік",
+"place": "town",
+"pop": 2480,
+"region": ""
+},
+{
+"name": "Дмитрівка",
+"place": "town",
+"pop": 2471,
+"region": ""
+},
+{
+"name": "Михайлівка",
+"place": "town",
+"pop": 2467,
+"region": ""
+},
+{
+"name": "Нікіта",
+"place": "town",
+"pop": 2454,
+"region": ""
+},
+{
+"name": "Неполоківці",
+"place": "town",
+"pop": 2438,
+"region": ""
+},
+{
+"name": "Сатанів",
+"place": "town",
+"pop": 2413,
+"region": ""
+},
+{
+"name": "Корнин",
+"place": "town",
+"pop": 2407,
+"region": ""
+},
+{
+"name": "Макошине",
+"place": "town",
+"pop": 2404,
+"region": ""
+},
+{
+"name": "Авіаторське",
+"place": "town",
+"pop": 2403,
+"region": ""
+},
+{
+"name": "Антоніни",
+"place": "town",
+"pop": 2401,
+"region": ""
+},
+{
+"name": "Залісне",
+"place": "town",
+"pop": 2399,
+"region": ""
+},
+{
+"name": "Ситківці",
+"place": "town",
+"pop": 2398,
+"region": ""
+},
+{
+"name": "Понорниця",
+"place": "town",
+"pop": 2385,
+"region": ""
+},
+{
+"name": "Куйбишеве",
+"place": "town",
+"pop": 2368,
+"region": ""
+},
+{
+"name": "Томашгород",
+"place": "town",
+"pop": 2362,
+"region": ""
+},
+{
+"name": "Угроїди",
+"place": "town",
+"pop": 2360,
+"region": ""
+},
+{
+"name": "Белз",
+"place": "town",
+"pop": 2359,
+"region": ""
+},
+{
+"name": "Новотошківське",
+"place": "town",
+"pop": 2349,
+"region": ""
+},
+{
+"name": "Стара Ушиця",
+"place": "town",
+"pop": 2338,
+"region": ""
+},
+{
+"name": "Дашава",
+"place": "town",
+"pop": 2333,
+"region": ""
+},
+{
+"name": "Комиш-Зоря",
+"place": "town",
+"pop": 2332,
+"region": ""
+},
+{
+"name": "Сімейчине",
+"place": "town",
+"pop": 2329,
+"region": ""
+},
+{
+"name": "Пеньківка",
+"place": "town",
+"pop": 2315,
+"region": ""
+},
+{
+"name": "Бродецьке",
+"place": "town",
+"pop": 2302,
+"region": ""
+},
+{
+"name": "Східниця",
+"place": "town",
+"pop": 2259,
+"region": ""
+},
+{
+"name": "Аерофлотський",
+"place": "town",
+"pop": 2254,
+"region": ""
+},
+{
+"name": "Новоамвросіївське",
+"place": "town",
+"pop": 2254,
+"region": ""
+},
+{
+"name": "Нижня Дуванка",
+"place": "town",
+"pop": 2244,
+"region": ""
+},
+{
+"name": "Вищеольчедаїв",
+"place": "town",
+"pop": 2236,
+"region": ""
+},
+{
+"name": "Вигода",
+"place": "town",
+"pop": 2225,
+"region": ""
+},
+{
+"name": "Устилуг",
+"place": "town",
+"pop": 2205,
+"region": ""
+},
+{
+"name": "Зноб-Новгородське",
+"place": "town",
+"pop": 2178,
+"region": ""
+},
+{
+"name": "Мала Дівиця",
+"place": "town",
+"pop": 2165,
+"region": ""
+},
+{
+"name": "Ямпіль",
+"place": "town",
+"pop": 2149,
+"region": ""
+},
+{
+"name": "Кленовий",
+"place": "town",
+"pop": 2142,
+"region": ""
+},
+{
+"name": "Кожанка",
+"place": "town",
+"pop": 2141,
+"region": ""
+},
+{
+"name": "Ясна Поляна",
+"place": "town",
+"pop": 2140,
+"region": ""
+},
+{
+"name": "Андріївка",
+"place": "town",
+"pop": 2135,
+"region": ""
+},
+{
+"name": "Буки",
+"place": "town",
+"pop": 2134,
+"region": ""
+},
+{
+"name": "Підкамінь",
+"place": "town",
+"pop": 2128,
+"region": ""
+},
+{
+"name": "Більшівці",
+"place": "town",
+"pop": 2123,
+"region": ""
+},
+{
+"name": "Головине",
+"place": "town",
+"pop": 2109,
+"region": ""
+},
+{
+"name": "Піщаний Брід",
+"place": "town",
+"pop": 2108,
+"region": ""
+},
+{
+"name": "Деражне",
+"place": "town",
+"pop": 2105,
+"region": ""
+},
+{
+"name": "Шевченко",
+"place": "town",
+"pop": 2101,
+"region": ""
+},
+{
+"name": "Герца",
+"place": "town",
+"pop": 2097,
+"region": ""
+},
+{
+"name": "Олишівка",
+"place": "town",
+"pop": 2080,
+"region": ""
+},
+{
+"name": "Ярова",
+"place": "town",
+"pop": 2079,
+"region": ""
+},
+{
+"name": "Токарівка",
+"place": "town",
+"pop": 2077,
+"region": ""
+},
+{
+"name": "Нагольно-Тарасівка",
+"place": "town",
+"pop": 2073,
+"region": ""
+},
+{
+"name": "Любар",
+"place": "town",
+"pop": 2056,
+"region": ""
+},
+{
+"name": "Гути",
+"place": "town",
+"pop": 2043,
+"region": ""
+},
+{
+"name": "Вільне",
+"place": "town",
+"pop": 2036,
+"region": ""
+},
+{
+"name": "Яблунів",
+"place": "town",
+"pop": 2032,
+"region": ""
+},
+{
+"name": "Вакуленчук",
+"place": "town",
+"pop": 2017,
+"region": ""
+},
+{
+"name": "Новооржицьке",
+"place": "town",
+"pop": 2008,
+"region": ""
+},
+{
+"name": "Цукурине",
+"place": "town",
+"pop": 2003,
+"region": ""
+},
+{
+"name": "Прудянка",
+"place": "town",
+"pop": 2001,
+"region": ""
+},
+{
+"name": "Павелки",
+"place": "town",
+"pop": 2000,
+"region": ""
+},
+{
+"name": "Форос",
+"place": "town",
+"pop": 1978,
+"region": ""
+},
+{
+"name": "Гримайлів",
+"place": "town",
+"pop": 1973,
+"region": ""
+},
+{
+"name": "Немирів",
+"place": "town",
+"pop": 1973,
+"region": ""
+},
+{
+"name": "Магерів",
+"place": "town",
+"pop": 1968,
+"region": ""
+},
+{
+"name": "Сєверний",
+"place": "town",
+"pop": 1954,
+"region": ""
+},
+{
+"name": "Гвіздець",
+"place": "town",
+"pop": 1931,
+"region": ""
+},
+{
+"name": "Сердите",
+"place": "town",
+"pop": 1920,
+"region": ""
+},
+{
+"name": "Архангельське",
+"place": "town",
+"pop": 1916,
+"region": ""
+},
+{
+"name": "Смотрич",
+"place": "town",
+"pop": 1912,
+"region": ""
+},
+{
+"name": "Дослідницьке",
+"place": "town",
+"pop": 1910,
+"region": ""
+},
+{
+"name": "Чоповичі",
+"place": "town",
+"pop": 1909,
+"region": ""
+},
+{
+"name": "Дубище",
+"place": "town",
+"pop": 1897,
+"region": ""
+},
+{
+"name": "Любеч",
+"place": "town",
+"pop": 1890,
+"region": ""
+},
+{
+"name": "Есмань",
+"place": "town",
+"pop": 1882,
+"region": ""
+},
+{
+"name": "Ящикове",
+"place": "town",
+"pop": 1877,
+"region": ""
+},
+{
+"name": "Замглай",
+"place": "town",
+"pop": 1871,
+"region": ""
+},
+{
+"name": "Козлів",
+"place": "town",
+"pop": 1856,
+"region": ""
+},
+{
+"name": "Нижанковичі",
+"place": "town",
+"pop": 1824,
+"region": ""
+},
+{
+"name": "Дружба",
+"place": "town",
+"pop": 1813,
+"region": ""
+},
+{
+"name": "Берестечко",
+"place": "town",
+"pop": 1796,
+"region": ""
+},
+{
+"name": "Базалія",
+"place": "town",
+"pop": 1792,
+"region": ""
+},
+{
+"name": "Серпневе",
+"place": "town",
+"pop": 1786,
+"region": ""
+},
+{
+"name": "Голубівка",
+"place": "town",
+"pop": 1785,
+"region": ""
+},
+{
+"name": "Старий Мерчик",
+"place": "town",
+"pop": 1779,
+"region": ""
+},
+{
+"name": "Маломиколаївка",
+"place": "town",
+"pop": 1771,
+"region": ""
+},
+{
+"name": "Попова Балка",
+"place": "town",
+"pop": 1767,
+"region": ""
+},
+{
+"name": "Ізварине",
+"place": "town",
+"pop": 1755,
+"region": ""
+},
+{
+"name": "Верхній Нагольчик",
+"place": "town",
+"pop": 1748,
+"region": ""
+},
+{
+"name": "Кундрюче",
+"place": "town",
+"pop": 1735,
+"region": ""
+},
+{
+"name": "Удачне",
+"place": "town",
+"pop": 1733,
+"region": ""
+},
+{
+"name": "Терезине",
+"place": "town",
+"pop": 1729,
+"region": ""
+},
+{
+"name": "Чернелиця",
+"place": "town",
+"pop": 1718,
+"region": ""
+},
+{
+"name": "Авдіївка",
+"place": "town",
+"pop": 1700,
+"region": ""
+},
+{
+"name": "Березівка",
+"place": "town",
+"pop": 1695,
+"region": ""
+},
+{
+"name": "Нижній Нагольчик",
+"place": "town",
+"pop": 1661,
+"region": ""
+},
+{
+"name": "Вільча",
+"place": "town",
+"pop": 1658,
+"region": ""
+},
+{
+"name": "Олександрівське",
+"place": "town",
+"pop": 1648,
+"region": ""
+},
+{
+"name": "Буджак",
+"place": "town",
+"pop": 1639,
+"region": ""
+},
+{
+"name": "Затока",
+"place": "town",
+"pop": 1637,
+"region": ""
+},
+{
+"name": "Південне",
+"place": "town",
+"pop": 1637,
+"region": ""
+},
+{
+"name": "Новоолександрівка",
+"place": "town",
+"pop": 1609,
+"region": ""
+},
+{
+"name": "Сиротине",
+"place": "town",
+"pop": 1604,
+"region": ""
+},
+{
+"name": "Лівадія",
+"place": "town",
+"pop": 1601,
+"region": ""
+},
+{
+"name": "Водянське",
+"place": "town",
+"pop": 1576,
+"region": ""
+},
+{
+"name": "Контарне",
+"place": "town",
+"pop": 1576,
+"region": ""
+},
+{
+"name": "Христофорівка",
+"place": "town",
+"pop": 1556,
+"region": ""
+},
+{
+"name": "Наркевичі",
+"place": "town",
+"pop": 1553,
+"region": ""
+},
+{
+"name": "Картушине",
+"place": "town",
+"pop": 1548,
+"region": ""
+},
+{
+"name": "Салькове",
+"place": "town",
+"pop": 1536,
+"region": ""
+},
+{
+"name": "Холодне",
+"place": "town",
+"pop": 1522,
+"region": ""
+},
+{
+"name": "Гранітне",
+"place": "town",
+"pop": 1513,
+"region": ""
+},
+{
+"name": "Рокині",
+"place": "town",
+"pop": 1511,
+"region": ""
+},
+{
+"name": "Олесько",
+"place": "town",
+"pop": 1510,
+"region": ""
+},
+{
+"name": "Осавулівка",
+"place": "town",
+"pop": 1506,
+"region": ""
+},
+{
+"name": "Усть-Чорна",
+"place": "town",
+"pop": 1490,
+"region": ""
+},
+{
+"name": "Кодра",
+"place": "town",
+"pop": 1485,
+"region": ""
+},
+{
+"name": "Хрустальне",
+"place": "town",
+"pop": 1469,
+"region": ""
+},
+{
+"name": "Бориня",
+"place": "town",
+"pop": 1462,
+"region": ""
+},
+{
+"name": "Тернувате",
+"place": "town",
+"pop": 1461,
+"region": ""
+},
+{
+"name": "Криничанське",
+"place": "town",
+"pop": 1444,
+"region": ""
+},
+{
+"name": "Талове",
+"place": "town",
+"pop": 1434,
+"region": ""
+},
+{
+"name": "Букачівці",
+"place": "town",
+"pop": 1408,
+"region": ""
+},
+{
+"name": "Новоселівка",
+"place": "town",
+"pop": 1392,
+"region": ""
+},
+{
+"name": "Закупне",
+"place": "town",
+"pop": 1371,
+"region": ""
+},
+{
+"name": "Поморяни",
+"place": "town",
+"pop": 1370,
+"region": ""
+},
+{
+"name": "Чортомлик",
+"place": "town",
+"pop": 1368,
+"region": ""
+},
+{
+"name": "Виноградне",
+"place": "town",
+"pop": 1357,
+"region": ""
+},
+{
+"name": "Сенкевичівка",
+"place": "town",
+"pop": 1347,
+"region": ""
+},
+{
+"name": "Лісове",
+"place": "town",
+"pop": 1342,
+"region": ""
+},
+{
+"name": "Утківка",
+"place": "town",
+"pop": 1339,
+"region": ""
+},
+{
+"name": "Врубівський",
+"place": "town",
+"pop": 1326,
+"region": ""
+},
+{
+"name": "Копайгород",
+"place": "town",
+"pop": 1323,
+"region": ""
+},
+{
+"name": "Штерівка",
+"place": "town",
+"pop": 1323,
+"region": ""
+},
+{
+"name": "Вергулівка",
+"place": "town",
+"pop": 1321,
+"region": ""
+},
+{
+"name": "Цвіткове",
+"place": "town",
+"pop": 1286,
+"region": ""
+},
+{
+"name": "Дігтярі",
+"place": "town",
+"pop": 1242,
+"region": ""
+},
+{
+"name": "Копані",
+"place": "town",
+"pop": 1218,
+"region": ""
+},
+{
+"name": "Манченки",
+"place": "town",
+"pop": 1192,
+"region": ""
+},
+{
+"name": "Залізничне",
+"place": "town",
+"pop": 1177,
+"region": ""
+},
+{
+"name": "Сєверо-Гундорівський",
+"place": "town",
+"pop": 1177,
+"region": ""
+},
+{
+"name": "Рудниця",
+"place": "town",
+"pop": 1175,
+"region": ""
+},
+{
+"name": "Седнів",
+"place": "town",
+"pop": 1175,
+"region": ""
+},
+{
+"name": "Великокам’янка",
+"place": "town",
+"pop": 1163,
+"region": ""
+},
+{
+"name": "Гірницьке",
+"place": "town",
+"pop": 1158,
+"region": ""
+},
+{
+"name": "Стара Сіль",
+"place": "town",
+"pop": 1158,
+"region": ""
+},
+{
+"name": "Письменне",
+"place": "town",
+"pop": 1147,
+"region": ""
+},
+{
+"name": "Неліпівка",
+"place": "town",
+"pop": 1128,
+"region": ""
+},
+{
+"name": "Гайдамацьке",
+"place": "town",
+"pop": 1127,
+"region": ""
+},
+{
+"name": "Новоспаське",
+"place": "town",
+"pop": 1121,
+"region": ""
+},
+{
+"name": "Жденієво",
+"place": "town",
+"pop": 1112,
+"region": ""
+},
+{
+"name": "Краковець",
+"place": "town",
+"pop": 1106,
+"region": ""
+},
+{
+"name": "Марія",
+"place": "town",
+"pop": 1083,
+"region": ""
+},
+{
+"name": "Павлівка",
+"place": "town",
+"pop": 1065,
+"region": ""
+},
+{
+"name": "Троїцько-Харцизьк",
+"place": "town",
+"pop": 1048,
+"region": ""
+},
+{
+"name": "Райське",
+"place": "town",
+"pop": 1043,
+"region": ""
+},
+{
+"name": "Ірдинь",
+"place": "town",
+"pop": 1034,
+"region": ""
+},
+{
+"name": "Врубівка",
+"place": "town",
+"pop": 1030,
+"region": ""
+},
+{
+"name": "Краснокам’янка",
+"place": "town",
+"pop": 1024,
+"region": ""
+},
+{
+"name": "Буран",
+"place": "town",
+"pop": 1023,
+"region": ""
+},
+{
+"name": "Лозно-Олександрівка",
+"place": "town",
+"pop": 1000,
+"region": ""
+},
+{
+"name": "Угнів",
+"place": "town",
+"pop": 997,
+"region": ""
+},
+{
+"name": "Білогорівка",
+"place": "town",
+"pop": 976,
+"region": ""
+},
+{
+"name": "Чорний Острів",
+"place": "town",
+"pop": 949,
+"region": ""
+},
+{
+"name": "Княгинівка",
+"place": "town",
+"pop": 946,
+"region": ""
+},
+{
+"name": "Біла Криниця",
+"place": "town",
+"pop": 945,
+"region": ""
+},
+{
+"name": "Курдюмівка",
+"place": "town",
+"pop": 938,
+"region": ""
+},
+{
+"name": "Горбачево-Михайлівка",
+"place": "town",
+"pop": 935,
+"region": ""
+},
+{
+"name": "Вовчоярівка",
+"place": "town",
+"pop": 933,
+"region": ""
+},
+{
+"name": "Війтівці",
+"place": "town",
+"pop": 922,
+"region": ""
+},
+{
+"name": "Ломуватка",
+"place": "town",
+"pop": 920,
+"region": ""
+},
+{
+"name": "Грушове",
+"place": "town",
+"pop": 919,
+"region": ""
+},
+{
+"name": "Ореанда",
+"place": "town",
+"pop": 893,
+"region": ""
+},
+{
+"name": "Лиманчук",
+"place": "town",
+"pop": 889,
+"region": ""
+},
+{
+"name": "Байрачки",
+"place": "town",
+"pop": 867,
+"region": ""
+},
+{
+"name": "Інгулецьке",
+"place": "town",
+"pop": 861,
+"region": ""
+},
+{
+"name": "Нові Стрілища",
+"place": "town",
+"pop": 856,
+"region": ""
+},
+{
+"name": "Шахтне",
+"place": "town",
+"pop": 854,
+"region": ""
+},
+{
+"name": "Центральний",
+"place": "town",
+"pop": 847,
+"region": ""
+},
+{
+"name": "Воронове",
+"place": "town",
+"pop": 839,
+"region": ""
+},
+{
+"name": "Малорязанцеве",
+"place": "town",
+"pop": 838,
+"region": ""
+},
+{
+"name": "Широке",
+"place": "town",
+"pop": 829,
+"region": ""
+},
+{
+"name": "Научний",
+"place": "town",
+"pop": 821,
+"region": ""
+},
+{
+"name": "Бучмани",
+"place": "town",
+"pop": 731,
+"region": ""
+},
+{
+"name": "Гостре",
+"place": "town",
+"pop": 704,
+"region": ""
+},
+{
+"name": "Куликівське",
+"place": "town",
+"pop": 696,
+"region": ""
+},
+{
+"name": "Красна Гора",
+"place": "town",
+"pop": 686,
+"region": ""
+},
+{
+"name": "Донецьке",
+"place": "town",
+"pop": 664,
+"region": ""
+},
+{
+"name": "Красятичі",
+"place": "town",
+"pop": 660,
+"region": ""
+},
+{
+"name": "Втішне",
+"place": "town",
+"pop": 659,
+"region": ""
+},
+{
+"name": "Бірки",
+"place": "town",
+"pop": 657,
+"region": ""
+},
+{
+"name": "Великий Лог",
+"place": "town",
+"pop": 638,
+"region": ""
+},
+{
+"name": "Грузько-Ломівка",
+"place": "town",
+"pop": 629,
+"region": ""
+},
+{
+"name": "Колосникове",
+"place": "town",
+"pop": 611,
+"region": ""
+},
+{
+"name": "Кацівелі",
+"place": "town",
+"pop": 609,
+"region": ""
+},
+{
+"name": "Совєтське",
+"place": "town",
+"pop": 579,
+"region": ""
+},
+{
+"name": "Чорнобиль",
+"place": "town",
+"pop": 550,
+"region": ""
+},
+{
+"name": "Побєда",
+"place": "town",
+"pop": 542,
+"region": ""
+},
+{
+"name": "Первомайське",
+"place": "town",
+"pop": 501,
+"region": ""
+},
+{
+"name": "Комишуваха",
+"place": "town",
+"pop": 497,
+"region": ""
+},
+{
+"name": "Паркове",
+"place": "town",
+"pop": 495,
+"region": ""
+},
+{
+"name": "Санаторне",
+"place": "town",
+"pop": 494,
+"region": ""
+},
+{
+"name": "Сад",
+"place": "town",
+"pop": 474,
+"region": ""
+},
+{
+"name": "Комишівка",
+"place": "town",
+"pop": 463,
+"region": ""
+},
+{
+"name": "Восход",
+"place": "town",
+"pop": 448,
+"region": ""
+},
+{
+"name": "Голуба Затока",
+"place": "town",
+"pop": 441,
+"region": ""
+},
+{
+"name": "Графське",
+"place": "town",
+"pop": 416,
+"region": ""
+},
+{
+"name": "Олександрівка",
+"place": "town",
+"pop": 412,
+"region": ""
+},
+{
+"name": "Курпати",
+"place": "town",
+"pop": 411,
+"region": ""
+},
+{
+"name": "Федорівка",
+"place": "town",
+"pop": 410,
+"region": ""
+},
+{
+"name": "Мирне",
+"place": "town",
+"pop": 396,
+"region": ""
+},
+{
+"name": "Новогригорівка",
+"place": "town",
+"pop": 391,
+"region": ""
+},
+{
+"name": "Керамік",
+"place": "town",
+"pop": 385,
+"region": ""
+},
+{
+"name": "Понизівка",
+"place": "town",
+"pop": 382,
+"region": ""
+},
+{
+"name": "Мирна Долина",
+"place": "town",
+"pop": 355,
+"region": ""
+},
+{
+"name": "Никифорове",
+"place": "town",
+"pop": 355,
+"region": ""
+},
+{
+"name": "Прикордонне",
+"place": "town",
+"pop": 344,
+"region": ""
+},
+{
+"name": "Мар’ївка",
+"place": "town",
+"pop": 338,
+"region": ""
+},
+{
+"name": "Курортне",
+"place": "town",
+"pop": 326,
+"region": ""
+},
+{
+"name": "Бражине",
+"place": "town",
+"pop": 312,
+"region": ""
+},
+{
+"name": "Ганнівка",
+"place": "town",
+"pop": 274,
+"region": ""
+},
+{
+"name": "Тацине",
+"place": "town",
+"pop": 272,
+"region": ""
+},
+{
+"name": "Глибокий",
+"place": "town",
+"pop": 221,
+"region": ""
+},
+{
+"name": "Покровка",
+"place": "town",
+"pop": 170,
+"region": ""
+},
+{
+"name": "Новомиколаївка",
+"place": "town",
+"pop": 100,
+"region": ""
+},
+{
+"name": "Благодатне",
+"place": "town",
+"pop": 43,
+"region": ""
+},
+{
+"name": "Мар’їнка",
+"place": "town",
+"pop": 1,
+"region": ""
+},
+{
+"name": "Бахмут",
+"place": "town",
+"pop": 0,
+"region": ""
+},
+{
+"name": "Прип’ять",
+"place": "town",
+"pop": 0,
+"region": ""
+}
+]

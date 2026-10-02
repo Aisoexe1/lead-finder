@@ -10,7 +10,7 @@ import os
 
 from ..http import get, make_session
 from ..models import Lead
-from .base import Source, has_website, pick
+from .base import Source, has_website, pick, social_from_links, social_url
 
 NOMINATIM = "https://nominatim.openstreetmap.org/search"
 # Зеркала Overpass. Публичные инстансы регулярно отвечают 504 под нагрузкой,
@@ -287,8 +287,20 @@ class OSMSource(Source):
 
             phone = pick(tags_dict, "phone", "contact:phone", "contact:mobile", "mobile")
             email = pick(tags_dict, "email", "contact:email")
-            instagram = pick(tags_dict, "contact:instagram", "instagram")
-            facebook = pick(tags_dict, "contact:facebook", "facebook")
+            instagram = social_url(
+                pick(tags_dict, "contact:instagram", "instagram"), "instagram")
+            facebook = social_url(
+                pick(tags_dict, "contact:facebook", "facebook"), "facebook")
+
+            # ссылку на профиль нередко кладут в website или url: тогда это
+            # не сайт, а как раз признак, что сайта нет
+            if not (instagram and facebook):
+                from_links = social_from_links(
+                    pick(tags_dict, "website", "contact:website", "url", "contact:url"),
+                    pick(tags_dict, "contact:vk", "vk"),
+                )
+                instagram = instagram or from_links["instagram"]
+                facebook = facebook or from_links["facebook"]
             if not (phone or email or instagram or facebook):
                 skipped_contact += 1
                 continue

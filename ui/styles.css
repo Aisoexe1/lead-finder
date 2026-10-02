@@ -269,6 +269,86 @@ code {
   background: var(--surface-3); border-radius: 4px; color: var(--text-2);
 }
 
+/* ── Выбор городов ──────────────────────────────────────────────────────── */
+
+.picker {
+  position: relative;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 6px 6px 6px 8px;
+  transition: border-color var(--t), box-shadow var(--t), background var(--t);
+}
+.picker:focus-within {
+  border-color: var(--accent-line);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.picked { display: flex; flex-wrap: wrap; gap: 5px; }
+.picked:not(:empty) { margin-bottom: 6px; }
+
+.city-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 5px 3px 9px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-line);
+  border-radius: 14px;
+  font-size: 12px;
+  color: var(--text);
+  animation: pop 160ms var(--ease);
+}
+@keyframes pop { from { transform: scale(.9); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.city-chip button {
+  width: 15px; height: 15px;
+  display: grid; place-items: center;
+  border: 0; border-radius: 50%;
+  background: transparent; color: var(--muted);
+  font-size: 14px; line-height: 1; cursor: pointer; padding: 0;
+  transition: background var(--t), color var(--t);
+}
+.city-chip button:hover { background: var(--danger-dim); color: var(--danger); }
+
+.picker input {
+  width: 100%;
+  border: 0; background: transparent; padding: 3px 2px;
+  color: var(--text); font: inherit;
+}
+.picker input:focus { outline: none; box-shadow: none; background: transparent; }
+
+.drop {
+  position: absolute; left: -1px; right: -1px; top: calc(100% + 5px);
+  z-index: 30;
+  max-height: 268px; overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  padding: 5px;
+  animation: fade 120ms var(--ease);
+}
+.drop[hidden] { display: none; }
+
+.drop-item {
+  width: 100%;
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 7px 10px;
+  border: 0; border-radius: var(--r-sm);
+  background: transparent; color: var(--text);
+  font: inherit; text-align: left; cursor: pointer;
+  transition: background var(--t);
+}
+.drop-item:hover, .drop-item.is-on { background: var(--surface-3); }
+.drop-item span { flex: 1; }
+.drop-item i {
+  font-style: normal; font-size: 11px; color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.drop-empty { padding: 12px 10px; font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+.quick { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+
 /* ── Кнопки ─────────────────────────────────────────────────────────────── */
 
 .btn {
@@ -367,7 +447,58 @@ code {
 .log .ok { color: var(--accent); }
 .log .bad { color: var(--danger); }
 .log .dim { color: var(--muted); }
-.log /* ── Воронка в карточке лида ────────────────────────────────────────────── */
+.log /* ── Круглые кнопки профилей ────────────────────────────────────────────── */
+
+.profiles { display: flex; align-items: center; gap: 8px; margin-top: 11px; }
+
+.circle {
+  width: 32px; height: 32px; flex: 0 0 32px;
+  display: grid; place-items: center;
+  border: 0; border-radius: 50%;
+  background: var(--surface-3);
+  color: var(--text-2);
+  cursor: pointer; padding: 0;
+  transition: transform 120ms var(--ease), background var(--t), color var(--t),
+              box-shadow var(--t);
+}
+.circle svg { width: 17px; height: 17px; }
+.circle:hover { transform: translateY(-1px); }
+.circle:active { transform: scale(.94); }
+
+/* градиент как у приложения: кнопка должна читаться с одного взгляда */
+.circle.ig {
+  background: linear-gradient(135deg, #f0b429 0%, #e4553d 32%, #c93a84 62%, #8a4bc4 100%);
+  color: #fff;
+}
+.circle.ig:hover { box-shadow: 0 3px 12px rgba(201, 58, 132, .38); }
+
+.circle.fb { background: #3a5a9b; color: #fff; }
+.circle.fb:hover { box-shadow: 0 3px 12px rgba(58, 90, 155, .36); }
+
+.circle.map:hover { background: var(--border); color: var(--text); }
+
+.handle {
+  font-size: 12px; color: var(--muted);
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+/* метка в списке: та же иконка, только мелкая */
+.ig-dot {
+  width: 16px; height: 16px; flex: 0 0 16px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f0b429 0%, #e4553d 32%, #c93a84 62%, #8a4bc4 100%);
+  color: #fff;
+}
+.ig-dot svg { width: 10px; height: 10px; }
+.lead.is-sent .ig-dot { filter: grayscale(.7); }
+
+.btn-send.ig {
+  --brand: #c93a84;
+  --brand-dim: rgba(201, 58, 132, .14);
+}
+
+/* ── Воронка в карточке лида ────────────────────────────────────────────── */
 
 .track {
   margin-top: 14px; padding-top: 14px;
@@ -480,7 +611,7 @@ code {
 .lead.is-active { background: var(--accent-dim); border-color: var(--accent-line); }
 .lead.is-sent { opacity: .48; }
 
-.lead-top { display: flex; align-items: baseline; gap: 8px; }
+.lead-top { display: flex; align-items: center; gap: 7px; }
 .lead-name {
   font-size: 13px; font-weight: 550; flex: 1;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
@@ -566,6 +697,57 @@ code {
   border-top: 1px solid var(--border-soft);
 }
 .detail-actions .spacer { flex: 1; }
+
+/* ── Круглые кнопки профилей ────────────────────────────────────────────── */
+
+.profiles { display: flex; align-items: center; gap: 8px; margin-top: 11px; }
+
+.circle {
+  width: 32px; height: 32px; flex: 0 0 32px;
+  display: grid; place-items: center;
+  border: 0; border-radius: 50%;
+  background: var(--surface-3);
+  color: var(--text-2);
+  cursor: pointer; padding: 0;
+  transition: transform 120ms var(--ease), background var(--t), color var(--t),
+              box-shadow var(--t);
+}
+.circle svg { width: 17px; height: 17px; }
+.circle:hover { transform: translateY(-1px); }
+.circle:active { transform: scale(.94); }
+
+/* градиент как у приложения: кнопка должна читаться с одного взгляда */
+.circle.ig {
+  background: linear-gradient(135deg, #f0b429 0%, #e4553d 32%, #c93a84 62%, #8a4bc4 100%);
+  color: #fff;
+}
+.circle.ig:hover { box-shadow: 0 3px 12px rgba(201, 58, 132, .38); }
+
+.circle.fb { background: #3a5a9b; color: #fff; }
+.circle.fb:hover { box-shadow: 0 3px 12px rgba(58, 90, 155, .36); }
+
+.circle.map:hover { background: var(--border); color: var(--text); }
+
+.handle {
+  font-size: 12px; color: var(--muted);
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+/* метка в списке: та же иконка, только мелкая */
+.ig-dot {
+  width: 16px; height: 16px; flex: 0 0 16px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f0b429 0%, #e4553d 32%, #c93a84 62%, #8a4bc4 100%);
+  color: #fff;
+}
+.ig-dot svg { width: 10px; height: 10px; }
+.lead.is-sent .ig-dot { filter: grayscale(.7); }
+
+.btn-send.ig {
+  --brand: #c93a84;
+  --brand-dim: rgba(201, 58, 132, .14);
+}
 
 /* ── Воронка в карточке лида ────────────────────────────────────────────── */
 

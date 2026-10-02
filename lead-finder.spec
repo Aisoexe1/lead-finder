@@ -14,6 +14,7 @@ block_cipher = None
 # интерфейс и образцы настроек должны попасть внутрь сборки
 datas = [
     ("ui", "ui"),
+    ("leadgen/data", "leadgen/data"),
     ("config.example.yaml", "."),
     ("messages.example.yaml", "."),
 ]

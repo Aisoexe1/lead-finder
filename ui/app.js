@@ -15,10 +15,22 @@ const S = {
   sources: [],
   outcomes: [],
   funnel: {},
+  cities: [],
+  picked: [],
+  dropIndex: -1,
 };
+
+// 25 областных центров: по ним чаще всего и работают
+const CENTERS = [
+  'Київ', 'Харків', 'Дніпро', 'Одеса', 'Донецьк', 'Львів', 'Запоріжжя',
+  'Миколаїв', 'Вінниця', 'Херсон', 'Полтава', 'Чернігів', 'Черкаси', 'Суми',
+  'Житомир', 'Хмельницький', 'Чернівці', 'Рівне', 'Кропивницький', 'Івано-Франківськ',
+  'Кременчук', 'Тернопіль', 'Луцьк', 'Ужгород', 'Луганськ', 'Сімферополь',
+];
 
 const STATUSES = [
   { key: 'due',      label: 'На сегодня' },
+  { key: 'social',   label: 'С Instagram' },
   { key: 'written',  label: 'Готовы' },
   { key: 'kept',     label: 'Отобраны' },
   { key: 'verified', label: 'Ждут отсева' },
@@ -29,6 +41,7 @@ const STATUSES = [
 
 const EMPTY = {
   due:      ['На сегодня никого', 'Сюда попадают те, кому пора отправить второе сообщение.'],
+  social:   ['Профилей не нашлось', 'Ни у одного лида в базе не записан Instagram или Facebook.'],
   written:  ['Сообщений пока нет', 'Пройди шаги на экране «Поиск»: найти, проверить, отсеять, написать.'],
   kept:     ['Отобранных нет', 'Запусти отсев мусора на экране «Поиск».'],
   verified: ['Нечего проверять', 'Сначала найди лиды на экране «Поиск».'],
@@ -45,6 +58,65 @@ const MODES = [
   ['ai',       'Модель пишет сама',
    'Шаблон не используется, модель опирается на задачу, стиль и примеры.'],
 ];
+
+const ICONS = {
+  instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" ' +
+    'stroke-linecap="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.4"/>' +
+    '<circle cx="12" cy="12" r="4.1"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg>',
+  facebook: '<svg viewBox="0 0 24 24" fill="currentColor">' +
+    '<path d="M14.1 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H17.3V3.6c-.29-.04-1.27-.12-2.41-.12' +
+    '-2.39 0-4.02 1.46-4.02 4.13V9.9H8.2V13h2.67v8h3.23z"/></svg>',
+  map: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" ' +
+    'stroke-linejoin="round"><path d="M12 21.2s6.8-6.1 6.8-10.7a6.8 6.8 0 1 0-13.6 0c0 4.6 6.8 10.7 6.8 10.7z"/>' +
+    '<circle cx="12" cy="10.4" r="2.5"/></svg>',
+};
+
+/* Поиск по названию должен прощать раскладку и язык: "винниц" обязан
+   находить "Вінниця". Сводим обе азбуки к общему виду. */
+const TRANSLIT = {
+  'а':'a','б':'b','в':'v','г':'g','ґ':'g','д':'d','е':'e','є':'e','ё':'e','ж':'j',
+  'з':'z','и':'i','і':'i','ї':'i','й':'i','к':'k','л':'l','м':'m','н':'n','о':'o',
+  'п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'c','ч':'ch','ш':'sh',
+  'щ':'sh','ъ':'','ы':'i','ь':'','э':'e','ю':'u','я':'a','\u0027':'','’':'','`':'',
+  '-':'', ' ':'',
+};
+
+function fold(text) {
+  let out = '';
+  for (const ch of String(text || '').toLowerCase()) {
+    out += (ch in TRANSLIT) ? TRANSLIT[ch] : ch;
+  }
+  return out;
+}
+
+/* Названия, которые фонетикой не связать: другой корень или переименование.
+   Ключ слева это то, что набирают по привычке. */
+const CITY_ALIASES = {
+  'николаев': 'Миколаїв',
+  'днепропетровск': 'Дніпро',
+  'кировоград': 'Кропивницький',
+  'ильичевск': 'Чорноморськ',
+  'артемовск': 'Бахмут',
+  'комсомольск': 'Горішні Плавні',
+  'красноармейск': 'Покровськ',
+  'димитров': 'Мирноград',
+  'котовск': 'Подільськ',
+  'переяслав-хмельницкий': 'Переяслав',
+  'владимир-волынский': 'Володимир',
+  'кузнецовск': 'Вараш',
+  'щорс': 'Сновськ',
+  'днепродзержинск': 'Кам’янське',
+  'орджоникидзе': 'Покров',
+};
+
+/* "Львів" и "Львов", "Харків" и "Харьков" расходятся только гласными.
+   Скелет из согласных сводит такие пары к одному виду: lvv и hrkv. */
+const VOWELS = /[aeiou]/g;
+
+function skeleton(text) {
+  // двойные согласные тоже схлопываем: "Одесса" и "Одеса" должны совпасть
+  return fold(text).replace(VOWELS, '').replace(/(.)\1+/g, '$1');
+}
 
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -153,6 +225,148 @@ function renderFunnel() {
   `).join('') + after;
 }
 
+/* ── Выбор городов ──────────────────────────────────────────────────────── */
+
+function renderPicked() {
+  $('#cityPicked').innerHTML = S.picked.map((name) => `
+    <span class="city-chip">${esc(name)}<button data-remove="${esc(name)}" title="убрать">×</button></span>
+  `).join('');
+  $('#cityInput').placeholder = S.picked.length ? 'добавить ещё' : 'начни вводить название';
+}
+
+function addCity(name) {
+  name = (name || '').trim();
+  if (!name || S.picked.includes(name)) return;
+  S.picked.push(name);
+  renderPicked();
+  closeDrop();
+  $('#cityInput').value = '';
+  $('#cityInput').focus();
+}
+
+function removeCity(name) {
+  S.picked = S.picked.filter((c) => c !== name);
+  renderPicked();
+}
+
+function matchCities(query) {
+  const q = fold(query);
+  if (!q) {
+    // пустой запрос: показываем крупнейшие, они нужны чаще всего
+    return S.cities.slice(0, 12);
+  }
+  // привычное русское или прежнее название
+  const plain = String(query).toLowerCase().trim();
+  for (const [alias, real] of Object.entries(CITY_ALIASES)) {
+    if (alias.startsWith(plain) || plain.startsWith(alias)) {
+      const found = S.cities.find((c) => c.name === real);
+      if (found) return [found];
+    }
+  }
+
+  // три корзины по убыванию точности. Совпадение с начала названия всегда
+  // важнее совпадения где-то внутри: иначе "киев" выдаёт "Єнакієве"
+  const qs = skeleton(query);
+  const starts = [];
+  const sounds = [];
+  const inside = [];
+
+  for (const city of S.cities) {
+    const folded = city._f || (city._f = fold(city.name));
+    if (folded.startsWith(q)) { starts.push(city); continue; }
+
+    const sk = city._s || (city._s = skeleton(city.name));
+    if (qs.length >= 2 && sk.startsWith(qs)) { sounds.push(city); continue; }
+
+    if (folded.includes(q)) inside.push(city);
+    if (starts.length >= 40) break;
+  }
+  return starts.concat(sounds, inside).slice(0, 40);
+}
+
+function renderDrop(items) {
+  const drop = $('#cityDrop');
+  if (!items.length) {
+    drop.innerHTML = `<div class="drop-empty">Ничего не нашлось.
+      Можно вписать своё название и нажать Enter.</div>`;
+    drop.hidden = false;
+    return;
+  }
+  drop.innerHTML = items.map((c, i) => `
+    <button class="drop-item ${i === S.dropIndex ? 'is-on' : ''}" data-city="${esc(c.name)}">
+      <span>${esc(c.name)}</span>
+      <i>${c.pop ? fmtPop(c.pop) : (c.place === 'city' ? 'місто' : '')}</i>
+    </button>`).join('');
+  drop.hidden = false;
+}
+
+function fmtPop(n) {
+  if (n >= 1000000) return (n / 1000000).toFixed(1).replace('.0', '') + ' млн';
+  if (n >= 1000) return Math.round(n / 1000) + ' тыс';
+  return String(n);
+}
+
+function closeDrop() {
+  $('#cityDrop').hidden = true;
+  S.dropIndex = -1;
+}
+
+function wireCityPicker() {
+  const input = $('#cityInput');
+
+  input.addEventListener('focus', () => { S.dropIndex = -1; renderDrop(matchCities(input.value)); });
+  input.addEventListener('input', () => { S.dropIndex = -1; renderDrop(matchCities(input.value)); });
+
+  input.addEventListener('keydown', (e) => {
+    const items = matchCities(input.value);
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      const step = e.key === 'ArrowDown' ? 1 : -1;
+      S.dropIndex = Math.max(-1, Math.min(items.length - 1, S.dropIndex + step));
+      renderDrop(items);
+      const on = $('.drop-item.is-on');
+      if (on) on.scrollIntoView({ block: 'nearest' });
+      return;
+    }
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      // выбран пункт списка, иначе берём то, что набрано руками
+      addCity(S.dropIndex >= 0 && items[S.dropIndex] ? items[S.dropIndex].name : input.value);
+      return;
+    }
+    if (e.key === 'Escape') { closeDrop(); return; }
+    if (e.key === 'Backspace' && !input.value && S.picked.length) {
+      removeCity(S.picked[S.picked.length - 1]);
+    }
+  });
+
+  $('#cityDrop').addEventListener('mousedown', (e) => {
+    const item = e.target.closest('[data-city]');
+    if (item) { e.preventDefault(); addCity(item.dataset.city); }
+  });
+
+  $('#cityPicked').addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-remove]');
+    if (btn) removeCity(btn.dataset.remove);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#cityPicker')) closeDrop();
+  });
+
+  $$('[data-quick]').forEach((btn) => btn.addEventListener('click', () => {
+    const mode = btn.dataset.quick;
+    if (mode === 'clear') { S.picked = []; }
+    else if (mode === 'big') { S.picked = S.cities.slice(0, 10).map((c) => c.name); }
+    else if (mode === 'centers') {
+      const known = new Set(S.cities.map((c) => c.name));
+      S.picked = CENTERS.filter((name) => known.has(name));
+    }
+    renderPicked();
+    closeDrop();
+  }));
+}
+
 /* ── Экран поиска ───────────────────────────────────────────────────────── */
 
 function renderSources() {
@@ -169,9 +383,12 @@ function renderSources() {
 }
 
 function searchParams() {
+  // то, что набрано, но не подтверждено, тоже считаем выбором
+  const typed = $('#cityInput').value.trim();
+  const cities = typed && !S.picked.includes(typed) ? S.picked.concat([typed]) : S.picked;
   return {
     niche: $('#niche').value.trim(),
-    cities: $('#cities').value.split('\n').map((s) => s.trim()).filter(Boolean),
+    cities,
     limit: parseInt($('#limit').value, 10) || 150,
     sources: $$('#sources input:checked').map((el) => el.value),
   };
@@ -321,10 +538,13 @@ function renderList() {
   }
   list.innerHTML = S.leads.map((l) => {
     const cls = l.score >= 75 ? 'hi' : (l.score >= 55 ? 'mid' : '');
-    const meta = [l.city, l.phone || l.email || l.instagram].filter(Boolean).join(' · ');
+    const meta = [l.city, l.phone || l.email].filter(Boolean).join(' · ');
+    const ig = l.instagram
+      ? `<span class="ig-dot" title="${esc(l.instagram_handle)}">${ICONS.instagram}</span>` : '';
     return `<div class="lead ${l.sent_at ? 'is-sent' : ''}" data-id="${esc(l.id)}">
       <div class="lead-top">
         <span class="lead-name">${esc(l.name)}</span>
+        ${ig}
         <span class="lead-score ${cls}">${l.score == null ? '' : l.score}</span>
       </div>
       <div class="lead-meta">${esc(meta)}</div>
@@ -364,10 +584,28 @@ function renderDetail(lead) {
 
   const contacts = [lead.phone, lead.email].filter(Boolean).join('   ·   ');
 
+  const profiles = [];
+  if (lead.instagram) {
+    profiles.push(`<button class="circle ig" data-open="${esc(lead.instagram)}"
+      title="Открыть ${esc(lead.instagram_handle)}">${ICONS.instagram}</button>`);
+  }
+  if (lead.facebook) {
+    profiles.push(`<button class="circle fb" data-open="${esc(lead.facebook)}"
+      title="Открыть Facebook">${ICONS.facebook}</button>`);
+  }
+  if (lead.maps) {
+    profiles.push(`<button class="circle map" data-open="${esc(lead.maps)}"
+      title="Показать на карте">${ICONS.map}</button>`);
+  }
+  if (lead.instagram_handle) {
+    profiles.push(`<span class="handle selectable">${esc(lead.instagram_handle)}</span>`);
+  }
+
   box.innerHTML = `
     <div class="detail-head">
       <div class="detail-name selectable">${esc(lead.name)}</div>
       <div class="detail-meta selectable">${esc(meta)}${contacts ? '<br>' + esc(contacts) : ''}</div>
+      ${profiles.length ? `<div class="profiles">${profiles.join('')}</div>` : ''}
       <div class="detail-tags">${tags.join('')}</div>
     </div>
 
@@ -387,6 +625,7 @@ function renderDetail(lead) {
         <button class="btn btn-primary" data-act="wa">WhatsApp</button>
         <button class="btn btn-send tg" data-act="tg">Telegram</button>
         <button class="btn btn-send vb" data-act="viber">Viber</button>` : ''}
+      ${lead.instagram ? '<button class="btn btn-send ig" data-act="direct">Директ</button>' : ''}
       ${lead.email ? '<button class="btn btn-send ml" data-act="mail">Почта</button>' : ''}
       ${lead.phone_e164 && !lead.can_message
         ? '<button class="btn btn-send tel" data-act="call">Позвонить</button>' : ''}
@@ -404,8 +643,6 @@ function renderDetail(lead) {
     <div class="detail-actions">
       <button class="btn" data-act="save">Сохранить правки</button>
       <button class="btn btn-ghost" data-act="rewrite" title="переписать сообщения заново">Переписать</button>
-      ${lead.instagram || lead.facebook || lead.maps
-        ? '<button class="btn btn-ghost" data-act="profile">Профиль</button>' : ''}
       <span class="spacer"></span>
       <button class="btn btn-ghost" data-act="sent">${lead.sent_at ? 'Снять отметку' : 'Отметить отправленным'}</button>
       ${lead.status === 'dropped'
@@ -492,6 +729,15 @@ async function leadAction(act) {
       poll();
       toast('Переписываю, это займёт несколько секунд');
     }
+    return;
+  }
+  if (act === 'direct') {
+    // текст в директ не подставляется, кладём в буфер
+    const copied = await putInClipboard($('#m1').value);
+    await call('open_external', lead.instagram);
+    toast(copied ? 'Instagram открыт, текст в буфере: вставь в директ'
+                 : 'Instagram открыт', copied ? 'good' : '');
+    setStatus('Instagram открыт');
     return;
   }
   if (act === 'profile') {
@@ -687,6 +933,11 @@ function wire() {
       setTimeout(() => { copy.textContent = 'копировать'; }, 1300);
       return;
     }
+    const link = e.target.closest('[data-open]');
+    if (link) {
+      await call('open_external', link.dataset.open);
+      return;
+    }
     const outcome = e.target.closest('[data-outcome]');
     if (outcome) {
       const ok = await trackLead({ outcome: outcome.dataset.outcome });
@@ -784,8 +1035,20 @@ async function boot() {
   if (!b.ok) { setStatus('не удалось прочитать настройки'); return; }
 
   $('#niche').value = b.search.niche;
-  $('#cities').value = (b.search.cities || []).join('\n');
   $('#limit').value = b.search.limit;
+
+  const cityList = await call('cities');
+  S.cities = (cityList.cities || []);
+  // в старых конфигах города попадались склеенными в одну строку
+  S.picked = [];
+  for (const entry of (b.search.cities || [])) {
+    for (const part of String(entry).split(/[,;\n]/)) {
+      const name = part.trim();
+      if (name && !S.picked.includes(name)) S.picked.push(name);
+    }
+  }
+  renderPicked();
+  wireCityPicker();
   S.sources = b.sources || [];
   renderSources();
 
